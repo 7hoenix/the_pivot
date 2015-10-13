@@ -32,9 +32,7 @@ gem 'paperclip'
 gem "therubyracer"
 
 gem "bootstrap-sass"
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'sass-rails'
 
 group :development, :test do
 
