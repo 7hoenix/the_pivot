@@ -8,3 +8,16 @@
   font-size: 1.5em;
 
 }
+
+.gh-hero {
+  height: 100vh;
+  background: url(/assets/images/hero-bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.gh-container {
+  padding: 0;
+}
