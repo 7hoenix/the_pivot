@@ -18,7 +18,7 @@ RSpec.describe "User views past orders" do
     click_on "View Cart"
     click_link_or_button "Submit Order"
   end
-  
+
     scenario "can see a past order" do
       login_and_submit_order
       click_link_or_button "View Past Orders"

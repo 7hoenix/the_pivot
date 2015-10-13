@@ -6,7 +6,7 @@ RSpec.describe Category, type: :model do
       category = Category.create(title: "new_cat", description: "cat")
       expect(category).to be_valid
     end
-  end 
+  end
 
   context "invalid attributes" do
     it "is invalid without a title" do

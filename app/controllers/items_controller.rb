@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def post
-    
+
   end
 
   def show

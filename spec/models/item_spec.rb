@@ -36,7 +36,7 @@ RSpec.describe Item, type: :model do
       item.categories.create(id: 1, title: "apps", description: "before meal")
       expect(item.categories.first.title).to eq("apps")
     end
-    
+
     it "has a picture" do
 
     end
