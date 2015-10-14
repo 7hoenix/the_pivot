@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "/profile", to: "users#show"
-  resources :jobs, only: [:show, :index]
+  resources :jobs, only: [:new, :show, :index]
   get "/jobs", to: "jobs#index"
 
   resources :categories do
