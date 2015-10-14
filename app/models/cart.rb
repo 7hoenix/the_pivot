@@ -5,30 +5,30 @@ class Cart
     @cart_items = cart_items || Hash.new
   end
 
-  def add_item(item_id)
-    @cart_items[item_id] ||= 0
-    @cart_items[item_id] += 1
+  def add_job(job_id)
+    @cart_items[job_id] ||= 0
+    @cart_items[job_id] += 1
   end
 
   def cart_items_and_quantity
-    items = Hash.new
-    cart_items.select { |item_id, quantity| items[Item.find(item_id)] = quantity }
-    items
+    jobs = Hash.new
+    cart_items.select { |job_id, quantity| jobs[Job.find(job_id)] = quantity }
+    jobs
   end
 
-  def delete_item(item_id)
-    @cart_items.delete(item_id)
+  def delete_job(job_id)
+    @cart_items.delete(job_id)
   end
 
-  def increase_item_quantity(item_id)
-    @cart_items[item_id] += 1
+  def increase_job_quantity(job_id)
+    @cart_items[job_id] += 1
   end
 
-  def decrease_item_quantity(item_id)
-    if @cart_items[item_id] > 1
-      @cart_items[item_id] -= 1
+  def decrease_job_quantity(job_id)
+    if @cart_items[job_id] > 1
+      @cart_items[job_id] -= 1
     else
-      @cart_items.delete(item_id)
+      @cart_items.delete(job_id)
     end
   end
 end
