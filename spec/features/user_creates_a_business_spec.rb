@@ -23,7 +23,7 @@ RSpec.feature "User creates a business" do
       fill_in("About", with: "Business Consultancy")
       click_on "Register Business"
 
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(company_dashboard_path)
       expect(page).to have_content("Pivotal Labs")
       expect(page).to have_content("Business Consultancy")
     end
