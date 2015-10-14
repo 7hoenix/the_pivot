@@ -1,4 +1,8 @@
 <h1 id="banner"> Welcome, <% if current_user %>
+    <% @jobs.each do |job| %>
+      <%= job.title %>
+      <%= job.description %>
+    <% end %>
   <% if current_user.display_name %>
     <%= current_user.display_name %>.
   <% else %>

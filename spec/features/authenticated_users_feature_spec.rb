@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Authenticated user", type: :feature do
-  context "authenticated user is logged in" do
+  context "is logged in" do
     let(:user) { User.create(full_name: "Stan Smith",
                              email: "stan@abc.com",
                              password: "password",
@@ -37,11 +37,6 @@ RSpec.feature "Authenticated user", type: :feature do
 
       expect(page).to_not have_content('admin')
 
-    end
-
-    scenario "a user cannot create items" do
-      visit 'admin/items/new'
-      expect(page).to have_content('Not quite yet young grasshopper')
     end
 
     scenario "a user cannot create categories" do

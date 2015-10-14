@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @jobs = Job.all
     if current_user.admin?
       redirect_to admin_path
     else
