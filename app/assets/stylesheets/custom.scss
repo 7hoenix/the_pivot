@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 .col-centered {
     display: block;
     float: none;
@@ -6,12 +9,32 @@
 
 .gh-miniheader {
   font-size: 1.5em;
+}
 
+.gh-tagline {
+  text-align: center;
+  font-size: 4em;
+  font-weight: 2000;
+  color: #fff;
+  line-height: 0.8em;
+  padding-bottom: 0.2em;
+}
+
+.gh-browse-jobs {
+  font-size: 20px;
+}
+.gh-browse-jobs:hover {
+  background: #fff;
+  color: #333;
+}
+
+.navbar-default {
+  margin-bottom: 0;
 }
 
 .gh-hero {
-  height: 100vh;
-  background: url(/assets/images/hero-bg.jpg) no-repeat center center fixed; 
+  height: 100%;
+  background: url(/assets/images/hero-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -20,4 +43,11 @@
 
 .gh-container {
   padding: 0;
+}
+
+.gh-hero-content-container {
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
