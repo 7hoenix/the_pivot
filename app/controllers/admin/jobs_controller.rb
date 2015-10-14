@@ -1,10 +1,10 @@
-class Admin::ItemsController < AdminController
+class Admin::JobsController < AdminController
 
   def index
     if current_user.nil? || current_user.user?
       redirect_to root_path, alert: "Sensei says: 'Not quite yet young grasshopper'"
     else
-      @items = Item.all
+      @jobs = Job.all
     end
   end
 
@@ -12,8 +12,8 @@ class Admin::ItemsController < AdminController
     if current_user.nil? || current_user.user?
       redirect_to root_path, alert: "Sensei says: 'Not quite yet young grasshopper'"
     else
-      @item = Item.find(params[:id])
-      @categories = @item.categories
+      @job = Job.find(params[:id])
+      @categories = @job.categories
       render :edit
     end
   end
@@ -22,7 +22,7 @@ class Admin::ItemsController < AdminController
     if current_user.nil? || current_user.user?
       redirect_to root_path, alert: "Sensei says: 'Not quite yet young grasshopper'"
     else
-      @item = Item.new
+      @job = Job.new
       @categories = Category.all
     end
   end
@@ -31,15 +31,15 @@ class Admin::ItemsController < AdminController
     if current_user.nil? || current_user.user?
       redirect_to root_path, alert: "Sensei says: 'Not quite yet young grasshopper'"
     else
-      @item = Item.new(item_params)
+      @job = Job.new(job_params)
 
       @categories = params.select{ |k,v| k.include?("ItemsCategory") }.values[0].select{ |k,v| v == "1" }.keys
 
-      if @item.save
+      if @job.save
         @categories.each do |category|
-          @item.items_categories.create(category_id: Category.find_by(title: category).id)
+          @job.jobs_categories.create(category_id: Category.find_by(title: category).id)
         end
-        redirect_to admin_items_path
+        redirect_to admin_jobs_path
       else
         render :new
       end
@@ -47,15 +47,15 @@ class Admin::ItemsController < AdminController
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.retired!
-    redirect_to admin_items_path
+    @job = Job.find(params[:id])
+    @job.retired!
+    redirect_to admin_jobs_path
   end
 
   private
 
-  def item_params
-    params.require(:item).permit(:title, :description, :price, :picture)
+  def job_params
+    params.require(:job).permit(:title, :description, :price, :picture)
   end
 
 end

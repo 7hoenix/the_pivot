@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get "/menu", to: "items#index"
-  resources :items, only: [:show, :index]
+  get "/profile", to: "users#show"
+  resources :jobs, only: [:show, :index]
+  get "/jobs", to: "jobs#index"
 
   resources :categories do
     resources :items, only: [:show, :index]

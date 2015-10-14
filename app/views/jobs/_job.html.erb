@@ -1,0 +1,15 @@
+<div class="job">
+
+    <div class="header">
+        <%= link_to job.title, job %>
+    </div>
+
+    <div class="description">
+        <%= job.description %>
+    </div>
+
+    <div class="button">
+      <%= button_to "Add To Cart", cart_path(job_id: job) %> </p>
+    </div>
+
+</div>
