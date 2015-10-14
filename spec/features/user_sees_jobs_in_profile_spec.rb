@@ -12,11 +12,11 @@ RSpec.feature "A user" do
   context "is logged in" do
     before (:each) do
       @user = create(:user)
-      log_in
     end
     scenario "and sees a feed of all jobs" do
       job = create(:job)
       job2 = create(:job)
+      log_in
 
       expect(page).to have_content(job.title)
       expect(page).to have_content(job2.title)

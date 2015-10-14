@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  sequence :job do |n|
-    business_id n
+  factory :job do
+    #business_id 1
     title "Jr dev"
     description "Write some code"
-    benefits "100 dollars"
-    address_id (n + 5)
+    #benefits "100 dollars"
+    #address_id 5
   end
 end
