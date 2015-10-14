@@ -1,6 +1,6 @@
 <%= form_for @business do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :about %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :about, placeholder: "About" %>
   <%= f.file_field :picture %>
-  <%= f.submit %>
+  <%= f.submit "Register Business" %>
 <% end %>
