@@ -7,27 +7,22 @@ RSpec.describe "User logs in" do
     scenario "cannot log in without email or password" do
       visit "/login"
       click_button "Login"
-      within(".flash") do
-        expect(page).to have_content("Invalid Login")
-      end
+      expect(page).to have_content("Invalid Login")
     end
 
     scenario "cannot log in without email" do
       visit "/login"
       fill_in("session[password]", with: "pass")
       click_button "Login"
-      within(".flash") do
         expect(page).to have_content("Invalid Login")
-      end
     end
 
     scenario "cannot log in without password" do
       visit "/login"
       fill_in("session[email]", with: "example@example.com")
       click_button "Login"
-      within(".flash") do
-        expect(page).to have_content("Invalid Login")
-      end
+      expect(page).to have_content("Invalid Login")
+
     end
   end
 
