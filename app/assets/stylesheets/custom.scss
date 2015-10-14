@@ -17,7 +17,7 @@ body, html {
   font-weight: 2000;
   color: #fff;
   line-height: 0.8em;
-  padding-bottom: 0.2em;
+  padding-bottom: 0.4em;
 }
 
 .gh-browse-jobs {
@@ -30,6 +30,13 @@ body, html {
 
 .navbar-default {
   margin-bottom: 0;
+}
+
+.gh-content-row {
+  margin-top: 20px;
+}
+.gh-content-header h1 {
+  font-size: 60px;
 }
 
 .gh-hero {
@@ -46,7 +53,7 @@ body, html {
 }
 
 .gh-hero-content-container {
-  height: 90%;
+  height: 75%;
   display: flex;
   justify-content: space-between;
   align-items: center;
