@@ -2,10 +2,9 @@ require "rails_helper"
 
 def log_in
   visit "/login"
-  click_on "Login"
   fill_in("session[email]", with: @user.email)
   fill_in("session[password]", with: @user.password)
-  click_on "Login"
+  click_button "Login"
 end
 
 RSpec.feature "User creates a business" do
