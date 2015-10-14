@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :orders
 
   def has_business?
-    return true if current_user.business
+    return true if business
   end
 end
