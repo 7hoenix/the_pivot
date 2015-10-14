@@ -8,10 +8,6 @@
         <%= @job.description %>
     </div>
 
-    <div class="price">
-        <%= number_to_currency(@job.price) %>
-    </div>
-
     <div class="button">
       <%= button_to "Add To Cart", cart_path(job_id: @job) %> </p>
     </div>
