@@ -11,8 +11,14 @@ body, html {
   font-size: 2.5em;
 }
 
-.gh-miniheader2 {
+.navbar li .gh-miniheader2 {
   font-size: 1.5em;
+  height: 40px;
+  padding: 10px;
+  margin-left: 40px;
+}
+.navbar-right {
+  height: 40px;
 }
 .gh-tagline {
   text-align: center;
@@ -48,8 +54,9 @@ body, html {
 }
 
 .navbar li a {
-  height: 30px;
-  padding: 5px;
+  height: 35px;
+  font-size: 1.2em;
+  padding: 6px;
   border: 1px solid #fff;
   border-radius: 3px;
 
