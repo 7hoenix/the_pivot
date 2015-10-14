@@ -1,0 +1,31 @@
+<div class="job">
+
+    <div class="header">
+        <%= @job.title %>
+    </div>
+
+    <div class="description">
+        <%= @job.description %>
+    </div>
+
+    <div class="price">
+        <%= number_to_currency(@job.price) %>
+    </div>
+
+    <div class="button">
+      <%= button_to "Add To Cart", cart_path(job_id: @job) %> </p>
+    </div>
+
+    <% if current_user && current_user.admin? %>
+
+    <div class="status">
+      This job is currently: <%= @job.status %>
+    </div>
+
+    <div class="edit_button">
+      <%= link_to "Edit Item", {controller: "admin/jobs", action: "edit" } , :method => "put"  %>
+    </div>
+
+    <% end %>
+
+</div>
