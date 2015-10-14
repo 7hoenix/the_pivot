@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/jphoenix86/the_pivot.png?label=ready&title=Ready)](https://waffle.io/jphoenix86/the_pivot)
 # tabemono rubi
 
 [Live Heroku Link](https://githired.herokuapp.com/)
