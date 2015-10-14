@@ -11,8 +11,8 @@
           <li><a href="#">How it works</a></li>
         </ul>
       </li>
-      <li><%= link_to "Sign Up", "#"%></li>
-      <li><%= link_to "Login", "#"%></li>
+      <%= yield :navbar_links %>
+      <%= render 'layouts/navbar/user_links' %>
     </ul>
   </div>
 </nav>
