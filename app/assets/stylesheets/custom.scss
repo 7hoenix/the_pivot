@@ -2,15 +2,18 @@ body, html {
   height: 100%;
 }
 .col-centered {
-    display: block;
-    float: none;
-    margin: 0 auto;
+  display: block;
+  float: none;
+  margin: 0 auto;
 }
 
 .gh-miniheader {
-  font-size: 1.5em;
+  font-size: 2.5em;
 }
 
+.gh-miniheader2 {
+  font-size: 1.5em;
+}
 .gh-tagline {
   text-align: center;
   font-size: 4em;
@@ -21,11 +24,38 @@ body, html {
 }
 
 .gh-browse-jobs {
-  font-size: 20px;
+  font-size: 30px;
 }
+.gh-browse-jobs .btn {
+  font-size: 35px;
+}
+
 .gh-browse-jobs:hover {
-  background: #fff;
   color: #333;
+
+  background: #fff;
+
+}
+.gh-browse-jobs:hover span {
+  background: url(/assets/images/hero-bg.jpg)  no-repeat center center fixed;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display:block;
+}
+.navbar {
+  padding-top: 6px;
+}
+.navbar li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar li a {
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+
 }
 
 .navbar-default {
