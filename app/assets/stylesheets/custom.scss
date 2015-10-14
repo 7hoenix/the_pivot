@@ -1,0 +1,104 @@
+body, html {
+  height: 100%;
+}
+.col-centered {
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+
+.gh-miniheader {
+  font-size: 2.5em;
+}
+
+.navbar li .gh-miniheader2 {
+  font-size: 1.5em;
+  height: 40px;
+  padding: 10px;
+  margin-left: 40px;
+}
+.navbar-right {
+  height: 40px;
+}
+.gh-tagline {
+  text-align: center;
+  font-size: 4em;
+  font-weight: 2000;
+  color: #fff;
+  line-height: 0.8em;
+  padding-bottom: 0.4em;
+}
+
+.gh-browse-jobs {
+  font-size: 2em;
+  white-space: pre-wrap;
+}
+
+.gh-browse-jobs:hover {
+  color: #333;
+
+  background: #fff;
+
+}
+.gh-browse-jobs:hover span {
+  background: url(/assets/images/hero-bg.jpg)  no-repeat 40% center fixed;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display:block;
+}
+.navbar {
+  padding-top: 6px;
+}
+.navbar li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar li a {
+  height: 35px;
+  font-size: 1.2em;
+  padding: 6px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+
+}
+
+.navbar-default {
+  margin-bottom: 0;
+}
+
+.gh-content-row {
+  margin-top: 20px;
+}
+.gh-content-header h1 {
+  font-size: 60px;
+}
+
+.gh-hero {
+  height: 100%;
+  background: url(/assets/images/hero-bg.jpg)  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.gh-container {
+  padding: 0;
+}
+
+.gh-hero-content-container {
+  height: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gh-hero-content-footer {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
