@@ -2,10 +2,9 @@ require "rails_helper"
 
 def log_in
   visit "/login"
-  click_on "Login"
   fill_in("session[email]", with: @user.email)
   fill_in("session[password]", with: @user.password)
-  click_on "Login"
+  click_button "Login"
 end
 
 RSpec.feature "A user" do
@@ -13,6 +12,7 @@ RSpec.feature "A user" do
     before (:each) do
       @user = create(:user)
     end
+
     scenario "and sees a feed of all jobs" do
       job = create(:job)
       job2 = create(:job)
@@ -20,6 +20,15 @@ RSpec.feature "A user" do
 
       expect(page).to have_content(job.title)
       expect(page).to have_content(job2.title)
+    end
+    
+    scenario "and sees a feed of jobs on their 'watchlist'" do
+      job = create(:job)
+      log_in
+
+      expect('#Watchlist').not_to have_content(job.title)
+      job_to_watch = first('.job')
+      job_to_watch
     end
   end
 end
