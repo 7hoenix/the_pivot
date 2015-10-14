@@ -35,8 +35,7 @@ RSpec.feature "Authenticated user", type: :feature do
       click_link_or_button 'Login'
       visit '/admin'
 
-      expect(page).to_not have_content('admin')
-
+      expect(page).to_not have_content('admin') 
     end
   end
 end
