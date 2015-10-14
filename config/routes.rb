@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/jobs", to: "jobs#index"
 
   resources :businesses, only: [:new, :create]
+  get "/company-dashboard", to: "businesses#show"
 
   resources :categories do
     resources :items, only: [:show, :index]
