@@ -4,16 +4,8 @@
         <%= link_to job.title, job %>
     </div>
 
-    <div class="picture">
-      <%= image_tag job.picture.url(:medium) %>
-    </div>
-
     <div class="description">
         <%= job.description %>
-    </div>
-
-    <div class="price">
-        <%= number_to_currency(job.price) %>
     </div>
 
     <div class="button">
