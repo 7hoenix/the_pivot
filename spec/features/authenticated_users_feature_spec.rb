@@ -26,10 +26,6 @@ RSpec.feature "Authenticated user", type: :feature do
     end
 
     scenario "cannot view the administrator screens" do
-      visit '/login'
-      fill_in('session[email]', with: user.email)
-      fill_in('session[password]', with: user.password)
-      click_link_or_button 'Login'
       visit '/admin'
 
       expect(page).to_not have_content('admin')
