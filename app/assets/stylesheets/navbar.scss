@@ -1,10 +1,20 @@
 .gh-basic-navbar {
+  z-index: 1;
   background: #fff;
   .navbar-nav > li > a {
     color: #000;
     border-color: #000;
   }
   .navbar-nav > li > a:hover {
+    color: #fff;
+    border-color: #fff;
+    // background: rgba(71,30,14,1);
+    background: transparent;
+  }
+  .navbar-header a {
+    color: #000;
+  }
+  .navbar-header:hover a {
     color: #fff;
     border-color: #fff;
     background: rgba(71,30,14,1);
@@ -20,6 +30,7 @@
 .navbar {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  margin-bottom: 0px;
   li {
     margin-bottom: 0;
     margin-left: 10px;
