@@ -19,7 +19,7 @@ RSpec.feature "A user" do
       expect(page).to have_content(job2.title)
     end
 
-    xscenario "and sees a feed of jobs on their 'watchlist'" do
+    scenario "and sees a feed of jobs on their 'watchlist'" do
       job = create(:job)
       job2 = create(:job)
       visit "/profile"
@@ -28,9 +28,7 @@ RSpec.feature "A user" do
       within(first('.job')) do
       	click_button('Watch This Job')
       end
-      within(first(".job-listing-#{job2.title.parameterize}")) do
-        click_button('Watch This Job')
-      end
+
       within('.watchlist') do
         expect(page).to have_content(job.title)
       end
