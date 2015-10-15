@@ -21,18 +21,23 @@ RSpec.feature "A user" do
       expect(page).to have_content(job.title)
       expect(page).to have_content(job2.title)
     end
-    
+
     scenario "and sees a feed of jobs on their 'watchlist'" do
       job = create(:job)
+      job2 = create(:job)
       log_in
 
-      expect('#watchlist').not_to have_content(job.title)
-      within(first('.job')) do 
-	click_button('Watch This Job') 
+      expect('.watchlist').not_to have_content(job.title)
+      within(first('.job')) do
+      	click_button('Watch This Job')
       end
-save_and_open_page
-
-      expect('.watchlist').to have_content(job.title)
+      within(first(".job-listing-#{job2.title.parameterize}")) do
+        click_button('Watch This Job')
+      end
+      save_and_open_page
+      within('.watchlist') do
+        expect(page).to have_content(job.title)
+      end
     end
   end
 end

@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
 
   def show
     @user = current_user
     @jobs = Job.all
-    @current_watchlist = session[:watchlist]
+    if !session[:watchlist].nil?
+      @wjobs = Job.find(session[:watchlist])
+    end
   end
 
   private

@@ -1,7 +1,6 @@
 class WatchlistController < ApplicationController
   def create
     session[:watchlist] = params[:job_id]
-    binding.pry
     redirect_to watchlist_path
   end
 
