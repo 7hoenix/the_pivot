@@ -8,7 +8,7 @@ def log_in_user(user)
 end
 
 RSpec.feature "Job has an address" do
-  context "when it is created" do
+  xcontext "when it is created" do
     scenario "by a user with a business" do
       user = create(:user)
       create(:business, user_id: user.id)
