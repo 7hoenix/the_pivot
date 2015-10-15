@@ -10,21 +10,26 @@
 <div class='container-fluid page-content'>
   <div class="row">
     <div class="col-md-3">
-      <div class="panel-body">
+      <div class="panel-body gh-address-box">
         <div class="row">
           <div class="col-md-12">
-            <img src="/assets/images/placeholder.png" class="img-responsive" alt="Responsive image">
+            <%= image_tag("placeholder.png", class: "img-responsive") %>
+
           </div>
         </div>
 
-        <h4>Telephone:</h4> <%= @user.email %>
-        <h4>Address:</h4> <%= @user.email %>
-        <h4>Email:</h4> <%= @user.email %>
-        <h4>GitHub: </h4><%= @user.email %>
+        <div class='gh-address-line'><span class='gh-heading-4'>phone:</span> <span class="gh-right"><%= @user.email %></span></div>
+        <hr>
+        <div class='gh-address-line'><span class='gh-heading-4'>Address:</span><span class="gh-right"> <%= @user.email %></span></div>
+        <hr>
+        <div class='gh-address-line'><span class='gh-heading-4'>Email:</span> <span class="gh-right"><%= @user.email %></span></div>
+        <hr>
+        <div class='gh-address-line'><span class='gh-heading-4'>GitHub:</span> <span class="gh-right"><%= @user.email %></span></div>
+        <hr>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="panel-body">
+      <div class="panel-body gh-main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="joblist">

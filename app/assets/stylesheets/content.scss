@@ -1,0 +1,47 @@
+.gh-address-box {
+  background: #ccc;
+  border-radius: 5px;
+  border:solid;
+  border-width: 1px;
+  border-color: rgba(71,30,14,.3);
+//   -moz-box-shadow:    inset 0 0 50px rgba(71,30,14,.3);;
+//   -webkit-box-shadow: inset 0 0 50px rgba(71,30,14,.3);;
+//   box-shadow:         inset 0 0 50px rgba(71,30,14,.3);;
+//
+//   background: rgba(255,255,255,1);
+// background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 1%, rgba(225,225,225,1) 27%, rgba(225,225,225,1) 77%, rgba(194,179,174,1) 99%, rgba(194,179,174,1) 100%);
+// background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(1%, rgba(255,255,255,1)), color-stop(27%, rgba(225,225,225,1)), color-stop(77%, rgba(225,225,225,1)), color-stop(99%, rgba(194,179,174,1)), color-stop(100%, rgba(194,179,174,1)));
+// background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 1%, rgba(225,225,225,1) 27%, rgba(225,225,225,1) 77%, rgba(194,179,174,1) 99%, rgba(194,179,174,1) 100%);
+// background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 1%, rgba(225,225,225,1) 27%, rgba(225,225,225,1) 77%, rgba(194,179,174,1) 99%, rgba(194,179,174,1) 100%);
+// background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 1%, rgba(225,225,225,1) 27%, rgba(225,225,225,1) 77%, rgba(194,179,174,1) 99%, rgba(194,179,174,1) 100%);
+// background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 1%, rgba(225,225,225,1) 27%, rgba(225,225,225,1) 77%, rgba(194,179,174,1) 99%, rgba(194,179,174,1) 100%);
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2b3ae', GradientType=1 );
+}
+
+.gh-main-content {
+  border-radius: 5px;
+  border:solid;
+  border-width: 1px;
+  border-color: rgba(71,30,14,.3);
+}
+
+.gh-heading-4 {
+  line-height: 40px;
+  font-weight: 1000;
+  font-size: 18px;
+  display: inline;
+  text-align: right;
+  width: 25%;
+  display: inline-block;
+
+}
+.gh-right {
+}
+.gh-address-line {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
