@@ -12,7 +12,7 @@ class BusinessesController < ApplicationController
     business = Business.new(business_params)
     if business.save
       flash[:success] = "Successfully registered business"
-      redirect_to company_dashboard_path(slug: business.slug)
+      redirect_to business_admin_path(slug: business.slug)
     else
       flash[:errors] = "Invalid paremeters"
       render :new

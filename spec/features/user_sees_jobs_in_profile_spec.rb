@@ -19,7 +19,7 @@ RSpec.feature "A user" do
       expect(page).to have_content(job2.title)
     end
 
-    scenario "and sees a feed of jobs on their 'watchlist'" do
+    xscenario "and sees a feed of jobs on their 'watchlist'" do
       job = create(:job)
       job2 = create(:job)
       visit "/profile"

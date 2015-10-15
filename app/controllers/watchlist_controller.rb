@@ -24,5 +24,6 @@ class WatchlistController < ApplicationController
     end
   end
   def index
+    redirect_to profile_path(current_user)
   end
 end

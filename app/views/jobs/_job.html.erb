@@ -1,17 +1,17 @@
-<div class="job job-listing-<%= job.title.parameterize %>" style="background: green;">
+<div class="job job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
+  <div class='gh-job-details'>
+    <div class="gh-job-header">
+      <%= link_to job.title, job %>
+    </div>
 
-  <div class="header">
-    <%= link_to job.title, job %>
-  </div>
 
-  <div class="description">
-    <%= job.description %>
+    <div class="description">
+      <%= job.description %>
+    </div>
   </div>
 
   <div class="button">
-    <% wl ||= false %>
-
-    <% if wl %>
+    <% if type == "watchlist" %>
     <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
     <% else %>
     <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>

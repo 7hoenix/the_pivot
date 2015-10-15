@@ -33,7 +33,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="joblist">
-              <%= render @jobs %>
+               <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "feed" } %>
             </div>
           </div>
         </div>
@@ -41,8 +41,7 @@
           <div class="col-md-12">
             <div class="watchlist">
               <h3>Watched: </h3>
-              <% @wl = true %>
-              <%= render partial: "/jobs/job", collection: @watchlist, locals: {wl: @wl } %>
+              <%= render partial: "/jobs/job", collection: @watchlist, locals: {type: "watchlist" } %>
             </div>
           </div>
         </div>
