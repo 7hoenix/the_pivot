@@ -9,8 +9,10 @@ class WatchlistController < ApplicationController
   end
 
   def delete
-    binding.pry
     @current_watchlist.delete_job(params[:format])
+    binding.pry
+    session[:watchlist].delete(params[:format])
+
     redirect_to watchlist_path
   end
 
