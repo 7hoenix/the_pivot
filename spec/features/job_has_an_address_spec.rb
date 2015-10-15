@@ -31,7 +31,7 @@ RSpec.feature "Job has an address" do
       expect(page).to have_content("Jr Dev")
       expect(page).to have_content("Make coffee every day")
       expect(page).to have_content("1644 Platte st Denver, CO 80202")
-      expect(Job.last.full_address).to eq("1644 Platte st Denver, CO 80202")
+      expect(Job.last.address.full_address).to eq("1644 Platte st Denver, CO 80202")
     end
   end
 end
