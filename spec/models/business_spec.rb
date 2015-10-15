@@ -22,5 +22,12 @@ RSpec.describe Business, type: :model do
 
       expect(other_business).to_not be_valid
     end
+
+    it "is invalid with a slug that is not unique" do
+      create(:business, name: "Justin S Coffee")
+      other_business = build(:business, name: "Justin's Coffee")
+
+      expect(other_business).to_not be_valid
+    end
   end
 end
