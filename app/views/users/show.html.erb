@@ -5,19 +5,42 @@
 <div class="page-heading">
 <div class="container">  <h1>Profile:  <%= @user.full_name %></h1></div>
 </div>
+<div>
 
-<div class='container-fluid'>
+<div class='container-fluid page-content'>
   <div class="row">
     <div class="col-md-3">
       <div class="panel-body">
-        <img src="" class="img-responsive" alt="Responsive image">
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/assets/images/placeholder.png" class="img-responsive" alt="Responsive image">
+          </div>
+        </div>
+
+        <h4>Telephone:</h4> <%= @user.email %>
+        <h4>Address:</h4> <%= @user.email %>
+        <h4>Email:</h4> <%= @user.email %>
+        <h4>GitHub: </h4><%= @user.email %>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="panel-body">asdfasfdasdfaf</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            THIS IS WHERE WE LOAD THE FEED
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            THIS IS WHERE WE LOAD THE WATCHED
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
-      <div class="panel-body">asdfasfdasdfaf</div>
+      <div class="panel-body">
+        <h3>RESUMES</h3>
+      </div>
     </div>
   </div>
 </div>
