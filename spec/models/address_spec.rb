@@ -23,5 +23,11 @@ RSpec.describe Address, type: :model do
 
       expect(address).to_not be_valid
     end
+
+    it "needs to have a city" do
+      address = build(:address, city: nil)
+
+      expect(address).to_not be_valid
+    end
   end
 end

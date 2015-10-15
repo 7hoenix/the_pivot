@@ -1,5 +1,6 @@
 class Address < ActiveRecord::Base
   validates :street, presence: true
+  validates :city, presence: true
   belongs_to :addressable, polymorphic: true
 
   def full_address
