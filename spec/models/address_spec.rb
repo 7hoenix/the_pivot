@@ -16,4 +16,12 @@ RSpec.describe Address, type: :model do
       expect(address).to be_valid
     end
   end
+
+  context "invalid attributes" do
+    it "needs to have a street" do
+      address = build(:address, street: nil)
+
+      expect(address).to_not be_valid
+    end
+  end
 end
