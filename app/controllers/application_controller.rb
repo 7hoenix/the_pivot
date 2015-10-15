@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
     session[:forwarding_url] = request.url if request.get?
   end
 
+  def render_404
+    raise ActionController::RoutingError.new("Not Found")
+  end
+
 end

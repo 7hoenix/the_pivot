@@ -1,10 +1,11 @@
 class BusinessesController < ApplicationController
+
   def new
     @business = Business.new
   end
 
   def show
-    @business = Business.find_by(slug: params[:slug])
+    @business = Business.find_by(slug: params[:slug]) or render_404
   end
 
   def create
