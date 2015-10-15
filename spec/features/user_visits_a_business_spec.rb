@@ -23,4 +23,14 @@ RSpec.feature "User visits a business" do
       expect(page).to have_content("Business Consultancy")
     end
   end
+
+  context "but types in the wrong slug" do
+    before(:each) do
+      @user = create(:user)
+      @business = create(:business, user_id: @user.id)
+    end
+    scenario "and is redirected to a 404 page" do
+      expect { visit "/pivotallabs" }.to raise_error(ActionController::RoutingError)
+    end
+  end
 end
