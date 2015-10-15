@@ -1,6 +1,7 @@
 class Business < ActiveRecord::Base
   belongs_to :user
 
+  validates :name, uniqueness: true, presence: true
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug
@@ -8,6 +9,6 @@ class Business < ActiveRecord::Base
   private
 
   def generate_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize if name
   end
 end
