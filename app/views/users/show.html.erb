@@ -27,13 +27,17 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            <%= render @jobs %>
+            <div class="joblist">
+              <%= render @jobs %>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            THIS IS WHERE WE LOAD THE WATCHED
-            <%= render partial: "/jobs/job", collection: @watchlist %>
+            <div class="watchlist">
+              <h3>Watched: </h3>
+              <%= render partial: "/jobs/job", collection: @watchlist %>
+            </div>
           </div>
         </div>
       </div>

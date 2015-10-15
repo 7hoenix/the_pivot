@@ -8,9 +8,6 @@
         <%= @job.description %>
     </div>
 
-    <div class="button">
-      <%= button_to "Add To Cart", cart_path(job_id: @job) %> </p>
-    </div>
 
     <% if current_user && current_user.admin? %>
 
