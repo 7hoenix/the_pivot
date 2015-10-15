@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Unauthenticated user browses items" do
+RSpec.feature "Unauthenticated user browses jobs" do
 
   context "unauthenticated user" do
     scenario "can browse the jobs" do

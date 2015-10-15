@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :create_cart
-  before_action :create_cart
+  helper_method :create_watchlist
+  before_action :create_watchlist
   helper_method :current_user
 
-  def create_cart
-    @current_cart = Cart.new(session[:cart])
+  def create_watchlist
+    @current_watchlist = Watchlist.new(session[:watchlist])
   end
 
   def current_user

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       if @user.user?
         session[:user_id] = @user.id
         flash[:notice] = "Sensei says: 'Welcome to the dojo'"
-        redirect_back_or @user
+        redirect_back_or profile_path
       elsif @user.admin?
         session[:user_id] = @user.id
         flash[:notice] = "Admin logged in."

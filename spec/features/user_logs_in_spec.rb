@@ -37,7 +37,7 @@ RSpec.describe "User logs in" do
       fill_in("session[email]", with: user.email)
       fill_in("session[password]", with: user.password)
       click_button "Login"
-      expect(page).to have_content("example name")
+      expect(page).to have_content("dg")
     end
   end
 
