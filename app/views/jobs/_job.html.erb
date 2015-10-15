@@ -10,7 +10,12 @@
 
     <div class="button">
       <%= job.id %>
-      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+      <% #binding.pry %>
+      <% if @current_watchlist.watchlist_jobs.include?(job.id.to_s) %>
+	<%= button_to "Remove From Watchlist", watchlist_path, { "action" => "delete" } %>
+      <% else %>
+	<%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+      <% end %>
     </div>
 
 </div>

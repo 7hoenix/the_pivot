@@ -1,11 +1,7 @@
 class WatchlistController < ApplicationController
   def create
-    if !session[:watchlist]
-      session[:watchlist] = []
-    end
-    session[:watchlist] << params[:job_id]
-    session[:watchlist].uniq!
-    redirect_to profile_path
+    session[:watchlist] = params[:job_id]
+    redirect_to watchlist_path
   end
 
   def delete
@@ -23,5 +19,6 @@ class WatchlistController < ApplicationController
     end
   end
   def index
+    redirect_to profile_path(current_user)
   end
 end
