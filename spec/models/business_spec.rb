@@ -29,5 +29,11 @@ RSpec.describe Business, type: :model do
 
       expect(other_business).to_not be_valid
     end
+
+    it "is invalid without an about section" do
+      business = build(:business, about: nil)
+
+      expect(business).to_not be_valid
+    end
   end
 end
