@@ -31,4 +31,5 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  get "/:slug", as: :business, to: "businesses#show"
 end
