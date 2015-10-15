@@ -1,7 +1,7 @@
 class WatchlistController < ApplicationController
   def create
-    @current_watchlist.add_job(params[:job_id])
-    session[:watchlist] = @current_watchlist.watchlist_jobs
+    session[:watchlist] = params[:job_id]
+    binding.pry
     redirect_to watchlist_path
   end
 
@@ -20,6 +20,6 @@ class WatchlistController < ApplicationController
     end
   end
   def index
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 end

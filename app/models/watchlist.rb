@@ -10,7 +10,7 @@ class Watchlist
     @watchlist_jobs[job_id] += 1
   end
 
-  def cart_items_and_quantity
+  def watchlist_jobs_and_quantity
     jobs = Hash.new
     watchlist_jobs.select { |job_id, quantity| jobs[Job.find(job_id)] = quantity }
     jobs

@@ -7,6 +7,7 @@
     <% @jobs.each do |job| %>
       <%= render partial: "jobs/job", locals: {job: job} %>
     <% end %>
+    <%= render partial: "users/layouts/watchlist" %>
 <% end %>
 
 

@@ -26,7 +26,7 @@ RSpec.feature "A user" do
       job = create(:job)
       log_in
 
-      expect('.watchlist').not_to have_content(job.title)
+      expect('#watchlist').not_to have_content(job.title)
       within(first('.job')) do 
 	click_button('Watch This Job') 
       end
