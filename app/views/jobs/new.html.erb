@@ -1,0 +1,15 @@
+<%= form_for @job do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.text_field :benefits, placeholder: "Benefits" %>
+
+  <%= f.fields_for @address do |s| %>
+    <%= s.text_field :street, placeholder: "Street" %>
+    <%= s.text_field :unit, placeholder: "Unit" %>
+    <%= s.text_field :city, placeholder: "City" %>
+    <%= s.text_field :state, placeholder: "State" %>
+    <%= s.text_field :zip, placeholder: "Zip" %>
+  <% end %>
+
+  <%= f.submit "Create Job" %>
+<% end %>

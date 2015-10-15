@@ -15,6 +15,7 @@ class JobsController < ApplicationController
   def new
     if current_user && current_user.has_business?
       @job = Job.new
+      @address = Address.new
     elsif current_user
       flash[:danger] = "Must have a business to register a new job
       opportuntity"
@@ -25,7 +26,26 @@ class JobsController < ApplicationController
     end
   end
 
+  def create
+    @job = Job.new(job_params)
+    if @job.save
+      @job.address = Address.find_or_create_by(address_params)
+      redirect_to jobs_path
+    else
+      flash[:errors] = "Job not created"
+      render :new
+    end
+  end
+
   private
+
+  def job_params
+    params.require(:job).permit(:title, :description, :benefits)
+  end
+
+  def address_params
+    params[:job].require(:address).permit(:street, :unit, :city, :state, :zip)
+  end
 
   def logged_in_user
     unless logged_in?
