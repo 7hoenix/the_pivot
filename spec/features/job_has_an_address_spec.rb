@@ -1,10 +1,10 @@
 require "rails_helper"
 
-def log_in(user)
+def log_in_user(user)
   visit "/login"
-  fil_in("Email", with: user.email)
-  fil_in("Password", with: user.password)
-  click_button "Log in"
+  fill_in("Email", with: user.email)
+  fill_in("Password", with: user.password)
+  click_button "Login"
 end
 
 RSpec.feature "Job has an address" do
@@ -13,8 +13,8 @@ RSpec.feature "Job has an address" do
       user = create(:user)
       create(:business, user_id: user.id)
 
-      log_in(user)
-      visit "/company-dashboard"
+      log_in_user(user)
+      visit business_admin_path
       click_button "Post New Job"
 
       expect(current_path).to eq(new_job_path)
