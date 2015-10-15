@@ -8,6 +8,10 @@
         <%= job.description %>
     </div>
 
+    <div class="address">
+      <%= job.address.full_address if job.address %>
+    </div>
+
     <div class="button">
       <%= job.id %>
       <% #binding.pry %>
