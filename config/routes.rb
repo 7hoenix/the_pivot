@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :index]
   end
 
-  get "/cart", to: "cart#index"
-  post "/cart", to: "cart#create"
-  delete "/cart", to: "cart#delete"
-  put "/cart", to: "cart#update"
+  get "/watchlist", to: "watchlist#index"
+  post "/watchlist", to: "watchlist#create"
+  delete "/watchlist", to: "watchlist#delete"
+  put "/watchlist", to: "watchlist#update"
 
   resources :orders, only: [:create, :index, :show, :update]
 
