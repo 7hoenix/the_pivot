@@ -1,7 +1,7 @@
 class Watchlist
   attr_accessor :watchlist_jobs
 
-  def initialize(watchlist_items)
+  def initialize(watchlist_jobs)
     @watchlist_jobs = watchlist_jobs || Hash.new
   end
 
