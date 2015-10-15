@@ -41,7 +41,8 @@
           <div class="col-md-12">
             <div class="watchlist">
               <h3>Watched: </h3>
-              <%= render partial: "/jobs/job", collection: @watchlist %>
+              <% @wl = true %>
+              <%= render partial: "/jobs/job", collection: @watchlist, locals: {wl: @wl } %>
             </div>
           </div>
         </div>

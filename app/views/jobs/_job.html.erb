@@ -1,16 +1,21 @@
 <div class="job job-listing-<%= job.title.parameterize %>" style="background: green;">
 
-    <div class="header">
-        <%= link_to job.title, job %>
-    </div>
+  <div class="header">
+    <%= link_to job.title, job %>
+  </div>
 
-    <div class="description">
-        <%= job.description %>
-    </div>
+  <div class="description">
+    <%= job.description %>
+  </div>
 
-    <div class="button">
-      <%= job.id %>
-      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
-    </div>
+  <div class="button">
+    <% wl ||= false %>
+
+    <% if wl %>
+    <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
+    <% else %>
+    <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+    <% end %>
+  </div>
 
 </div>
