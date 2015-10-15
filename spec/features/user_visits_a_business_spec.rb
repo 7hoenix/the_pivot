@@ -17,7 +17,8 @@ RSpec.feature "User visits a business" do
     scenario "and follows the slug path to get there" do
       log_in
       visit "/pivotal-labs"
-      expect(current_path).to eq(businesses_show_path)
+
+      expect(current_path).to eq("/pivotal-labs")
       expect(page).to have_content("Pivotal Labs")
       expect(page).to have_content("Business Consultancy")
     end
