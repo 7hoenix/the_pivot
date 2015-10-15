@@ -9,7 +9,8 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    business = Business.new(business_params)
+    current_user.business = Business.new(business_params)
+    business = current_user.business
     if business.save
       flash[:success] = "Successfully registered business"
       redirect_to company_dashboard_path(slug: business.slug)
