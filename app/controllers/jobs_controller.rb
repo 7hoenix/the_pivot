@@ -29,7 +29,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      @job.address = Address.create(address_params)
+      @job.address = Address.find_or_create_by(address_params)
       redirect_to jobs_path
     else
       flash[:errors] = "Job not created"
