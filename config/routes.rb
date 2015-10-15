@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get "/jobs", to: "jobs#index"
 
   resources :businesses, only: [:new, :create]
-  get "/company-dashboard", to: "businesses#show"
+
+  namespace "business_admin" do
+    get "/", to: "businesses#show"
+  end
 
   resources :categories do
     resources :items, only: [:show, :index]
@@ -27,8 +30,6 @@ Rails.application.routes.draw do
 
   namespace 'admin' do
     get '/', to: 'dashboard#index', as: '/'
-    resources :items
-    resources :categories
   end
 
   get "/:slug", as: :business, to: "businesses#show"
