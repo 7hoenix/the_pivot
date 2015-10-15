@@ -37,7 +37,7 @@ body, html {
 
 }
 .gh-browse-jobs:hover span {
-  background: url(/assets/images/hero-bg.jpg)  no-repeat 40% center fixed;
+  background: image-url("/assets/images/hero-bg.jpg")  no-repeat 40% center fixed;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   display:block;
