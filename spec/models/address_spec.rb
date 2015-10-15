@@ -8,4 +8,12 @@ RSpec.describe Address, type: :model do
       expect(address.full_address).to eq("1644 Platte st Denver, CO 80202")
     end
   end
+
+  context "valid attributes" do
+    it "Creates a new address" do
+      address = build(:address)
+
+      expect(address).to be_valid
+    end
+  end
 end
