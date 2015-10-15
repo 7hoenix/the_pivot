@@ -3,17 +3,20 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "/profile", to: "users#show"
-  resources :jobs, only: [:show, :index]
+  resources :jobs, only: [:new, :show, :index]
   get "/jobs", to: "jobs#index"
+
+  resources :businesses, only: [:new, :create]
+  get "/company-dashboard", to: "businesses#show"
 
   resources :categories do
     resources :items, only: [:show, :index]
   end
 
-  get "/cart", to: "cart#index"
-  post "/cart", to: "cart#create"
-  delete "/cart", to: "cart#delete"
-  put "/cart", to: "cart#update"
+  get "/watchlist", to: "watchlist#index"
+  post "/watchlist", to: "watchlist#create"
+  delete "/watchlist", to: "watchlist#delete"
+  put "/watchlist", to: "watchlist#update"
 
   resources :orders, only: [:create, :index, :show, :update]
 
@@ -22,12 +25,11 @@ Rails.application.routes.draw do
   get "/logout", to: 'sessions#destroy'
   delete "/logout", to: 'sessions#destroy'
 
-  resources :users, only: [:show]
-
   namespace 'admin' do
     get '/', to: 'dashboard#index', as: '/'
     resources :items
     resources :categories
   end
 
+  get "/:slug", as: :business, to: "businesses#show"
 end

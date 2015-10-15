@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
-    @user = User.new
+    if session[:user_id]
+      flash[:notice] = "Please Log out First"
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -10,7 +15,7 @@ class SessionsController < ApplicationController
       if @user.user?
         session[:user_id] = @user.id
         flash[:notice] = "Sensei says: 'Welcome to the dojo'"
-        redirect_to user_path(@user)
+        redirect_back_or profile_path
       elsif @user.admin?
         session[:user_id] = @user.id
         flash[:notice] = "Admin logged in."

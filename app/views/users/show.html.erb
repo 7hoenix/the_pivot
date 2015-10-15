@@ -1,13 +1,51 @@
-<h1 id="banner"> Welcome, <% if current_user %>
-    <% @jobs.each do |job| %>
-      <%= job.title %>
-      <%= job.description %>
-    <% end %>
-  <% if current_user.display_name %>
-    <%= current_user.display_name %>.
-  <% else %>
-    <%=current_user.full_name %>.
-  <% end %>
+<% content_for :navbar_links do %>
+<li><%= link_to "Edit Profile", logout_path%></li>
 <% end %>
 
-</h1>
+<div class="page-heading">
+<div class="container">  <h1>Profile:  <%= @user.full_name %></h1></div>
+</div>
+<div>
+
+<div class='container-fluid page-content'>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/assets/images/placeholder.png" class="img-responsive" alt="Responsive image">
+          </div>
+        </div>
+
+        <h4>Telephone:</h4> <%= @user.email %>
+        <h4>Address:</h4> <%= @user.email %>
+        <h4>Email:</h4> <%= @user.email %>
+        <h4>GitHub: </h4><%= @user.email %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="joblist">
+              <%= render @jobs %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="watchlist">
+              <h3>Watched: </h3>
+              <%= render partial: "/jobs/job", collection: @watchlist %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel-body">
+        <h3>RESUMES</h3>
+      </div>
+    </div>
+  </div>
+</div>

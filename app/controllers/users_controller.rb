@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
 
   def show
     @user = current_user
     @jobs = Job.all
-    if current_user.admin?
-      redirect_to admin_path
-    else
-      render :show
+    @watchlist = Job.where(id: session[:watchlist])
+    if !session[:watchlist].nil?
+      @wjobs = Job.find(session[:watchlist])
     end
   end
 
