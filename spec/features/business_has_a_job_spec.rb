@@ -13,11 +13,11 @@ RSpec.feature "business has an address" do
       fill_in("City", with: "Denver")
       fill_in("State", with: "CO")
       fill_in("Zip", with: "80202")
-      click_on "Create Business"
+      click_on "Register Business"
 
       expect(current_path).to eq(business_admin_path)
       expect(page).to have_content("Pivotal Labs")
-      expect(Business.last.address.full_address).to eq("1644 Platte st Denver, CO 80202")
+      expect(Business.last.addresses.last.full_address).to eq("1644 Platte st Denver, CO 80202")
     end
   end
 end
