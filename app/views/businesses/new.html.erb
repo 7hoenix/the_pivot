@@ -2,6 +2,13 @@
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.text_field :about, placeholder: "About" %>
   <%= f.file_field :picture %>
+  <%= f.fields_for @address do |s| %>
+    <%= s.text_field :street, placeholder: "Street" %>
+    <%= s.text_field :unit, placeholder: "Unit" %>
+    <%= s.text_field :city, placeholder: "City" %>
+    <%= s.text_field :state, placeholder: "State" %>
+    <%= s.text_field :zip, placeholder: "Zip" %>
+  <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Register Business" %>
 <% end %>
