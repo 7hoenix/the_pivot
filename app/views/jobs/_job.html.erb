@@ -1,25 +1,25 @@
-<div class="job job-listing-<%= job.title.parameterize %>" style="background: green;">
-
-    <div class="header">
-        <%= link_to job.title, job %>
+<div class="job job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
+  <div class='gh-job-details'>
+    <div class="gh-job-header">
+      <%= link_to job.title, job %>
     </div>
+
 
     <div class="description">
-        <%= job.description %>
+      <%= job.description %>
     </div>
-
     <div class="address">
       <%= job.address.full_address if job.address %>
     </div>
+  </div>
 
-    <div class="button">
-      <%= job.id %>
-      <% #binding.pry %>
-      <% if @current_watchlist.watchlist_jobs.include?(job.id) %>
-	<%= button_to "Remove From Watchlist", watchlist_path(job_id: job.id), method: :delete %>
-      <% else %>
-	<%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
-      <% end %>
-    </div>
+
+  <div class="button">
+    <% if type == "watchlist" %>
+      <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
+    <% else %>
+      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+    <% end %>
+  </div>
 
 </div>

@@ -15,7 +15,7 @@ RSpec.feature "Authenticated user", type: :feature do
 
     scenario "cannot log in" do
       visit '/login'
-      expect(page).to_not have_content('Please Log out First')
+      expect(page).to have_content('Please Log out First')
     end
 
     scenario "can log out" do

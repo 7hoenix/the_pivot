@@ -2,6 +2,17 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<div id='jobs'>
-  <%= render @jobs %>
+
+<div class='row'>
+  <div class="col-md-9 col-centered">
+    <div class="panel-body gh-main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="joblist">
+             <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

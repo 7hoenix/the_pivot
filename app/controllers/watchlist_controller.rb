@@ -9,7 +9,6 @@ class WatchlistController < ApplicationController
   end
 
   def delete
-    @current_watchlist.watchlist_jobs.reject! { |job| job == params[:job_id].to_i }
     redirect_to watchlist_path
   end
 

@@ -1,11 +1,11 @@
 [![Stories in Ready](https://badge.waffle.io/jphoenix86/the_pivot.png?label=ready&title=Ready)](https://waffle.io/jphoenix86/the_pivot)
-# tabemono rubi
+# GitHired
 
 [Live Heroku Link](https://githired.herokuapp.com/)
 
 Learning Objectives/Goals
 
-MH: 
+MH:
 * Front end workflow
 * Communication
 

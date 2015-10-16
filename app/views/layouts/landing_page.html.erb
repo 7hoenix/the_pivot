@@ -16,6 +16,10 @@
     <%= render 'layouts/landing_page_navbar/navbar' %>
     <%= yield %>
   </div>
+  <div class="errors">
+    <%= flash[:errors] %>
+    <%= flash[:notice] %>
+  </div>
   <div class="container">
     <div class="row gh-content-row">
       <div class="gh-content-header col-md-6"><h1>Jobbies</h1></div>

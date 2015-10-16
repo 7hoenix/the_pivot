@@ -32,6 +32,7 @@ gem 'paperclip'
 gem "therubyracer"
 
 gem "bootstrap-sass"
+gem "bootstrap_form"
 gem 'sass-rails'
 
 group :development, :test do
