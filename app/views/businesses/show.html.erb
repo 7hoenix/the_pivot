@@ -1,2 +1,17 @@
-<%= @business.name %>
-<%= @business.about %>
+<div class="errors">
+  <%= flash[:errors] %>
+  <%= flash[:notice] %>
+</div>
+<div class="page-heading">
+<div class="container">  <h1><%= @business.name %></h1></div>
+</div>
+<div class="container-fluid page-content">
+<div class="row">
+  <div class="col-md-6 col-centered ">
+    <div class="panel-body gh-main-content">
+      <h2>About</h2>
+      <%= @business.about %>
+  </div>
+  </div>
+</div>
+</div>
