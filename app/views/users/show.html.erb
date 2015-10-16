@@ -1,5 +1,10 @@
 <% content_for :navbar_links do %>
-<li><%= link_to "Edit Profile", logout_path%></li>
+  <% if @user.business  %>
+    <li><%= link_to "My Business",  business_admin_path%></li>
+  <% else %>
+    <li><%= link_to "Create Business",  new_business_path%></li>
+  <% end %>
+  <li><%= link_to "Edit Profile", logout_path%></li>
 <% end %>
 
 <div class="page-heading">

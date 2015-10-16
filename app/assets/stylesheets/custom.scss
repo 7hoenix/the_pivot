@@ -28,19 +28,12 @@ body, html {
 .gh-browse-jobs {
   font-size: 2em;
   white-space: pre-wrap;
+  color: #fff;
 }
 
 .gh-browse-jobs:hover {
-  color: #333;
-
   background: #fff;
-
-}
-.gh-browse-jobs:hover span {
-  background: image-url("/assets/images/hero-bg.jpg")  no-repeat 40% center fixed;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  display:block;
+  color: rgba(71,30,14,1);
 }
 
 .nav {

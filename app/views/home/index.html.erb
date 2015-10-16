@@ -1,4 +1,8 @@
 <% content_for :navbar_links do %>
+  <% if current_user && current_user.business  %>
+    <li><%= link_to "My Business",  business_admin_path%></li>
+  <% end %>
+
   <% if current_user %>
     <li><%= link_to "Profile", profile_path %></li>
   <% else %>
@@ -9,7 +13,7 @@
   <div class="gh-hero-top-padding"></div>
     <div class="col-md-5">
       <div class='gh-tagline col-centered'>GIT A DAMN JOB</div>
-      <div class="gh-browse-jobs col-md-6 col-centered btn btn-default"><span><%= link_to "Browse Jobs", jobs_path %></span></div>
+      <%= link_to "Browse Jobs", jobs_path, class: "gh-browse-jobs col-md-6 col-centered btn btn-default" %>
     </div>
     <div class="gh-hero-bottom-padding"></div>
 </div>
