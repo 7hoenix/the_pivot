@@ -1,10 +1,20 @@
-<div id="errors">
+<div class="errors">
   <%= flash[:errors] %>
   <%= flash[:notice] %>
 </div>
-
-<%= bootstrap_form_for(:session, url: login_path) do |f| %>
-  <p>  Please enter your email: <%= f.text_field :email, placeholder: 'Email' %> </p>
-  <p>  Please enter your password: <%= f.password_field :password, placeholder: 'Password' %> </p>
-  <p>  <%= f.submit "Login" %> </p>
-<% end %>
+<div class="page-heading">
+<div class="container">  <h1>Login</h1></div>
+</div>
+<div class="container-fluid page-content">
+<div class="row">
+  <div class="col-md-6 col-centered ">
+    <div class="panel-body gh-main-content">
+    <%= bootstrap_form_for(:session, url: login_path) do |f| %>
+    <%= f.email_field :email, placeholder: 'Email' %>
+    <%= f.password_field :password, placeholder: 'Password' %>
+    <%= f.submit "Login", class: "gh-form-button col-centered col-md-4 btn btn-primary"%>
+    <% end %>
+  </div>
+  </div>
+</div>
+</div>

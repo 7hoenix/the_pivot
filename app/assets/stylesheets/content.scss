@@ -74,5 +74,20 @@ hr {
       color: #4D2A4A;
     };
   }
-
 }
+
+.gh-form-button {
+  color: #fff;
+  background: #4D2A4B;
+  &:hover {
+    background: #fff;
+    color: #4D2A4B;
+
+  }
+}
+.errors {
+   width: 100%;
+   background: #4D2A4B;
+   text-align: center;
+   color: #fff;
+ }
