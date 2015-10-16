@@ -16,9 +16,9 @@
 
   <div class="button">
     <% if type == "watchlist" %>
-    <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
+      <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
     <% else %>
-    <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
     <% end %>
   </div>
 
