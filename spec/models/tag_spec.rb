@@ -7,15 +7,29 @@ RSpec.describe Tag, type: :model do
     expect(tag).to be_valid
   end
 
-  context "valid attributes" do
-    it "is only valid with correct attributes" do
-      tag = Tag.new(name: "Ruby")
-      
-      expect(tag).to be_valid
+  it "is only valid with correct attributes" do
+    tag = create(:tag)
+    
+    expect(tag).to be_valid
 
-      tag.name = nil
+    tag.name = nil
 
-      expect(tag).to be_invalid
-    end
+    expect(tag).to be_invalid
+  end
+  
+  it "can have many jobs" do
+    tag = create(:tag)
+    job = create(:job)
+    job.tags << tag
+    
+    expect(job.tags).to include(tag)
+  end
+  
+  it "can have many users" do
+    tag = create(:tag)
+    user = create(:user)
+    user.tags << tag
+
+    expect(user.tags).to include(tag)
   end
 end
