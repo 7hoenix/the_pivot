@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
+    @address = Address.new
   end
 
   def show
@@ -11,6 +12,7 @@ class BusinessesController < ApplicationController
   def create
     business = Business.new(business_params)
     if business.save
+      business.addresses.find_or_create_by(address_params)
       flash[:success] = "Successfully registered business"
       redirect_to business_admin_path(slug: business.slug)
     else
@@ -23,5 +25,10 @@ class BusinessesController < ApplicationController
 
   def business_params
     params.require(:business).permit(:name, :about, :slug, :user_id)
+  end
+
+  def address_params
+    params[:business].require(:address).permit(:street, :unit, :city, :state,
+      :zip)
   end
 end
