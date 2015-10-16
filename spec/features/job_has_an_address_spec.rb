@@ -8,14 +8,14 @@ def log_in_user(user)
 end
 
 RSpec.feature "Job has an address" do
-  xcontext "when it is created" do
+  context "when it is created" do
     scenario "by a user with a business" do
       user = create(:user)
       create(:business, user_id: user.id)
 
       log_in_user(user)
       visit business_admin_path
-      click_button "Post New Job"
+      click_on "Post New Job"
 
       expect(current_path).to eq(new_job_path)
       fill_in("Title", with: "Jr Dev")
@@ -31,7 +31,7 @@ RSpec.feature "Job has an address" do
       expect(page).to have_content("Jr Dev")
       expect(page).to have_content("Make coffee every day")
       expect(page).to have_content("1644 Platte st Denver, CO 80202")
-      expect(Job.last.full_address).to eq("1644 Platte st Denver, CO 80202")
+      expect(Job.last.address.full_address).to eq("1644 Platte st Denver, CO 80202")
     end
   end
 end

@@ -8,7 +8,11 @@
     <div class="description">
       <%= job.description %>
     </div>
+    <div class="address">
+      <%= job.address.full_address if job.address %>
+    </div>
   </div>
+
 
   <div class="button">
     <% if type == "watchlist" %>

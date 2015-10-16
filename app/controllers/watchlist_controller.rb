@@ -3,16 +3,12 @@ class WatchlistController < ApplicationController
     if !session[:watchlist]
       session[:watchlist] = []
     end
-    session[:watchlist] << params[:job_id]
+    session[:watchlist] << params[:job_id].to_i
     session[:watchlist].uniq!
     redirect_to profile_path
   end
 
   def delete
-    @current_watchlist.delete_job(params[:format])
-    binding.pry
-    session[:watchlist].delete(params[:format])
-
     redirect_to watchlist_path
   end
 
