@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :create_watchlist
   helper_method :current_user
 
 
