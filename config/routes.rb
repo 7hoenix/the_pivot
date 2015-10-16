@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "/profile", to: "users#show"
+  get "/signup", to: "users#new"
+  resources :users, only: [:create, :edit, :update]
   resources :jobs, only: [:create, :new, :show, :index]
   get "/jobs", to: "jobs#index"
 

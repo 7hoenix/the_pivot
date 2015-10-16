@@ -4,9 +4,11 @@ RSpec.feature "User signs up" do
   context "an unauthenticated user" do
     scenario "signs up and is saved" do
       visit signup_path
-      fill_in("full_name", with: "Matt H")
-      fill_in("Email", with: "matt@example.com")
-      fill_in("Display Name", with: "Matt")
+      save_and_open_page
+      fill_in("user[full_name]", with: "Matt H")
+      fill_in("user[email]", with: "matt@example.com")
+      fill_in("user[display_name]", with: "Matt")
+      fill_in("user[password]", with: "password")
       click_on "Create Account"
 
       expect(current_path).to eq(profile_path)
