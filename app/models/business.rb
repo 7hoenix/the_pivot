@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
   belongs_to :user
+  has_many :addresses, as: :addressable
 
   validates :name, uniqueness: true, presence: true
   validates :about, presence: true
