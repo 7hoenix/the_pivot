@@ -18,4 +18,10 @@ class User < ActiveRecord::Base
 
     user
   end
+
+  def load_watched_jobs(watched_jobs)
+    watched_jobs.each do |watched_job|
+      WatchedJob.find_or_create_by(user_id: id,
+    end
+  end
 end
