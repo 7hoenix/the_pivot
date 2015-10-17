@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(version: 20151017185701) do
     t.text    "full_name"
     t.integer "role",            default: 0
     t.text    "display_name"
+    t.string  "provider"
+    t.string  "token"
+    t.string  "uid"
+    t.string  "image_url"
   end
 
   create_table "watched_jobs", force: :cascade do |t|
