@@ -11,20 +11,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_or_create_by_oauth(oauth)
-    byebug
-    @user = User.find_by(email: params[:session][:email])
-    if @user && @user.authenticate(params[:session][:password])
-      if @user.user?
-        session[:user_id] = @user.id
-        redirect_back_or profile_path
-      elsif @user.admin?
-        session[:user_id] = @user.id
-        flash[:notice] = "Admin logged in."
-        redirect_to '/admin'
-      end
+    if @user
+      session[:user_id] = @user.id
+      redirect_back_or profile_path
     else
       flash[:notice] = "Invalid Login: try again"
-      render :new
+      redirect_to root_path
     end
   end
 
