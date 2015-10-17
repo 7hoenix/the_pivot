@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @user = User.find_or_create_by_oauth(oauth)
+    byebug
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       if @user.user?
@@ -32,4 +34,9 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
+  def oauth
+    request.env["omniauth.auth"]
+  end
 end
