@@ -18,8 +18,7 @@ Rails.application.routes.draw do
 
   get "/auth/github", as: :login
   get "/auth/github/callback", to: "sessions#create"
-  get "/logout", to: 'sessions#destroy'
-  delete "/logout", to: 'sessions#destroy'
+  delete "/logout", as: :logout, to: "sessions#destroy"
 
   namespace 'admin' do
     get '/', to: 'dashboard#index', as: '/'
