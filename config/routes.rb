@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :jobs, only: [:create, :new, :show, :index]
   get "/jobs", to: "jobs#index"
 
+  get "/contact", to: "home#contact"
+
   resources :businesses, only: [:new, :create]
 
   namespace "business_admin" do
