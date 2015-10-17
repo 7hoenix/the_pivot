@@ -23,7 +23,8 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :index, :show, :update]
 
-  get "/login", to: "sessions#new", :as => "login"
+  get "/auth/github", as: :login
+  #get "/login", to: "sessions#new", :as => "login"
   post "/login", to: "sessions#create"
   get "/logout", to: 'sessions#destroy'
   delete "/logout", to: 'sessions#destroy'
