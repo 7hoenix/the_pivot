@@ -10,7 +10,9 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    business = Business.new(business_params)
+    # New way
+    business = current_user.business = Business.new(business_params)
+
     if business.save
       business.addresses.find_or_create_by(address_params)
       flash[:success] = "Successfully registered business"
