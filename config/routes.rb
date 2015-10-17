@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'home#index'
 
   get "/profile", to: "users#show"
@@ -12,21 +11,13 @@ Rails.application.routes.draw do
     get "/", to: "businesses#show"
   end
 
-  resources :categories do
-    resources :items, only: [:show, :index]
-  end
-
   get "/watchlist", to: "watchlist#index"
   post "/watchlist", to: "watchlist#create"
   delete "/watchlist", to: "watchlist#delete"
   put "/watchlist", to: "watchlist#update"
 
-  resources :orders, only: [:create, :index, :show, :update]
-
   get "/auth/github", as: :login
   get "/auth/github/callback", to: "sessions#create"
-  #get "/login", to: "sessions#new", :as => "login"
-  #post "/login", to: "sessions#create"
   get "/logout", to: 'sessions#destroy'
   delete "/logout", to: 'sessions#destroy'
 

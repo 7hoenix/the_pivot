@@ -1,14 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-    if session[:user_id]
-      flash[:notice] = "Please Log out First"
-      redirect_to root_path
-    else
-      @user = User.new
-    end
-  end
-
   def create
     @user = User.find_or_create_by_oauth(oauth)
     if @user
