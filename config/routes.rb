@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :index, :show, :update]
 
   get "/auth/github", as: :login
+  get "/auth/github/callback", to: "sessions#create"
   #get "/login", to: "sessions#new", :as => "login"
-  post "/login", to: "sessions#create"
+  #post "/login", to: "sessions#create"
   get "/logout", to: 'sessions#destroy'
   delete "/logout", to: 'sessions#destroy'
 
