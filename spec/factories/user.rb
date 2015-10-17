@@ -1,22 +1,25 @@
 FactoryGirl.define do
   factory :user do
-    uid "234082342"
-    email "some@dude.com"
-    full_name "some dude"
-    nickname "hi"
+    name = Faker::Name.name
+    uid Faker::Code.ean
+    full_name name
+    email Faker::Internet.email(name)
+    nickname Faker::Internet.user_name(name)
     provider "gitub"
-    token "092ofa09jfokasjdf0ij32hf"
+    token Faker::Code.ean
     image_url "I-am-an-image-url"
   end
 
   factory :admin do
-    uid "99999999999"
-    email "admin@admin.com"
-    full_name "Mr Admin"
-    nickname "Admin"
+    name = Faker::Name.name
+    uid Faker::Code.ean
+    full_name name
+    email Faker::Internet.email(name)
+    nickname Faker::Internet.user_name(name)
     provider "gitub"
-    token "092ofa09jfokasjdf0ij32hf"
+    token Faker::Code.ean
     image_url "I-am-an-image-url"
     role 4
   end
+
 end

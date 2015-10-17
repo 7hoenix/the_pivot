@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017205150) do
+ActiveRecord::Schema.define(version: 20151017223146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,15 +80,14 @@ ActiveRecord::Schema.define(version: 20151017205150) do
   add_index "tags", ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.text    "password_digest"
     t.text    "email"
     t.text    "full_name"
-    t.integer "role",            default: 0
-    t.text    "display_name"
+    t.integer "role",      default: 0
     t.string  "provider"
     t.string  "token"
     t.string  "uid"
     t.string  "image_url"
+    t.string  "nickname"
   end
 
   create_table "watched_jobs", force: :cascade do |t|
