@@ -34,6 +34,7 @@ gem "therubyracer"
 gem "bootstrap-sass"
 gem "bootstrap_form"
 gem 'sass-rails'
+gem "omniauth-github"
 
 group :development, :test do
 
