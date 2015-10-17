@@ -1,14 +1,6 @@
 require "rails_helper"
 
 RSpec.describe User, :type => :model do
-  let(:valid_attributes) do
-    {
-      uid: "23423423424",
-      email: "some@dude.com",
-      full_name: "some@dude.com",
-
-    }
-  end
   context "valid attributes" do
     it "is valid" do
       user = User.create(email: "example@example.com", password: "password", full_name: "example")
@@ -38,6 +30,7 @@ RSpec.describe User, :type => :model do
     expect(user.role).to eq("user")
   end
   it "loads watched jobs" do
-    user.
+    user = create(:user)
+    
   end
 end
