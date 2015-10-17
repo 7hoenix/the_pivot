@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   enum role: %w(user admin)
   has_many :orders
   has_one :business
+  has_many :tags, as: :taggable
 
   def has_business?
     return true if business
