@@ -1,0 +1,6 @@
+<%= form_for [:admin, @tag] do |f| %>
+  <%= f.fields_for @tag_name do |s| %>
+    <%= s.text_field :name %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
