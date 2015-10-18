@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017205150) do
+ActiveRecord::Schema.define(version: 20151017225719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,10 +107,7 @@ ActiveRecord::Schema.define(version: 20151017205150) do
   add_index "watched_jobs", ["user_id"], name: "index_watched_jobs_on_user_id", using: :btree
 
   add_foreign_key "businesses", "users"
-<<<<<<< HEAD
+  add_foreign_key "tag_names", "tags"
   add_foreign_key "watched_jobs", "jobs"
   add_foreign_key "watched_jobs", "users"
-=======
-  add_foreign_key "tag_names", "tags"
->>>>>>> master
 end
