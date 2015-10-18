@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :jobs, only: [:new, :show, :index]
   get "/jobs", to: "jobs#index"
 
+  get "/contact", to: "home#contact"
+  get "/about", to: "home#about"
+  get "/faq", to: "home#faq"
+
   resources :businesses, only: [:new, :create]
 
   namespace "business_admin" do

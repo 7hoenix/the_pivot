@@ -1,0 +1,26 @@
+<% content_for :navbar_links do %>
+  <% if current_user && current_user.business  %>
+    <li><%= link_to "My Business",  business_admin_path %></li>
+  <% end %>
+
+  <% if current_user %>
+    <li><%= link_to "Profile", profile_path %></li>
+  <% else %>
+    <li><%= link_to "Sign Up", logout_path %></li>
+  <% end %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<div class="page-heading">
+  <h1>FAQ</h1>
+</div>
+<div id="faq-content">
+  <h3>How do I join your site?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae arcu ac lacus mattis semper. Curabitur mattis malesuada urna, eget finibus nunc. Aenean sit amet turpis purus. Praesent sit amet laoreet ex, sit amet convallis mi. Nullam ac libero et purus placerat elementum ut non enim. Curabitur vel augue in.</p>
+  <h3>Im a professional recruiter, how do I use your site?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at viverra velit. Fusce porta ut turpis sed posuere. Integer justo nibh, feugiat in suscipit a, ullamcorper et odio. Sed odio tortor, varius et facilisis eu, commodo eget eros. Curabitur rutrum mi vel ligula efficitur, at facilisis nunc posuere. Praesent venenatis commodo ullamcorper. Phasellus pulvinar, metus accumsan condimentum rutrum, erat est accumsan est, quis semper ligula orci sit amet erat. Sed et aliquam erat. Ut dapibus sapien ac efficitur vulputate. Nulla blandit euismod sagittis. Suspendisse ut risus at arcu pretium condimentum vel et magna. Praesent a scelerisque quam. Quisque sollicitudin lacinia.</p>
+  <h3>I don't have a github, can you still get me a job?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium feugiat enim, id accumsan dolor. Etiam venenatis suscipit lacus, a iaculis nulla accumsan in. Duis mauris orci, condimentum vel rutrum eget, facilisis et urna. Donec et leo id velit tristique aliquam id viverra nunc. Ut non massa sed sapien sollicitudin interdum quis nec est. Suspendisse potenti. Vivamus eleifend nisl eget purus ullamcorper porta. Nullam sollicitudin bibendum elit, scelerisque congue nunc.</p>
+  <h3>Is your site secure against attacks on personal information?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar malesuada mi eget maximus. Morbi vel hendrerit quam, id ornare nulla. Cras semper arcu lectus, vel tempor tellus vulputate quis. Nullam sit amet consectetur purus. Fusce sagittis iaculis dui, a vehicula nibh tempor ac. Morbi pretium elementum nisi, ac accumsan magna euismod non. Curabitur sollicitudin ante vel lectus ullamcorper placerat.</p>
+</div>
