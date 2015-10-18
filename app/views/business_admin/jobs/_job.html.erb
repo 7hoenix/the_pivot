@@ -1,0 +1,22 @@
+<div class="job job-status-<%= job.status %> job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
+  <div class='gh-job-details'>
+    <div class="gh-job-header">
+      <%= link_to job.title, job %>
+    </div>
+    <div class="applicants">
+      <x%= link_to "#{job.applicants.count} Applicants", business_admin_job_path(job) %>
+    </div>
+    <div class="benefits">
+      <%= job.benefits %>
+    </div>
+    <div class="description">
+      <%= job.description %>
+    </div>
+    <div class="address">
+      <%= job.address.full_address if job.address %>
+    </div>
+    <div class="fulfilled">
+      <x%= link_to "Job Fulfilled", business_admin_job_path, method: :delete %>
+    </div>
+  </div>
+</div>
