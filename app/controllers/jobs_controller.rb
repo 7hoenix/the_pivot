@@ -3,6 +3,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.where(status: "active")
+    @tags = Tag.all
   end
 
   def show
