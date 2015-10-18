@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017223146) do
+ActiveRecord::Schema.define(version: 20151017205150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,14 @@ ActiveRecord::Schema.define(version: 20151017223146) do
     t.integer  "status",     default: 0
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tag_names", force: :cascade do |t|
     t.string  "name"
+    t.integer "tag_id"
+  end
+
+  add_index "tag_names", ["tag_id"], name: "index_tag_names_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
     t.integer "taggable_id"
     t.string  "taggable_type"
   end
@@ -101,6 +107,10 @@ ActiveRecord::Schema.define(version: 20151017223146) do
   add_index "watched_jobs", ["user_id"], name: "index_watched_jobs_on_user_id", using: :btree
 
   add_foreign_key "businesses", "users"
+<<<<<<< HEAD
   add_foreign_key "watched_jobs", "jobs"
   add_foreign_key "watched_jobs", "users"
+=======
+  add_foreign_key "tag_names", "tags"
+>>>>>>> master
 end
