@@ -12,8 +12,7 @@ RSpec.describe Tag, type: :model do
 
     expect(tag).to be_valid
 
-    tag.name = nil
-
+    tag.tag_name = nil
     expect(tag).to be_invalid
   end
 
