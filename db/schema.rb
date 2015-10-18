@@ -71,14 +71,8 @@ ActiveRecord::Schema.define(version: 20151018020509) do
     t.integer  "status",     default: 0
   end
 
-  create_table "tag_names", force: :cascade do |t|
-    t.string  "name"
-    t.integer "tag_id"
-  end
-
-  add_index "tag_names", ["tag_id"], name: "index_tag_names_on_tag_id", using: :btree
-
   create_table "tags", force: :cascade do |t|
+    t.string  "name"
     t.integer "taggable_id"
     t.string  "taggable_type"
   end
@@ -98,5 +92,4 @@ ActiveRecord::Schema.define(version: 20151018020509) do
   end
 
   add_foreign_key "businesses", "users"
-  add_foreign_key "tag_names", "tags"
 end
