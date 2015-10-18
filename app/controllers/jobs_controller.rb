@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :logged_in_user, only: [:new]
 
   def index
-    @jobs = Job.active
+    @jobs = Job.where(status: "active")
   end
 
   def show
