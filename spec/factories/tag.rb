@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :tag do
-    name "Ruby"
+    tag_name 
   end
 end

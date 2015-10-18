@@ -36,6 +36,7 @@ gem "bootstrap_form"
 gem 'sass-rails'
 gem "omniauth-github"
 gem 'figaro'
+gem 'faker'
 
 group :development, :test do
 

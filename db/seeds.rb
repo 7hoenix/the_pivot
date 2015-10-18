@@ -1,23 +1,62 @@
+require "faker"
+tag_names = {
+  php: "#6082BB",
+  ruby: "#A61501",
+  front_end: "#226666",
+  javascript: "#0095DD",
+  node: "#80BD01",
+  python: "#FFDC52",
+  django: "#44B78B",
+  remote: "#AA6C39"
+}
 
-# users
+#Tag Names
+TagName.delete_all()
+tag_names.each do |name, color|
+  TagName.create(name: name, color: color)
+end
 
-# User.create(full_name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com" , display_name: nil, password: "password", role: 0)
-# User.create(full_name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", display_name: "j3", password: "password", role: 0)
-# User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", display_name: "novohispano", password: "password", role: 0)
-# User.create(full_name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", display_name: "josh", password: "password", role: 1)
-# User.create(full_name: 'D G', email: "dg", display_name: 'Synergy', password: 'dg', role: 1)
+#Users
+puts "creating users..."
+user_count = 100
+demo_user = Random.rand(user_count)
+demo_admin = Random.rand(user_count)
 
-
-Job.create(title: "senior rails dev", description: "all the backend stuff", business_id: 2, address_id: 4)
-Job.create(title: "junior rails dev", description: "all the backend stuff", business_id: 2, address_id: 4)
-
-Job.create(title: "senior php dev", description: "all the backend stuff", business_id: 2, address_id: 4)
-Job.create(title: "junior php dev", description: "all the backend stuff", business_id: 2, address_id: 4)
-
-
-Job.create(title: "Front End Developer", description: "Makes things look pretty and functional", benefits: "Tons of PTO", business_id: 3)
-
-
-
-Business.create(name: "Pivotal Labs", about: "Make sick products for other people.")
-Business.create(name: "Facebook", about: "You wish you worked here.")
+user_count.times do |index|
+  if index == demo_user 
+    name = Faker::Name.name
+    User.create(
+      full_name: name,
+      email: Faker::Internet.email(name),
+      display_name: Faker::Internet.user_name(name),
+      provider: "github",
+      token: Faker::Bitcoin.address,
+      uid: Faker::Code.ean,
+      image_url: Faker::Avatar.image( Faker::Bitcoin.address,"50x50", "jpg"),
+      role: 4
+    )
+  elsif index == demo_admin
+    name = Faker::Name.name
+    User.create(
+      full_name: name,
+      email: Faker::Internet.email(name),
+      display_name: Faker::Internet.user_name(name),
+      provider: "github",
+      token: Faker::Bitcoin.address,
+      uid: Faker::Code.ean,
+      image_url: Faker::Avatar.image( Faker::Bitcoin.address,"50x50", "jpg"),
+      role: 4
+    )
+  else
+    name = Faker::Name.name
+    User.create(
+      full_name: name,
+      email: Faker::Internet.email(name),
+      display_name: Faker::Internet.user_name(name),
+      provider: "github",
+      token: Faker::Bitcoin.address,
+      uid: Faker::Code.ean,
+      image_url: Faker::Avatar.image( Faker::Bitcoin.address,"50x50", "jpg")
+    )
+  end
+end
