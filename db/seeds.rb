@@ -47,7 +47,7 @@ user_count.times do |index|
     @demo_user = User.create(
       full_name: name,
       email: Faker::Internet.email(name),
-      display_name: Faker::Internet.user_name(name),
+      nickname: Faker::Internet.user_name(name),
       provider: "github",
       token: Faker::Bitcoin.address,
       uid: Faker::Code.ean,
@@ -58,7 +58,7 @@ user_count.times do |index|
     @demo_admin = User.create(
       full_name: name,
       email: Faker::Internet.email(name),
-      display_name: Faker::Internet.user_name(name),
+      nickname: Faker::Internet.user_name(name),
       provider: "github",
       token: Faker::Bitcoin.address,
       uid: Faker::Code.ean,
@@ -70,7 +70,7 @@ user_count.times do |index|
     user =   User.create(
       full_name: name,
       email: Faker::Internet.email(name),
-      display_name: Faker::Internet.user_name(name),
+      nickname: Faker::Internet.user_name(name),
       provider: "github",
       token: Faker::Bitcoin.address,
       uid: Faker::Code.ean,
