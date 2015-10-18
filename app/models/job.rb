@@ -1,5 +1,6 @@
 class Job < ActiveRecord::Base
   validates :title, :description, presence: true
+  belongs_to :business
   has_one :address, as: :addressable
   has_many :tags, as: :taggable
 
