@@ -16,7 +16,7 @@ class BusinessesController < ApplicationController
     if business.save
       business.addresses.find_or_create_by(address_params)
       flash[:success] = "Successfully registered business"
-      redirect_to business_admin_path(slug: business.slug)
+      redirect_to business_admin_path
     else
       flash[:errors] = "Invalid paremeters"
       render :new
