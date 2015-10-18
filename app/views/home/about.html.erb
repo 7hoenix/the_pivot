@@ -1,0 +1,30 @@
+<% content_for :navbar_links do %>
+  <% if current_user && current_user.business  %>
+    <li><%= link_to "My Business",  business_admin_path %></li>
+  <% end %>
+
+  <% if current_user %>
+    <li><%= link_to "Profile", profile_path %></li>
+  <% else %>
+    <li><%= link_to "Sign Up", logout_path %></li>
+  <% end %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<div class="page-heading">
+  <h1>About Us</h1>
+</div>
+<div id="about-content">
+  <div class="about-content-group">
+  <h3>Built by developers, for developers</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida interdum metus a laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur ultrices mi ex, et sollicitudin ligula pretium ac. Nam sed malesuada nibh, ac venenatis arcu. In tristique felis ante, non rutrum mauris porttitor vel. Nunc nec iaculis nulla. Donec sed quam rutrum, ornare magna ac, laoreet sem. Vestibulum elit lorem, imperdiet ac facilisis at, scelerisque in eros.<br><br>Aliquam nunc neque, aliquam ut mollis et, elementum vel elit. Nullam bibendum, nisi sed viverra porta, nisi odio pellentesque sem, in faucibus lorem ipsum nec.</p>
+  </div>
+  <div class="about-content-group">
+    <h3>The GitHired difference</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum sagittis velit, in tempor risus blandit consectetur. Sed tincidunt lorem nec massa mattis, quis varius purus consectetur. Aenean turpis erat, molestie a dolor ac, scelerisque vestibulum ligula. Fusce bibendum augue sed libero interdum sodales. Morbi elementum, elit eu porta sagittis, lacus orci tempor felis, sed ornare ex eros id dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt molestie nisl, quis porta diam. Praesent et elit sed libero.</p>
+  </div>
+  <div class="about-content-group">
+    <h3>Join us and GitHired!</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in lectus metus. Cras interdum in nunc ac ornare. Nulla facilisi. Maecenas eget quam et nunc laoreet lobortis. Ut eu urna.</p>
+  </div>
+</div>
