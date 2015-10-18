@@ -1,49 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-
-<body>
-  <% content_for :navbar_links do %>
-    <% if current_user && current_user.business  %>
-      <li><%= link_to "My Business",  business_admin_path %></li>
-    <% end %>
-
-    <% if current_user %>
-      <li><%= link_to "Profile", profile_path %></li>
-    <% else %>
-      <li><%= link_to "Sign Up", logout_path %></li>
-    <% end %>
-    <%= render 'layouts/basic_navbar/user_links' %>
+<% content_for :navbar_links do %>
+  <% if current_user && current_user.business  %>
+    <li><%= link_to "My Business",  business_admin_path %></li>
   <% end %>
 
-  <div class="page-heading">
-    <h1>Contact Us</h1>
-  </div>
-  <div class="contact-body">
-    <h3>If you have any questions that our site doesnt answer for you,<br>feel free to contact us by any means listed below.</h3> 
-    <table id="contact-info">
-      <tr>
-	<td>Address:</td>
-	<td>101010 Technology Way<br>Denver, CO 80000</td>
-      </tr>
-      <tr> 
-	<td>Phone:</td>
-	<td>1-800-555-1618</td>
-      </tr>
-      <tr>
-	<td>Email:</td>
-	<td>questions@githired.com</td>
-      </tr>
-    </table>
-  </div>
+  <% if current_user %>
+    <li><%= link_to "Profile", profile_path %></li>
+  <% else %>
+    <li><%= link_to "Sign Up", logout_path %></li>
+  <% end %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
 
-</body>
+<div class="page-heading">
+  <h1>Contact Us</h1>
+</div>
+<div class="contact-body">
+  <h3>If you have any questions that our site doesnt answer for you,<br>feel free to contact us by any means listed below.</h3> 
+  <table id="contact-info">
+    <tr>
+      <td>Address:</td>
+      <td>101010 Technology Way<br>Denver, CO 80000</td>
+    </tr>
+    <tr> 
+      <td>Phone:</td>
+      <td>1-800-555-1618</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>questions@githired.com</td>
+    </tr>
+  </table>
+</div>
+
