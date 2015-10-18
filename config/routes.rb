@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "/profile", to: "users#show"
-  resources :jobs, only: [:create, :new, :show, :index]
+  resources :jobs, only: [:new, :show, :index]
   get "/jobs", to: "jobs#index"
 
   resources :businesses, only: [:new, :create]
 
   namespace "business_admin" do
     get "/", to: "businesses#show"
+    resources :jobs, only: [:new, :create]
   end
 
   get "/watchlist", to: "watchlist#index"
