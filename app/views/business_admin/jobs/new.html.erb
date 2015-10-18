@@ -1,0 +1,36 @@
+<% content_for :navbar_links do %>
+  <li><%= link_to "My Business",  business_admin_path%></li>
+  <li><%= link_to "Edit Profile", logout_path%></li>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<div class="errors">
+  <%= flash[:errors] %>
+  <%= flash[:notice] %>
+</div>
+<div class="page-heading">
+<div class="container">  <h1> New Job </h1></div>
+</div>
+<div class="container-fluid page-content">
+<div class="row">
+  <div class="col-md-9 col-centered ">
+    <div class="panel-body gh-main-content">
+      <%= bootstrap_form_for [:business_admin, @job] do |f| %>
+        <%= f.text_field :title, placeholder: "Title" %>
+        <%= f.text_area :description, placeholder: "Description", size: "24x10" %>
+        <%= f.text_area :benefits, placeholder: "Benefits", size: "24x10" %>
+
+        <%= f.fields_for @address do |s| %>
+          <%= s.text_field :street, placeholder: "Street" %>
+          <%= s.text_field :unit, placeholder: "Unit" %>
+          <%= s.text_field :city, placeholder: "City" %>
+          <%= s.text_field :state, placeholder: "State" %>
+          <%= s.text_field :zip, placeholder: "Zip" %>
+        <% end %>
+
+        <%= f.submit "Create Job", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+      <% end %>
+  </div>
+  </div>
+</div>
+</div>

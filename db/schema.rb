@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20151017205150) do
     t.text     "title"
     t.text     "description"
     t.integer  "business_id"
-    t.integer  "status",      default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "status",      default: "active"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "benefits"
     t.integer  "address_id"
   end

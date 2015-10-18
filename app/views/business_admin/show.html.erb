@@ -17,8 +17,23 @@
     <div class="panel-body gh-main-content">
       <h2>About</h2>
       <%= @business.about %>
-      <%= link_to "Post New Job", new_job_path,  class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+      <h2>My Job postings</h2>
+      <div class="gh-form-button change-status-button change-status-all col-md-2
+      btn btn-default">
+        All
+      </div>
+      <% @statuses.each do |status| %>
+        <div class="gh-form-button change-status-button change-status-<%= status %> col-md-2
+        btn btn-default">
+          <%= status %>
+        </div>
+      <% end %>
+
+    <%= render partial: "business_admin/jobs/job", collection: @jobs, locals: { type: "index" }%>
+      <%= link_to "Post New Job", new_business_admin_job_path,  class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
   </div>
   </div>
 </div>
 </div>
+
+<%= javascript_include_tag "business_dashboard" %>

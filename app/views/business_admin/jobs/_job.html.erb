@@ -3,23 +3,20 @@
     <div class="gh-job-header">
       <%= link_to job.title, job %>
     </div>
-
-
+    <div class="applicants">
+      <x%= link_to "#{job.applicants.count} Applicants", business_admin_job_path(job) %>
+    </div>
+    <div class="benefits">
+      <%= job.benefits %>
+    </div>
     <div class="description">
       <%= job.description %>
     </div>
     <div class="address">
       <%= job.address.full_address if job.address %>
     </div>
+    <div class="fulfilled">
+      <x%= link_to "Job Fulfilled", business_admin_job_path, method: :delete %>
+    </div>
   </div>
-
-
-  <div class="button">
-    <% if type == "watchlist" %>
-      <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
-    <% else %>
-      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
-    <% end %>
-  </div>
-
 </div>
