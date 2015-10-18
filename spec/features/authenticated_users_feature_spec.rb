@@ -6,7 +6,6 @@ RSpec.feature "Authenticated user", type: :feature do
 
     scenario "can log out" do
       login_with_oauth
-      save_and_open_page
       click_link_or_button 'Log out'
 
 
