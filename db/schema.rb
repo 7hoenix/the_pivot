@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20151017225719) do
     t.text     "title"
     t.text     "description"
     t.integer  "business_id"
-    t.integer  "status",      default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "status",      default: "active"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "benefits"
     t.integer  "address_id"
   end
@@ -72,15 +72,16 @@ ActiveRecord::Schema.define(version: 20151017225719) do
   end
 
   create_table "tag_names", force: :cascade do |t|
-    t.string  "name"
-    t.integer "tag_id"
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "tag_names", ["tag_id"], name: "index_tag_names_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.integer "taggable_id"
     t.string  "taggable_type"
+    t.integer "tag_name_id"
   end
 
   add_index "tags", ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
@@ -107,7 +108,10 @@ ActiveRecord::Schema.define(version: 20151017225719) do
   add_index "watched_jobs", ["user_id"], name: "index_watched_jobs_on_user_id", using: :btree
 
   add_foreign_key "businesses", "users"
+<<<<<<< HEAD
   add_foreign_key "tag_names", "tags"
   add_foreign_key "watched_jobs", "jobs"
   add_foreign_key "watched_jobs", "users"
+=======
+>>>>>>> 91-add-tag-names
 end

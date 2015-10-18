@@ -1,9 +1,8 @@
-<div class="job job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
+<div class="job <% job.tags.each do |tag| %>job-tag-<%= tag.name %> <% end %> job-status-<%= job.status %> job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
   <div class='gh-job-details'>
     <div class="gh-job-header">
       <%= link_to job.title, job %>
     </div>
-
 
     <div class="description">
       <%= job.description %>
@@ -12,7 +11,6 @@
       <%= job.address.full_address if job.address %>
     </div>
   </div>
-
 
   <div class="button">
     <% if type == "watchlist" %>

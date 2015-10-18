@@ -1,1 +1,7 @@
-<h1 id="banner">Welcome to the admin dashboard, sensei!</h1>
+<h1 id="banner">Admin Panel</h1>
+<% @tags.each do |tag| %>
+  <%= tag.name %>
+  <%= link_to "Delete this tag", admin_tag_path(tag), method: :delete %>
+  <br/>
+<% end %>
+<%= link_to "Add another tag", new_admin_tag_path %>

@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="353" y="278" name="users">
+</datatypes><table x="305" y="328" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -57,11 +57,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="addresses" row="id" />
 </row>
+<row name="new field" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="823" y="126" name="watched_jobs">
+<table x="817" y="154" name="watched_jobs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -77,7 +80,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1182" y="326" name="jobs">
+<table x="1297" y="265" name="jobs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -102,7 +105,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="821" y="227" name="applied_jobs">
+<table x="823" y="282" name="applied_jobs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -118,7 +121,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="820" y="418" name="businesses">
+<table x="833" y="431" name="businesses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -127,12 +130,6 @@
 <default>NULL</default><relation table="users" row="id" />
 </row>
 <row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="id_jobs" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="new field" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="about" null="1" autoincrement="0">
@@ -149,7 +146,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="831" y="693" name="addresses">
+<table x="834" y="606" name="addresses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -172,31 +169,29 @@
 <part>id</part>
 </key>
 </table>
-<table x="1265" y="37" name="tags">
+<table x="844" y="51" name="tags">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
+<row name="taggable_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="job_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="new field" null="1" autoincrement="0">
+<default>NULL</default><relation table="users" row="id" />
+<relation table="jobs" row="id" />
+</row>
+<row name="taggable_type" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="1340" y="296" name="job_tags">
+<table x="1051.1111129949122" y="2" name="tag_names">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="job_id" null="1" autoincrement="0">
+<row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="jobs" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="tag_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="tags" row="id" />
@@ -205,7 +200,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="839" y="11" name="user_tags">
+<table x="840.1111151141886" y="781" name="resumes">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -213,9 +208,24 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="tag_id" null="1" autoincrement="0">
+<row name="new field" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tags" row="id" />
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1299.6666679029113" y="678" name="job_resumes">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="job_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="jobs" row="id" />
+</row>
+<row name="resume_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="resumes" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>

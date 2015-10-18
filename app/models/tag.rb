@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
   belongs_to :taggable, polymorphic: true
-  has_one :tag_name
+  belongs_to :tag_name
 end

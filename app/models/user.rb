@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_one :business
   has_many :tags, as: :taggable
 
+
   def has_business?
     return true if business
   end
