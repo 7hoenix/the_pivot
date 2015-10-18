@@ -12,7 +12,7 @@ RSpec.feature "Job has an address" do
       visit business_admin_path
       click_on "Post New Job"
 
-      expect(current_path).to eq(new_job_path)
+      expect(current_path).to eq(new_business_admin_job_path )
       fill_in("Title", with: "Jr Dev")
       fill_in("Description", with: "Make coffee every day")
       fill_in("Benefits", with: "PTO... lots of it")
