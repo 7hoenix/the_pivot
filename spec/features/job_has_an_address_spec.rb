@@ -9,7 +9,6 @@ RSpec.feature "Job has an address" do
       create(:business, user_id: user.id)
 
       login_with_oauth
-      binding.pry
       visit business_admin_path
       click_on "Post New Job"
 
