@@ -115,3 +115,5 @@ jobs_count.times do |index|
   job.business = Business.all.sample
   job.save
 end
+
+
