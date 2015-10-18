@@ -5,35 +5,17 @@ class JobsController < ApplicationController
     @jobs = Job.active
   end
 
-  def post
-  end
-
   def show
     @job = Job.find(params[:id])
   end
 
   def new
-    if current_user && current_user.has_business?
-      @job = Job.new
-      @address = Address.new
-    elsif current_user
+    if current_user.has_business?
+      redirect_to new_business_admin_job_path
+    else
       flash[:danger] = "Must have a business to register a new job
       opportuntity"
       redirect_to new_business_path
-    else
-      flash[:danger] = "Log in to post a new job"
-      redirect_to login_path
-    end
-  end
-
-  def create
-    @job = Job.new(job_params)
-    if @job.save
-      @job.address = Address.find_or_create_by(address_params)
-      redirect_to jobs_path
-    else
-      flash[:errors] = "Job not created"
-      render :new
     end
   end
 
