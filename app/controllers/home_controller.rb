@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   def about
   end
 
+  def faq
+  end
+
   def index
     render layout: "landing_page"
   end
