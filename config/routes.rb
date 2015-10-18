@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   namespace 'admin' do
     get '/', to: 'dashboard#index', as: '/'
+    resources :tags, only: [:new, :create]
   end
 
   get "/:slug", as: :business, to: "businesses#show"
