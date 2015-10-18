@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User has resumes" do
   context "to choose from" do
-    scenario "after creating them" do
+    xscenario "after creating them" do
       @user = create(:user)
       session[:user_id] = @user.id
 

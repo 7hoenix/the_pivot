@@ -9,9 +9,10 @@ RSpec.feature "User creates a business" do
     end
     scenario "and is redirected to their business dashboard" do
       visit root_path
-      click_on "Post a Job"
 
       login_with_oauth
+      click_on "Post a Job"
+
       expect(current_path).to eq(new_business_path)
       fill_in("Name", with: "Pivotal Labs")
       fill_in("About", with: "Business Consultancy")
