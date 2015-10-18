@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/jobs", to: "jobs#index"
 
   get "/contact", to: "home#contact"
+  get "/about", to: "home#about"
 
   resources :businesses, only: [:new, :create]
 

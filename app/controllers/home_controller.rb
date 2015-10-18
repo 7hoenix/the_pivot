@@ -5,6 +5,9 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def about
+  end
+
   def index
     render layout: "landing_page"
   end
