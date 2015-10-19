@@ -52,6 +52,7 @@ user_count.times do |index|
       token: Faker::Bitcoin.address,
       uid: Faker::Code.ean,
       image_url: Faker::Avatar.image( Faker::Bitcoin.address,"50x50", "jpg"),
+      location: "#{Faker::Address.city}, #{Faker::Address.state_abbr}"
     )
   elsif index == demo_admin
     name = Faker::Name.name
