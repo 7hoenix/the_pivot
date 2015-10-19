@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
     user.github = oauth.info.urls.GitHub
     user.location = Octokit.user( user.nickname).location
     user.save
-    binding.pry
 
     user
   end
