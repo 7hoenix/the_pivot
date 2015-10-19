@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   enum role: %w(user admin)
-  has_many :orders
   has_one :business
+
+  has_many :orders
   has_many :tags, as: :taggable
   has_many :tag_names, through: :tags
+  has_many :watched_jobs
 
 
   def has_business?
