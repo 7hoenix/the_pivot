@@ -38,10 +38,11 @@ gem "omniauth-github"
 gem 'figaro'
 gem 'faker'
 gem 'octokit'
+gem 'coveralls', require: false
+gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
 
-  gem 'coveralls', require: false
 
   gem 'factory_girl_rails'
   gem 'mocha'

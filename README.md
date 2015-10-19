@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/jphoenix86/the_pivot.png?label=ready&title=Ready)](https://waffle.io/jphoenix86/the_pivot)
+[![Coverage Status](https://coveralls.io/repos/jphoenix86/the_pivot/badge.svg?branch=71-add-test-coverage-tool&service=github)](https://coveralls.io/github/jphoenix86/the_pivot?branch=71-add-test-coverage-tool)
 # GitHired
 
 [Live Heroku Link](https://githired.herokuapp.com/)
