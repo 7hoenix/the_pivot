@@ -8,7 +8,7 @@ require 'simplecov'
 
 
 
-# SimpleCov.start
+SimpleCov.start
 
 Coveralls.wear!
 
