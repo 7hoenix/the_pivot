@@ -23,9 +23,16 @@ class User < ActiveRecord::Base
     user
   end
 
-  def load_watched_jobs(watched_jobs)
-    watched_jobs.each do |watched_job|
-      WatchedJob.find_or_create_by(user_id: id)
+  def load_watched_jobs(job_ids)
+    return false if !job_ids
+    job_ids.each do |job_id|
+      WatchedJob.find_or_create_by(user_id: id, job_id: job_id)
+    end
+  end
+
+  def watched
+    watched_jobs.map do |watched_job|
+      watched_job.job
     end
   end
 end

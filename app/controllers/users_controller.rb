@@ -3,11 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @jobs = Job.all
-    @watchlist = Job.where(id: session[:watchlist])
-    if !session[:watchlist].nil?
-      @wjobs = Job.find(session[:watchlist])
-    end
+    @jobs = Job.all.sample(4)
+    @watchlist = @user.watched
   end
 
   def edit
