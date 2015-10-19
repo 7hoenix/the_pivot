@@ -3,19 +3,36 @@
 <% end %>
 
 <div class="page-heading">
-<div class="container">  <h1>New Business</h1></div>
+  <div class="container">  <h1>New Business</h1></div>
 </div>
-<div>
-<%= form_for @business do |f| %>
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.text_field :about, placeholder: "About" %>
-  <%= f.file_field :picture %>
-  <%= f.fields_for @address do |s| %>
-    <%= s.text_field :street, placeholder: "Street" %>
-    <%= s.text_field :unit, placeholder: "Unit" %>
-    <%= s.text_field :city, placeholder: "City" %>
-    <%= s.text_field :state, placeholder: "State" %>
-    <%= s.text_field :zip, placeholder: "Zip" %>
-  <% end %>
-  <%= f.submit "Register Business" %>
-<% end %>
+<div class='container page-content'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class='panel-body gh-main-content'>
+        <%= bootstrap_form_for @business do |f| %>
+        <div class='row'>
+          <div class='col-md-6'>
+            <%= f.text_field :name, placeholder: "Name", class: "col-md-6" %>
+            <%= f.fields_for @address do |s| %>
+            <div class="row"><h3 class="col-md-6">Address</h3></div>
+            <%= s.text_field :street, placeholder: "Street" %>
+            <%= s.text_field :unit, placeholder: "Unit" %>
+            <%= s.text_field :city, placeholder: "City" %>
+            <%= s.text_field :state, placeholder: "State" %>
+            <%= s.text_field :zip, placeholder: "Zip" %>
+            <% end %>
+          </div>
+          <div class='col-md-6'>
+            <%= f.text_area :about, placeholder: "About", size: "24x20"  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-centered">
+            <%= f.submit "Register Business" , class: "btn btn-default gh-form-button"%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
