@@ -26,6 +26,4 @@ class User < ActiveRecord::Base
       WatchedJob.find_or_create_by(user_id: id)
     end
   end
-
-  
 end
