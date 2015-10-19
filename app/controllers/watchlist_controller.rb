@@ -1,10 +1,15 @@
 class WatchlistController < ApplicationController
   def create
-    if !session[:watchlist]
-      session[:watchlist] = []
+    if current_user
+      current_user.load_watched_jobs([params[:job_id]])
+    else
+      if !session[:watchlist]
+        session[:watchlist] = []
+      end
+      session[:watchlist] << params[:job_id].to_i
+      session[:watchlist].uniq!
     end
-    session[:watchlist] << params[:job_id].to_i
-    session[:watchlist].uniq!
+
     redirect_to profile_path
   end
 
