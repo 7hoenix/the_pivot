@@ -4,8 +4,13 @@ require "mocha"
 require 'omniauth'
 require 'capybara/rspec'
 
-Coveralls.wear!
+require 'simplecov'
 
+
+
+# SimpleCov.start
+
+Coveralls.wear!
 
 module IntegrationSpecHelper
   def login_with_oauth(service = :github)
