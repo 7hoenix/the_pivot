@@ -31,6 +31,13 @@
         <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right"><%= @user.location %></span></div>
         <hr>
       </div>
+      <div class="panel-body">
+        <% @user.tag_names.each do |tag_name| %>
+          <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
+        <% end %>
+        Tag area
+
+      </div>
     </div>
     <div class="col-md-6">
       <div class="panel-body gh-main-content">
