@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-heading">
-<div class="container">  <h1>Profile:  <%= @user.full_name %></h1></div>
+<div class="container">  <h1>Profile:  <%= @user.nickname %></h1></div>
 </div>
 <div>
 
@@ -24,13 +24,9 @@
           </div>
         </div>
 
-        <div class='gh-address-line'><span class='gh-heading-4'>phone:</span> <span class="gh-right"><%= @user.email %></span></div>
-        <hr>
-        <div class='gh-address-line'><span class='gh-heading-4'>Address:</span><span class="gh-right"> <%= @user.email %></span></div>
-        <hr>
         <div class='gh-address-line'><span class='gh-heading-4'>Email:</span> <span class="gh-right"><%= @user.email %></span></div>
         <hr>
-        <div class='gh-address-line'><span class='gh-heading-4'>GitHub:</span> <span class="gh-right"><%= @user.email %></span></div>
+        <div class='gh-address-line'><span class='gh-heading-4'>GitHub:</span> <span class="gh-right"><%= link_to @user.github, @user.github %></span></div>
         <hr>
       </div>
     </div>

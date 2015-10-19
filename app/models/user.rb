@@ -15,9 +15,11 @@ class User < ActiveRecord::Base
   def self.find_or_create_by_oauth(oauth)
     user = User.find_or_create_by(provider: oauth.provider, uid: oauth.uid)
 
+    user.nickname = oauth.info.nickname
     user.email = oauth.info.email
     user.image_url = oauth.info.image
     user.token = oauth.credentials.token
+    user.github = oauth.info.urls.GitHub
     user.save
 
     user

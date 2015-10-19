@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018185142) do
+ActiveRecord::Schema.define(version: 20151019020232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151018185142) do
     t.string  "uid"
     t.string  "image_url"
     t.string  "nickname"
+    t.string  "github"
   end
 
   create_table "watched_jobs", force: :cascade do |t|
