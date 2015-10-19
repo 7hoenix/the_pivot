@@ -1,7 +1,18 @@
 require "factory_girl_rails"
 require "coveralls"
 require "mocha"
+require 'omniauth'
+require 'capybara/rspec'
+
 Coveralls.wear!
+
+
+module IntegrationSpecHelper
+  def login_with_oauth(service = :github)
+    visit "/auth/#{service}"
+  end
+end
+
 
 RSpec.configure do |config|
 
@@ -15,6 +26,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include Capybara::DSL
 
   config.include FactoryGirl::Syntax::Methods
 
@@ -34,4 +47,16 @@ RSpec.configure do |config|
   end
 
   config.profile_examples = 5
+  config.include IntegrationSpecHelper, :type => :request
+
+  # Capybara.default_host = 'localhost:3000'
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:github, {
+    :uid => '12345',
+    :credentials => {:token => "12345"},
+    :nickname => 'somedude'
+  })
 end
+
+

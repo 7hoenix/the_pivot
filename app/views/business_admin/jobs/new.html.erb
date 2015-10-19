@@ -20,6 +20,12 @@
         <%= f.text_area :description, placeholder: "Description", size: "24x10" %>
         <%= f.text_area :benefits, placeholder: "Benefits", size: "24x10" %>
 
+        <% Tag.all.each do |tag| %>
+          <%= check_box_tag "job[tag_ids][]", tag.id, f.object.tags.include?(tag)
+        %>
+        <%= tag.name %>
+      <% end %>
+
         <%= f.fields_for @address do |s| %>
           <%= s.text_field :street, placeholder: "Street" %>
           <%= s.text_field :unit, placeholder: "Unit" %>

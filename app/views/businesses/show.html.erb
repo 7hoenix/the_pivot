@@ -1,5 +1,5 @@
 <% content_for :navbar_links do %>
-  <% if current_user.business  %>
+  <% if  current_user && current_user.business  %>
     <li><%= link_to "My Business",  business_admin_path%></li>
   <% else %>
     <li><%= link_to "Create Business",  new_business_path%></li>

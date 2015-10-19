@@ -1,4 +1,9 @@
 class Tag < ActiveRecord::Base
+  validates :tag_name_id, presence: true
   belongs_to :taggable, polymorphic: true
-  has_one :tag_name
+  belongs_to :tag_name
+
+  def name
+    tag_name.name
+  end
 end

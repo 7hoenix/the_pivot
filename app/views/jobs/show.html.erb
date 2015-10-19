@@ -1,11 +1,45 @@
-<div class="job">
+<% content_for :navbar_links do %>
+<% if current_user && current_user.business  %>
+<li><%= link_to "My Business",  business_admin_path%></li>
+<% else %>
+<li><%= link_to "Create Business",  new_business_path%></li>
+<% end %>
+<li><%= link_to "Edit Profile", logout_path%></li>
+<%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
 
-    <div class="header">
-        <%= @job.title %>
+<div class="page-heading">
+  <div class="container">  <h1><%= @job.business.name %></h1></div>
+</div>
+<div>
+  <div class="container">
+
+    <div class="row">
+      <h1><%= @job.title %></h1>
     </div>
-
-    <div class="description">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Description:</h3>
+      </div>
+    </div>
+    <div class="description row">
+      <div class="col-md-10 col-centered">
         <%= @job.description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Benefits:</h3>
+      </div>
+    </div>
+    <div class="benefits row">
+      <div class="col-md-10 col-centered">
+        <%= @job.benefits %>
+      </div>
+    </div>
+    <hr><br>
+    <div class="row">
+      <div class=""><%= link_to "Apply", "#", class: "btn btn-default gh-form-button col-md-2 col-centered" %></div>
     </div>
 
 
@@ -21,4 +55,4 @@
 
     <% end %>
 
-</div>
+  </div>

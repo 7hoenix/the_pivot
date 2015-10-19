@@ -2,13 +2,11 @@ require "rails_helper"
 
 
 RSpec.feature "A user" do
+  include IntegrationSpecHelper
   context "is logged in" do
     before (:each) do
       @user = create(:user)
-      visit "/login"
-      fill_in("session[email]", with: @user.email)
-      fill_in("session[password]", with: @user.password)
-      click_button "Login"
+      login_with_oauth
     end
 
     scenario "and sees a feed of all jobs" do

@@ -1,23 +1,18 @@
 require "rails_helper"
 
-def log_in_user(user)
-  visit "/login"
-  fill_in("Email", with: user.email)
-  fill_in("Password", with: user.password)
-  click_button "Login"
-end
 
 RSpec.feature "Job has an address" do
+  include IntegrationSpecHelper
   context "when it is created" do
     scenario "by a user with a business" do
-      user = create(:user)
+      user = create(:user, uid: '12345', token: '12345')
       create(:business, user_id: user.id)
 
-      log_in_user(user)
+      login_with_oauth
       visit business_admin_path
       click_on "Post New Job"
 
-      expect(current_path).to eq(new_job_path)
+      expect(current_path).to eq(new_business_admin_job_path )
       fill_in("Title", with: "Jr Dev")
       fill_in("Description", with: "Make coffee every day")
       fill_in("Benefits", with: "PTO... lots of it")

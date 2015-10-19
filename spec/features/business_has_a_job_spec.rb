@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.feature "business has an address" do
+  include IntegrationSpecHelper
   context "when it is created" do
     scenario "by a user" do
-      user = create(:user)
-      log_in_user(user)
+      login_with_oauth
 
       visit new_business_path
       fill_in("Name", with: "Pivotal Labs")

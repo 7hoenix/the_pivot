@@ -5,8 +5,6 @@
 
   <% if current_user %>
     <li><%= link_to "Profile", profile_path %></li>
-  <% else %>
-    <li><%= link_to "Sign Up", logout_path %></li>
   <% end %>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>

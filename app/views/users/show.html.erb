@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-heading">
-<div class="container">  <h1>Profile:  <%= @user.full_name %></h1></div>
+<div class="container">  <h1>Profile:  <%= @user.nickname %></h1></div>
 </div>
 <div>
 
@@ -19,19 +19,24 @@
       <div class="panel-body gh-address-box">
         <div class="row">
           <div class="col-md-12">
-            <%= image_tag("placeholder.png", class: "img-responsive") %>
+            <%= image_tag(@user.image_url, class: "img-responsive") %>
 
           </div>
         </div>
 
-        <div class='gh-address-line'><span class='gh-heading-4'>phone:</span> <span class="gh-right"><%= @user.email %></span></div>
-        <hr>
-        <div class='gh-address-line'><span class='gh-heading-4'>Address:</span><span class="gh-right"> <%= @user.email %></span></div>
-        <hr>
         <div class='gh-address-line'><span class='gh-heading-4'>Email:</span> <span class="gh-right"><%= @user.email %></span></div>
         <hr>
-        <div class='gh-address-line'><span class='gh-heading-4'>GitHub:</span> <span class="gh-right"><%= @user.email %></span></div>
+        <div class='gh-address-line'><span class='gh-heading-4'>GitHub:</span> <span class="gh-right"><%= link_to @user.github, @user.github %></span></div>
         <hr>
+        <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right"><%= @user.location %></span></div>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <% @user.tag_names.each do |tag_name| %>
+          <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
+        <% end %>
+        Tag area
+
       </div>
     </div>
     <div class="col-md-6">

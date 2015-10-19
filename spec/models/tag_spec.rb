@@ -7,6 +7,15 @@ RSpec.describe Tag, type: :model do
     expect(tag).to be_valid
   end
 
+  it "is only valid with correct attributes" do
+    tag = build(:tag)
+
+    expect(tag).to be_valid
+
+    tag.tag_name = nil
+    expect(tag).to be_invalid
+  end
+
   it "can have many jobs" do
     tag = create(:tag)
     job = create(:job)

@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :business do
-    name "Pivotal Labs"
-    about "Business Consultancy"
-    slug "pivotal-labs"
+    name Faker::Company.name
+    about Faker::Company.catch_phrase
   end
 end

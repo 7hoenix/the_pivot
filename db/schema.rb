@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017205150) do
+ActiveRecord::Schema.define(version: 20151019023319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,31 +72,44 @@ ActiveRecord::Schema.define(version: 20151017205150) do
   end
 
   create_table "tag_names", force: :cascade do |t|
-    t.string  "name"
-    t.integer "tag_id"
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "tag_names", ["tag_id"], name: "index_tag_names_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.integer "taggable_id"
     t.string  "taggable_type"
+    t.integer "tag_name_id"
   end
 
   add_index "tags", ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.text    "password_digest"
     t.text    "email"
     t.text    "full_name"
-    t.integer "role",            default: 0
-    t.text    "display_name"
+    t.integer "role",      default: 0
     t.string  "provider"
     t.string  "token"
     t.string  "uid"
     t.string  "image_url"
+    t.string  "nickname"
+    t.string  "github"
+    t.string  "location"
   end
 
+  create_table "watched_jobs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "watched_jobs", ["job_id"], name: "index_watched_jobs_on_job_id", using: :btree
+  add_index "watched_jobs", ["user_id"], name: "index_watched_jobs_on_user_id", using: :btree
+
   add_foreign_key "businesses", "users"
-  add_foreign_key "tag_names", "tags"
+  add_foreign_key "watched_jobs", "jobs"
+  add_foreign_key "watched_jobs", "users"
 end

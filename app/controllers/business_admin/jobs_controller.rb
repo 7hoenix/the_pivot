@@ -2,6 +2,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
   def new
     if current_user.has_business?
       @job = Job.new
+      @tags = Tag.all
       @address = Address.new
     else
       flash[:danger] = "Must have a business to register a new job
@@ -11,9 +12,10 @@ class BusinessAdmin::JobsController < BusinessAdminController
   end
 
   def create
-    @job = current_user.business.jobs.new(job_params)
-    if @job.save
-      @job.address = Address.find_or_create_by(address_params)
+    job = current_user.business.jobs.new(job_params)
+    job.tags << Tag.where(id: job_params[:tag_ids])
+    if job.save
+      job.address = Address.find_or_create_by(address_params)
       redirect_to jobs_path
     else
       flash[:errors] = "Job not created"
@@ -24,7 +26,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :benefits)
+    params.require(:job).permit(:title, :description, :benefits, tag_ids: [])
   end
 
   def address_params
