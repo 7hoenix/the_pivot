@@ -109,8 +109,8 @@ jobs_count = 300
 jobs_count.times do |index|
   job = Job.new(
     title: Faker::Name.title,
-    description: Faker::Lorem.paragraphs(Random.rand(1..3)).join('\n'),
-    benefits: Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n'),
+    description: Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n'),
+    benefits: Faker::Lorem.paragraphs(1).join('\n'),
     status: random_job_status
   )
   job.business = Business.all.sample
