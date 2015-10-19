@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_one :business
   has_many :tags, as: :taggable
+  has_many :tag_names, through: :tags
 
 
   def has_business?
@@ -25,4 +26,6 @@ class User < ActiveRecord::Base
       WatchedJob.find_or_create_by(user_id: id)
     end
   end
+
+  
 end
