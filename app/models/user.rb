@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
     user.image_url = oauth.info.image
     user.token = oauth.credentials.token
     user.github = oauth.info.urls.GitHub
+    user.location = Octokit.user( user.nickname).location
     user.save
+    binding.pry
 
     user
   end
