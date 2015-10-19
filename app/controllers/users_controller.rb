@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    binding.pry
     @jobs = Job.all.sample(4)
     @watchlist = @user.watched
   end

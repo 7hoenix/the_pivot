@@ -1,30 +1,41 @@
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
+<% content_for :navbar_links do %>
+<% if current_user && current_user.business  %>
+<li><%= link_to "My Business",  business_admin_path%></li>
+<% else %>
+<li><%= link_to "Create Business",  new_business_path%></li>
+<% end %>
+<% if current_user %>
+<li><%= link_to "Edit Profile", logout_path%></li>
+<% else %>
+<%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+<%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
+<div class="page-heading">
+  <div class="container">  <h1>Jobs</h1></div>
+</div>
+<div>
 
-<div class='row'>
-  <div class="col-md-9 col-centered">
-    <div class="panel-body gh-main-content">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="joblist">
-            <div class="gh-form-button change-tag-button change-tag-all col-md-2
-            btn btn-default">
-              All
-            </div>
-            <% @tags.each do |tag| %>
-              <div class="gh-form-button change-tag-button change-tag-<%= tag.name %> col-md-2
-              btn btn-default">
-                <%= tag.name %>
-              </div>
-            <% end %>
-             <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
-          </div>
-        </div>
-      </div>
+  <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <div class="container-fluid page-content">
+    <div class='row'>
+
+      <div class="gh-form-button change-tag-button change-tag-all col-md-2
+      btn btn-default">
+      All
     </div>
+    <% @tags.each do |tag| %>
+    <div class="gh-form-button change-tag-button change-tag-<%= tag.name %> col-md-1
+      btn btn-default">
+      <%= tag.name %>
+    </div>
+    <% end %>
   </div>
+  <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
 </div>
 
 <%= javascript_include_tag "profile" %>
