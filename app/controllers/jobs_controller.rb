@@ -11,12 +11,17 @@ class JobsController < ApplicationController
   end
 
   def new
-    if current_user.has_business?
-      redirect_to new_business_admin_job_path
+    if current_user
+      if current_user.has_business?
+        redirect_to new_business_admin_job_path
+      else
+        flash[:danger] = "Must have a business to register a new job
+        opportuntity"
+        redirect_to new_business_path
+      end
     else
-      flash[:danger] = "Must have a business to register a new job
-      opportuntity"
-      redirect_to new_business_path
+      binding.pry
+      redirect_to login_path
     end
   end
 

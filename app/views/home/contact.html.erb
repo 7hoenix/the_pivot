@@ -1,19 +1,9 @@
 <% content_for :navbar_links do %>
-  <% if current_user && current_user.business  %>
-    <li><%= link_to "My Business",  business_admin_path %></li>
-  <% end %>
-
-  <% if current_user %>
-    <li><%= link_to "Profile", profile_path %></li>
-  <% else %>
-    <li><%= link_to "Sign Up", logout_path %></li>
-  <% end %>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <h1>Contact Us</h1>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "Contact Us"}%>
+
 <div class="contact-body">
   <h3>If you have any questions that our site doesnt answer for you,<br>feel free to contact us by any means listed below.</h3> 
   <table id="contact-info">

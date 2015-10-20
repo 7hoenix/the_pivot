@@ -2,9 +2,8 @@
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <div class="container">  <h1>New Business</h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "#{current_user.nickname}: New Business"}%>
+
 <div class='container page-content'>
   <div class='row'>
     <div class='col-md-12'>
