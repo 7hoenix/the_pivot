@@ -7,10 +7,7 @@
   <li><%= link_to "Edit Profile", logout_path%></li>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
-
-<div class="page-heading">
-<div class="container">  <h1>Profile:  <%= @user.nickname %></h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "Profile: #{@user.nickname}"}%>
 <div>
 
 <div class='container-fluid page-content'>

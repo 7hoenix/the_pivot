@@ -8,9 +8,7 @@
 <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <div class="container">  <h1><%= @job.business.name %></h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: @job.business.name }%>
 <div>
   <div class="container">
 
