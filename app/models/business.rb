@@ -10,6 +10,9 @@ class Business < ActiveRecord::Base
   validates :about, presence: true
   validates :slug, uniqueness: true, presence: true
 
+  def to_param
+    self.slug
+  end
   private
 
   def generate_slug

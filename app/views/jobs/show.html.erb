@@ -2,7 +2,7 @@
 <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<%= render "layouts/page_heading", locals = {heading: @job.business.name }%>
+<%= render "layouts/page_heading", locals = {heading: link_to(@job.business.name, business_path(@job.business)) }%>
 
 <div>
   <div class="container">
