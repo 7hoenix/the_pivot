@@ -1,7 +1,7 @@
 <h2>Pick the skills you are most interested in</h2>
 <h3>These will be the jobs that show up in your feed every day</h3>
 <%= form_for [:profile, @user], url: profile_path, method: :put do |f| %>
-  <% Tag.all.each do |tag| %>
+  <% @tags.each do |tag| %>
     <%= check_box_tag "user[tag_ids][]", tag.id, f.object.tags.include?(tag) %>
     <%= tag.name %>
   <% end %>

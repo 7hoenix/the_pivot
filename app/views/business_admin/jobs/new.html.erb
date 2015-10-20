@@ -20,7 +20,7 @@
         <%= f.text_area :description, placeholder: "Description", size: "24x10" %>
         <%= f.text_area :benefits, placeholder: "Benefits", size: "24x10" %>
 
-        <% Tag.all.each do |tag| %>
+        <% @tags.each do |tag| %>
           <%= check_box_tag "job[tag_ids][]", tag.id, f.object.tags.include?(tag)
         %>
         <%= tag.name %>
