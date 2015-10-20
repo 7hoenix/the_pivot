@@ -114,7 +114,6 @@ jobs_count.times do |index|
     status: random_job_status
   )
   job.business = Business.all.sample
-
   job_tag_names = TagName.all.sample(Random.rand(1..3))
   job_tag_names.each do |tag_name|
     job.tags << Tag.new(tag_name_id: tag_name.id)
