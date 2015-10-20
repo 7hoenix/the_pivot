@@ -9,11 +9,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @tags = TagName.all
   end
 
   def update
     user = current_user
-    user.tags << Tag.where(id: user_params[:tag_ids])
+    user_params[:tag_ids].each do |tag_name_id|
+      Tag.find_or_create_by(taggable_id: user.id, taggable_type: "User", tag_name_id: tag_name_id)
+    end
     if user.save
       flash[:message] = "Preferences saved"
       redirect_to profile_path
