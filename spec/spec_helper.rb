@@ -8,7 +8,7 @@ require 'simplecov'
 
 
 
-SimpleCov.start
+# SimpleCov.start
 
 Coveralls.wear!
 
@@ -60,7 +60,10 @@ RSpec.configure do |config|
   OmniAuth.config.add_mock(:github, {
     :uid => '12345',
     :credentials => {:token => "12345"},
-    :nickname => 'somedude'
+    :info => {
+      :nickname => 'somedude',
+      :urls => {GitHub: "abc"}
+    }
   })
 end
 
