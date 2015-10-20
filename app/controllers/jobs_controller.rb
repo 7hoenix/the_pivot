@@ -2,7 +2,8 @@ class JobsController < ApplicationController
   before_action :logged_in_user, only: [:new]
 
   def index
-    @jobs = Job.where(status: "active")
+    active_business_ids = Business.online.pluck(:id)
+    @jobs = Job.where(business_id: active_business_ids).active
     @tags = TagName.all
   end
 
