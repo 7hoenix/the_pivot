@@ -1,11 +1,4 @@
 <% content_for :navbar_links do %>
-  <% if current_user && current_user.business  %>
-    <li><%= link_to "My Business",  business_admin_path %></li>
-  <% end %>
-
-  <% if current_user %>
-    <li><%= link_to "Profile", profile_path %></li>
-  <% end %>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 <div class="gh-hero-content-container">

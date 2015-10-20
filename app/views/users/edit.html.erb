@@ -1,6 +1,12 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "Edit Profile: #{current_user.nickname}"} %>
+
 <h2>Pick the skills you are most interested in</h2>
 <h3>These will be the jobs that show up in your feed every day</h3>
-<%= form_for [:profile, @user], url: profile_path, method: :put do |f| %>
+<%= bootstrap_form_for [:profile, @user], url: profile_path, method: :put do |f| %>
   <% @tags.each do |tag| %>
     <%= check_box_tag "user[tag_ids][]", tag.id, f.object.tags.include?(tag) %>
     <%= tag.name %>

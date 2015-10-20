@@ -2,9 +2,13 @@ class UsersController < ApplicationController
   # before_filter :authorize
 
   def show
-    @user = current_user
-    @jobs = Job.all.sample(4)
-    @watchlist = @user.watched
+    if !current_user
+      redirect_to root_path
+    else
+      @user = current_user
+      @jobs = Job.all.sample(4)
+      @watchlist = @user.watched
+    end
   end
 
   def edit

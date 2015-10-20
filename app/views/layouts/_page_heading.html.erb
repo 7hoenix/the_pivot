@@ -1,0 +1,11 @@
+<% heading ||= "" %>
+<% outer_class ||= "" %>
+<% inner_class ||= "" %>
+
+<div class="errors">
+  <%= flash[:errors] %>
+  <%= flash[:notice] %>
+</div>
+<div class="page-heading">
+  <div class="container <%= inner_class%>">  <h1><%= heading %></h1></div>
+</div>

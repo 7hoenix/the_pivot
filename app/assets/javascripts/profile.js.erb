@@ -1,0 +1,14 @@
+$(document).ready(function(){
+  $(".change-tag-button").click(function(){
+    $(".job").hide();
+  });
+
+  $(".change-tag-all").click(function(){
+    $( ".job" ).show();
+  });
+  <%# <% @tags.each do |tag| %1> %>
+  <%#   $(".change-tag-<%= tag.name %1>").click(function(){ %>
+  <%#     $( ".job-tag-<%= tag.name %1>" ).show(); %>
+  <%#   }); %>
+  <%# <% end %1> %>
+});

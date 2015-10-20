@@ -12,6 +12,10 @@ class Business < ActiveRecord::Base
 
   scope :online, -> { where(status: "online") }
 
+  def to_param
+    self.slug
+  end
+
   private
 
   def generate_slug
