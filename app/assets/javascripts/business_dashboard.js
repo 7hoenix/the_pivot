@@ -17,8 +17,6 @@ $(document).ready(function(){
 
   $('div.gh-form-button').on('click', function(e) {
     $('div.gh-form-button').removeClass('active');
-    $('div.gh-form-button').css('color', '#fff');
     $(this).addClass('active');
-    $(this).css('color', '#4D2A4B');
   });
 })
