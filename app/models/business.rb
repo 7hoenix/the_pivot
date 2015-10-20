@@ -10,6 +10,8 @@ class Business < ActiveRecord::Base
   validates :about, presence: true
   validates :slug, uniqueness: true, presence: true
 
+  scope :online, -> { where(status: "online") }
+
   private
 
   def generate_slug

@@ -9,4 +9,6 @@ class Job < ActiveRecord::Base
   has_many :orders
   has_many :items_categories
   has_many :categories, :through => :items_categories
+
+  scope :active, -> { where(status: "active") }
 end
