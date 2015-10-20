@@ -1,20 +1,9 @@
 <% content_for :navbar_links do %>
-<% if current_user && current_user.business  %>
-<li><%= link_to "My Business",  business_admin_path%></li>
-<% else %>
-<li><%= link_to "Create Business",  new_business_path%></li>
-<% end %>
-<% if current_user %>
-<li><%= link_to "Edit Profile", logout_path%></li>
-<% else %>
-<%= render 'layouts/basic_navbar/user_links' %>
-<% end %>
 <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <div class="container">  <h1>Jobs</h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "Jobs"}%>
+
 <div>
 
   <% if flash[:notice] %>
@@ -37,5 +26,7 @@
   </div>
   <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
 </div>
+<script>
+<%= render partial: "/layouts/js/profile.js.erb", locals: {tags: @tags}  %>
+</script>
 
-<%= javascript_include_tag "profile" %>

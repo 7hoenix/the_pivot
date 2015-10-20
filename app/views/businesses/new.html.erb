@@ -1,10 +1,9 @@
 <% content_for :navbar_links do %>
-<li><%= link_to "Edit Profile", logout_path%></li>
+  <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <div class="container">  <h1>New Business</h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "New Business: #{current_user.nickname}"}%>
+
 <div class='container page-content'>
   <div class='row'>
     <div class='col-md-12'>

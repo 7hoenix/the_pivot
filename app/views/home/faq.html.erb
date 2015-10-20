@@ -1,19 +1,9 @@
 <% content_for :navbar_links do %>
-  <% if current_user && current_user.business  %>
-    <li><%= link_to "My Business",  business_admin_path %></li>
-  <% end %>
-
-  <% if current_user %>
-    <li><%= link_to "Profile", profile_path %></li>
-  <% else %>
-    <li><%= link_to "Sign Up", logout_path %></li>
-  <% end %>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-<div class="page-heading">
-  <h1>FAQ</h1>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "FAQ"}%>
+
 <div id="faq-content">
   <h3>How do I join your site?</h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae arcu ac lacus mattis semper. Curabitur mattis malesuada urna, eget finibus nunc. Aenean sit amet turpis purus. Praesent sit amet laoreet ex, sit amet convallis mi. Nullam ac libero et purus placerat elementum ut non enim. Curabitur vel augue in.</p>

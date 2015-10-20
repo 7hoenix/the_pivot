@@ -1,16 +1,7 @@
 <% content_for :navbar_links do %>
-  <% if @user.business  %>
-    <li><%= link_to "My Business",  business_admin_path%></li>
-  <% else %>
-    <li><%= link_to "Create Business",  new_business_path%></li>
-  <% end %>
-  <li><%= link_to "Edit Profile", edit_profile_path%></li>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
-
-<div class="page-heading">
-<div class="container">  <h1>Profile:  <%= @user.nickname %></h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "Profile: #{@user.nickname}"}%>
 <div>
 
 <div class='container-fluid page-content'>

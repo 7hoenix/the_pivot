@@ -1,16 +1,10 @@
 <% content_for :navbar_links do %>
-  <li><%= link_to "Profile", profile_path%></li>
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
 
-<div class="errors">
-  <%= flash[:errors] %>
-  <%= flash[:notice] %>
-</div>
-<div class="page-heading">
-<div class="container">  <h1><%= @business.name %>: Dashboard</h1></div>
-</div>
+<%= render "layouts/page_heading", locals = {heading: "Dashboard: #{current_user.business.name}"}%>
+
 <div class="container-fluid page-content">
 <div class="row">
   <div class="col-md-6 col-centered ">
