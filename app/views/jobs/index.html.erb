@@ -26,5 +26,7 @@
   </div>
   <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
 </div>
+<script>
+<%= render partial: "/layouts/js/profile.js.erb", locals: {tags: @tags}  %>
+</script>
 
-<%= javascript_include_tag "profile" %>
