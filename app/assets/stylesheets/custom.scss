@@ -6,6 +6,14 @@ body, html {
   float: none;
   margin: 0 auto;
 }
+.gh-tag-row {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  .gh-tag {
+    border-radius: 2px;
+  }
+}
 
 .navbar li .gh-miniheader2 {
   font-size: 1.5em;
