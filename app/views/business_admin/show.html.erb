@@ -2,32 +2,38 @@
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
-
 <%= render "layouts/page_heading", locals = {heading: "Dashboard: #{current_user.business.name}"}%>
 
 <div class="container-fluid page-content">
-<div class="row">
-  <div class="col-md-6 col-centered ">
-    <div class="panel-body gh-main-content">
-      <h2>About</h2>
-      <%= @business.about %>
-      <h2>My Job postings</h2>
-      <div class="gh-form-button change-status-button change-status-all col-md-2 active
-      btn btn-default">
-        All
-      </div>
-      <% @statuses.each do |status| %>
-        <div class="gh-form-button change-status-button change-status-<%= status %> col-md-2
+  <div class="row">
+    <div class="col-md-6 col-centered ">
+      <div class="panel-body gh-main-content">
+        <h2>About</h2>
+        <%= @business.about %>
+        <h2>Primary Location</h2>
+        <% if @business.addresses.first %>
+          <%= @business.addresses.first.full_address %>
+        <% else %>
+          <h4>No address on file</h4>
+        <% end %>
+        <%= link_to "Edit Business Information", business_admin_edit_path %>
+        <h2>My Job postings</h2>
+        <div class="gh-form-button change-status-button change-status-all col-md-2 active
         btn btn-default">
-          <%= status %>
+          All
         </div>
-      <% end %>
+        <% @statuses.each do |status| %>
+          <div class="gh-form-button change-status-button change-status-<%= status %> col-md-2
+          btn btn-default">
+            <%= status %>
+          </div>
+        <% end %>
 
-    <%= render partial: "business_admin/jobs/job", collection: @jobs, locals: { type: "index" }%>
-      <%= link_to "Post New Job", new_business_admin_job_path,  class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+        <%= render partial: "business_admin/jobs/job", collection: @jobs, locals: { type: "index" }%>
+        <%= link_to "Post New Job", new_business_admin_job_path,  class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
 </div>
 
 <%= javascript_include_tag "business_dashboard" %>
