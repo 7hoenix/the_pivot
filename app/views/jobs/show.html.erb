@@ -32,20 +32,6 @@
     </div>
     <hr><br>
     <div class="row">
-      <div class=""><%= link_to "Apply", new_job_request_path(@job), class: "btn btn-default gh-form-button col-md-2 col-centered" %></div>
+      <div class=""><%= link_to "Apply", new_job_job_application_path(@job), class: "btn btn-default gh-form-button col-md-2 col-centered" %></div>
     </div>
-
-
-    <% if current_user && current_user.admin? %>
-
-    <div class="status">
-      This job is currently: <%= @job.status %>
-    </div>
-
-    <div class="edit_button">
-      <%= link_to "Edit Item", {controller: "admin/jobs", action: "edit" } , :method => "put"  %>
-    </div>
-
-    <% end %>
-
   </div>
