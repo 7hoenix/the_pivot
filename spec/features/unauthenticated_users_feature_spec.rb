@@ -15,5 +15,14 @@ RSpec.feature "Unauthenticated user browses jobs" do
       visit "/jobs/#{job.id}"
       expect(page).to have_content(job.description)
     end
+
+    scenario "can view an individual job" do
+      job =create(:job)
+      visit "/jobs/"
+      within(first(".job")) do
+        click_link_or_button "Watch This Job"
+      end
+      expect(page).to have_content(job.description)
+    end
   end
 end
