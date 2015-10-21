@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     user.image_url = oauth.info.image
     user.token = oauth.credentials.token
     user.github = oauth.info.urls.GitHub
-    if ENV['RAILS_ENV'] != test
+    if ENV['RAILS_ENV'] != 'test'
       user.location = Octokit.user( user.nickname).location
     end
 

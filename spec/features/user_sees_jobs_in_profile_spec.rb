@@ -9,17 +9,9 @@ RSpec.feature "A user" do
       login_with_oauth
     end
 
-    scenario "and sees a feed of all jobs" do
-      job = create(:job)
-      job2 = create(:job)
-      visit "/profile"
-      expect(page).to have_content(job.title)
-      expect(page).to have_content(job2.title)
-    end
-
     scenario "and sees a feed of jobs on their 'watchlist'" do
       job = create(:job)
-      job2 = create(:job)
+
       visit "/profile"
 
       expect('.watchlist').not_to have_content(job.title)
