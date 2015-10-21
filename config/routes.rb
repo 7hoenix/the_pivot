@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   namespace "business_admin" do
     get "/", to: "businesses#show"
+    get "/edit", as: :edit, to: "businesses#edit"
+    put "/", to: "businesses#update"
     resources :jobs, except: [:index, :show]
   end
 
