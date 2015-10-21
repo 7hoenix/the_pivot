@@ -26,6 +26,12 @@ class JobsController < ApplicationController
     end
   end
 
+  def destroy
+    target = Job.find(params[:id])
+    target.destroy 
+    redirect_to business_admin_path
+  end
+
   private
 
   def job_params
