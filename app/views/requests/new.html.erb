@@ -12,23 +12,25 @@
           <h4><%= @job.description %></h4>
           <h4><%= @job.benefits %></h4>
         <%= bootstrap_form_for [@job, @request] do |f| %>
-          <h2>My Resumes</h2>
+          <h2>Choose one of your resumes</h2>
             <% if @current_resumes %>
-              <%= f.collection_radio_buttons :request, :resume_id, @current_resumes, :id, :title %>
-              <%= f.submit "Submit Application" %>
+              <% @current_resumes.each do |resume| %>
+                <%= radio_button_tag "request[resume_id]", resume.id,
+                  f.object.resume == resume %>
+                <%= resume.title %>
+                <br>
+              <% end %>
+
+              <%= f.submit "Quick Submit", class: "btn btn-default
+            gh-form-button"  %>
             <% else %>
                 <h4>Oops... Looks like you haven't made any resumes yet. Make one
                   below and next time its as simple as one click,</h4>
             <% end %>
-            <%= f.fields_for @resume do |s| %>
-          <%= s.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
-            <% @repositories.each do |repository| %>
-              <%= check_box_tag "resume[repository_ids][]", repository.id, s.object.repositories.include?(repository)  %>
-              <%= repository.full_name %>
-              </br>
-            <% end %>
-            <% end %>
-            <%= f.submit "Submit Application" %>
+            <h2>Or create a new one</h2>
+            <br>
+            <%= link_to "Create New Resume", new_resume_path, class: "btn
+            btn-default gh-form-button" %>
           <% end %>
       </div>
     </div>

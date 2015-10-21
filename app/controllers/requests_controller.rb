@@ -9,4 +9,9 @@ class RequestsController < ApplicationController
     @resume = Resume.new
     @repositories ||= RepositoryHandler.new(current_client, current_user).populate_repositories
   end
+
+  def create
+    binding.pry
+
+  end
 end
