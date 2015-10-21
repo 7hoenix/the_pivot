@@ -4,17 +4,16 @@ RSpec.feature "Unauthenticated user browses jobs" do
 
   context "unauthenticated user" do
     scenario "can browse the jobs" do
-      create(:job)
+      job = create(:job)
       visit "/jobs"
       expect(current_path).to eq(jobs_path)
-      expect(page).to have_content("Jr dev")
+      expect(page).to have_content(job.title)
     end
 
     scenario "can view an individual job" do
-      create(:job)
-      visit "/jobs"
-      click_on "Jr dev"
-      expect(page).to have_content("Write some code")
+      job =create(:job)
+      visit "/jobs/#{job.id}"
+      expect(page).to have_content(job.description)
     end
   end
 end

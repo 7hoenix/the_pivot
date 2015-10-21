@@ -11,4 +11,13 @@ class Job < ActiveRecord::Base
   has_many :categories, :through => :items_categories
 
   scope :active, -> { where(status: "active") }
+
+
+  def load_tags(tag_name_ids)
+    if tag_name_ids.class == Array
+      tag_name_ids.each do |tag_name_id|
+        Tag.find_or_create_by(taggable_id: id, taggable_type: "Job", tag_name_id: tag_name_id)
+      end
+    end
+  end
 end
