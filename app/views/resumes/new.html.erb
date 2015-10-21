@@ -1,0 +1,22 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "New Resume: #{current_user.nickname}"}%>
+
+<div class="container-fluid page-content">
+<div class="row">
+  <div class="col-md-9 col-centered ">
+    <div class="panel-body gh-main-content">
+      <%= bootstrap_form_for @resume do |f| %>
+        <%= f.text_field :title, placeholder: "Title" %>
+        <% @repositories.each do |repository| %>
+          <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository) %>
+          <%= repository.name %>
+        <% end %>
+        <%= f.submit "Create Job", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+      <% end %>
+  </div>
+  </div>
+</div>
+</div>

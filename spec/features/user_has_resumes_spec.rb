@@ -9,7 +9,7 @@ RSpec.feature "User has resumes" do
       click_on("Create New Resume")
       fill_in("Title", with: "Ruby Developer")
       select("Repo1", from: "Repositories")
-      fill_in("Additional Information", with: "My first project")
+      fill_in("Repo1 Additional Information", with: "My first project")
       click_on("Create Resume")
 
       expect(current_path).to eq(profile_path)
