@@ -1,7 +1,7 @@
 <h1 id="banner">Admin Panel</h1>
-<% @tags.each do |tag| %>
-  <%= tag.name %>
-  <%= link_to "Delete this tag", admin_tag_path(tag), method: :delete %>
+<% @tag_names.each do |tag_name| %>
+  <%= tag_name.name %>
+  <%= link_to "Delete this tag", admin_tag_name_path(tag_name), method: :delete %>
   <br/>
 <% end %>
-<%= link_to "Add another tag", new_admin_tag_path %>
+<%= link_to "Add another tag name", new_admin_tag_name_path %>

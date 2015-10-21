@@ -7,11 +7,32 @@
 <div class='container-fluid page-content'>
   <div class="row">
     <div class="col-md-3">
+      <div class="panel-body">
+          <% if @user.tag_names.empty? %>
+            <div class="row gh-tag-row"  >
+              <div class="col-md-12 col-centered text-center">
+                You haven't selected any tags yet. Click Edit Tags to add some.
+              </div>
+            </div>
+          <% else %>
+              <div class="gh-tag-row" >
+                <% @user.tag_names.each do |tag_name| %>
+                    <div class="gh-tag" style="background-color:<%= tag_name.color %>">
+                      <%= tag_name.name  %>
+                    </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-centered"><%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
+          btn-default gh-form-button" %></div>
+        </div>
+
       <div class="panel-body gh-address-box">
         <div class="row">
-          <div class="col-md-12">
-            <%= image_tag(@user.image_url, class: "img-responsive") %>
-
+          <div class="col-md-12 ">
+            <%= image_tag(@user.image_url, class: "img-responsive col-centered") %>
           </div>
         </div>
 
@@ -23,10 +44,21 @@
         <hr>
       </div>
       <div class="panel-body">
-        <% @user.tag_names.each do |tag_name| %>
-          <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
-        <% end %>
-        Tag area
+        <div class="row">
+          <% if @user.tag_names.empty? %>
+            <div class="col-md-12 col-centered text-center">
+              You haven't selected any tags yet. Click Edit Tags to add some.
+            </div>
+          <% else %>
+            <% @user.tag_names.each do |tag_name| %>
+              <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
+          btn-default gh-form-button col-md-4 col-centered" %>
+        </div>
 
       </div>
     </div>
@@ -52,8 +84,8 @@
     <div class="col-md-3">
       <div class="panel-body">
         <h3>MY RESUMES</h3>
-        <%= link_to "Create New Resume", new_resume_path, class: "btn btn-md
-        btn-primary" %>
+        <%= link_to "Create New Resume", new_resume_path, class: "btn
+        btn-default gh-form-button" %>
         </br>
         </br>
         <%= render partial: "/resumes/resume", collection: @resumes, locals: { type:

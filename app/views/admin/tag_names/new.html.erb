@@ -1,0 +1,15 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "Admin: New Tag"}%>
+
+<div class="container-fluid page-content">
+  <%= bootstrap_form_for [:admin, @tag_name] do |f| %>
+    <%= f.text_field :name, placeholder: "Tag Name" %>
+    <br>
+    <%= f.text_field :color, placeholder: "Color must begin with a #" %>
+    <br>
+    <%= f.submit "Create Tag Name", class: "btn btn-default gh-form-button"%>
+  <% end %>
+</div>

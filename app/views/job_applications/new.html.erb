@@ -1,0 +1,37 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "Apply for: #{@job.title}"}%>
+
+<div class="container-fluid page-content">
+  <div class="row">
+    <div class="col-md-9 col-centered ">
+      <div class="panel-body gh-main-content">
+          <h1><%= @job.title %></h1>
+          <h4><%= @job.description %></h4>
+          <h4><%= @job.benefits %></h4>
+        <%= bootstrap_form_for [@job, @job_application] do |f| %>
+          <h2>Choose one of your resumes</h2>
+            <% if @current_resumes.empty? %>
+                <h4>Oops... Looks like you haven't made any resumes yet.</h4>
+            <% else %>
+              <% @current_resumes.each do |resume| %>
+                <%= radio_button_tag "job_application[resume_id]", resume.id,
+                  f.object.resume == resume %>
+                <%= resume.title %>
+                <br>
+              <% end %>
+
+              <%= f.submit "Submit Application", class: "btn btn-default
+            gh-form-button"  %>
+            <% end %>
+            <h2>Or create a new one</h2>
+            <br>
+            <%= link_to "Create New Resume", new_resume_path, class: "btn
+            btn-default gh-form-button" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

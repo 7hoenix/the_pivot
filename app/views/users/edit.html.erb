@@ -10,7 +10,8 @@
   <% @tags.each do |tag| %>
     <%= check_box_tag "user[tag_ids][]", tag.id, f.object.tags.include?(tag) %>
     <%= tag.name %>
+    <br>
   <% end %>
-  <%= f.submit "Update preferences" %>
+  <%= f.submit "Update preferences", class: "btn btn-default gh-form-button" %>
 <% end %>
 
