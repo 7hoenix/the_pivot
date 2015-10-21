@@ -93,7 +93,7 @@ user_list = User.all
 business_count.times do |index|
   business = Business.new(
     name: Faker::Company.name,
-    about: Faker::Company.catch_phrase,
+    about: Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n'),
   )
   Random.rand(4).times do
     business.addresses <<  gen_address
