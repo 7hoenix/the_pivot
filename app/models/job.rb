@@ -21,4 +21,12 @@ class Job < ActiveRecord::Base
       end
     end
   end
+
+  def short_desc
+    "#{description.first(90)} ..."
+  end
+
+  def location
+    "#{self.address.city} #{self.address.state}"
+  end
 end

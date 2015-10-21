@@ -1,25 +1,25 @@
 <div class=" row job <% job.tags.each do |tag| %>job-tag-<%= tag.name %> <% end %> job-status-<%= job.status %> job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
   <div class="gh-job-icon-area">
-    <%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), job.business %>
+    <div><%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), job.business %></div>
   </div>
   <div class='gh-job-details'>
     <div class="gh-job-header">
       <%= link_to job.title, job %>
     </div>
-
-    <div class="description">
-      <%= job.description %>
+    <div class="location">
+      <%= job.location %>
     </div>
-    <div class="address">
-      <%= job.address.full_address if job.address %>
+    <br>
+    <div class="description">
+      <%= job.short_desc %>
     </div>
   </div>
 
   <div class="button">
     <% if type == "watchlist" %>
-      <%= button_to "Remove From Watchlist", watchlist_path, method: :delete %>
+      <%= button_to "Remove From Watchlist", watchlist_path, method: :delete, class: "btn btn-default" %>
     <% else %>
-      <%= button_to "Watch This Job", watchlist_path(job_id: job.id) %> </p>
+      <%= button_to "Watch This Job", watchlist_path(job_id: job.id), class: "btn btn-default gh-form-button" %> </p>
     <% end %>
   </div>
 

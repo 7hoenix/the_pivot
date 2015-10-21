@@ -113,6 +113,7 @@ jobs_count.times do |index|
     benefits: Faker::Lorem.paragraphs(1).join('\n'),
     status: random_job_status
   )
+  job.address = gen_address
   job.business = Business.all.sample
   job_tag_names = TagName.all.sample(Random.rand(1..3))
   job_tag_names.each do |tag_name|
@@ -120,5 +121,3 @@ jobs_count.times do |index|
   end
   job.save
 end
-
-
