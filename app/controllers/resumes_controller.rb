@@ -1,13 +1,7 @@
 class ResumesController < ApplicationController
   def new
     @resume = Resume.new
-    handler ||= RepositoryHandler.new(current_client, current_user)
-    if handler.populate_repositories
-      @repositories = Repository.all
-    else
-      flash[:errors] = "Couldn't hear back from github"
-      redirect_to profile_path
-    end
+    @repositories ||= RepositoryHandler.new(current_client, current_user).populate_repositories
   end
 
   def create

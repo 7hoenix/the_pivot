@@ -5,6 +5,7 @@ class Job < ActiveRecord::Base
   has_many :tags, as: :taggable
   has_many :watched_jobs
   has_many :watchers, through: :watched_jobs, source: :user
+  has_many :requests
 
   has_many :orders
   has_many :items_categories
