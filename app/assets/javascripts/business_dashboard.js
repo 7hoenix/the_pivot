@@ -14,4 +14,9 @@ $(document).ready(function(){
   $(".change-status-all").click(function(){
     $( ".job" ).show();
   });
+
+  $('div.gh-form-button').on('click', function(e) {
+    $('div.gh-form-button').removeClass('active');
+    $(this).addClass('active');
+  });
 })
