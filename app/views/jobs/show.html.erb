@@ -3,7 +3,6 @@
 <% end %>
 <%= render "layouts/page_heading", locals = {heading: link_to(@job.business.name, business_path(@job.business)) }%>
 
-<div>
   <div class="container">
 
     <div class="row">
@@ -34,4 +33,3 @@
       <div class=""><%= link_to "Apply", new_job_job_application_path(@job), class: "btn btn-default gh-form-button col-md-2 col-centered" %></div>
     </div>
   </div>
-
