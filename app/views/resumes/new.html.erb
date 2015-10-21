@@ -10,11 +10,11 @@
     <div class="panel-body gh-main-content">
       <%= bootstrap_form_for @resume do |f| %>
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
-        <% @repositories.each do |repository| %>
-          <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository)  %>
-          <%= repository.full_name %>
-          </br>
-        <% end %>
+          <% @repositories.each do |repository| %>
+            <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository)  %>
+            <%= repository.full_name %>
+            </br>
+          <% end %>
         <%= f.submit "Create Job", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
       <% end %>
   </div>
