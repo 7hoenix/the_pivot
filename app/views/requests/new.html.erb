@@ -1,0 +1,36 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "Apply for: #{@job.title}"}%>
+
+<div class="container-fluid page-content">
+  <div class="row">
+    <div class="col-md-9 col-centered ">
+      <div class="panel-body gh-main-content">
+          <h1><%= @job.title %></h1>
+          <h4><%= @job.description %></h4>
+          <h4><%= @job.benefits %></h4>
+        <%= bootstrap_form_for [@job, @request] do |f| %>
+          <h2>My Resumes</h2>
+            <% if @current_resumes %>
+              <%= f.collection_radio_buttons :request, :resume_id, @current_resumes, :id, :title %>
+              <%= f.submit "Submit Application" %>
+            <% else %>
+                <h4>Oops... Looks like you haven't made any resumes yet. Make one
+                  below and next time its as simple as one click,</h4>
+            <% end %>
+            <%= f.fields_for @resume do |s| %>
+          <%= s.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
+            <% @repositories.each do |repository| %>
+              <%= check_box_tag "resume[repository_ids][]", repository.id, s.object.repositories.include?(repository)  %>
+              <%= repository.full_name %>
+              </br>
+            <% end %>
+            <% end %>
+            <%= f.submit "Submit Application" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
