@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :tag_names, through: :tags
   has_many :watched_jobs
   has_many :resumes
+  has_many :requests
 
 
   def has_business?
