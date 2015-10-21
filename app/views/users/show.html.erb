@@ -7,27 +7,7 @@
 <div class='container-fluid page-content'>
   <div class="row">
     <div class="col-md-3">
-      <div class="panel-body">
-          <% if @user.tag_names.empty? %>
-            <div class="row gh-tag-row"  >
-              <div class="col-md-12 col-centered text-center">
-                You haven't selected any tags yet. Click Edit Tags to add some.
-              </div>
-            </div>
-          <% else %>
-              <div class="gh-tag-row" >
-                <% @user.tag_names.each do |tag_name| %>
-                    <div class="gh-tag" style="background-color:<%= tag_name.color %>">
-                      <%= tag_name.name  %>
-                    </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-centered"><%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
-          btn-default gh-form-button" %></div>
-        </div>
+
 
       <div class="panel-body gh-address-box">
         <div class="row">
@@ -43,34 +23,45 @@
         <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right"><%= @user.location %></span></div>
         <hr>
       </div>
+
+
+
       <div class="panel-body">
         <div class="row">
+          <div class="col-md-5 col-centered"><%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
+          btn-default gh-form-button" %></div>
+        </div>
           <% if @user.tag_names.empty? %>
-            <div class="col-md-12 col-centered text-center">
-              You haven't selected any tags yet. Click Edit Tags to add some.
+            <div class="row  gh-tag-row"  >
+              <div class="col-md-12 col-centered text-center">
+                You haven't selected any tags yet. Click Edit Tags to add some.
+              </div>
             </div>
           <% else %>
-            <% @user.tag_names.each do |tag_name| %>
-              <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
+              <div class="gh-tag-row" >
+                <% @user.tag_names.each do |tag_name| %>
+                    <div class="gh-tag" style="background-color:<%= tag_name.color %>">
+                      <%= tag_name.name  %>
+                    </div>
             <% end %>
+          </div>
           <% end %>
         </div>
-        <div class="row">
-          <%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
-          btn-default gh-form-button col-md-4 col-centered" %>
-        </div>
-
-      </div>
     </div>
     <div class="col-md-6">
       <div class="panel-body gh-main-content">
-        <div class="row">
+
+
+
+
           <div class="col-md-12">
             <div class="joblist">
                <%= render partial: "/jobs/job", collection: @jobs, locals: { type: "feed" } %>
             </div>
           </div>
-        </div>
+
+
+
         <div class="row">
           <div class="col-md-12">
             <div class="watchlist">
@@ -78,6 +69,9 @@
               <%= render partial: "/jobs/job", collection: @watchlist, locals: { type: "watchlist" } %>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>
