@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace "business_admin" do
     get "/", to: "businesses#show"
-    resources :jobs
+    resources :jobs, except: [:index, :show]
   end
 
   get "/watchlist", to: "watchlist#index"
