@@ -25,6 +25,23 @@ class BusinessAdmin::JobsController < BusinessAdminController
     end
   end
 
+  def edit
+    @job = Job.find(params[:id])
+    @address = @job.address
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update_attributes(job_params)
+    redirect_to business_admin_path
+  end
+
+  def destroy
+    target = Job.find(params[:id])
+    target.destroy 
+    redirect_to business_admin_path
+  end
+
   private
 
   def job_params
