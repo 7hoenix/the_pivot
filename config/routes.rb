@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   put "/profile", to: "users#update"
   get "/watchlist", to: "watchlist#index"
   resources :jobs, only: [:new, :show, :index]
+   
   get "/jobs", to: "jobs#index"
   resources :resumes, only: [:new, :create, :show]
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace "business_admin" do
     get "/", to: "businesses#show"
-    resources :jobs, only: [:new, :create]
+    resources :jobs, except: [:index, :show]
   end
 
   get "/watchlist", to: "watchlist#index"
