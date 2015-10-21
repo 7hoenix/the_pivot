@@ -28,11 +28,12 @@ class WatchlistController < ApplicationController
       redirect_to user_path
     end
   end
+
   def index
     if session[:watchlist]
       @watchlist = Job.where(id: session[:watchlist])
     else
-      redirect_to profile_path(current_user)
+      redirect_to root_path
     end
   end
 end

@@ -33,14 +33,14 @@ RSpec.describe Address, type: :model do
     it "can have a unit" do
       address = build(:address, unit: "unit")
 
-      expect(address).to  be_valid
+      expect(address).to be_valid
       expect(address.full_address).to include("unit")
     end
 
     it "doesn't have to have a unit" do
       address = build(:address, unit: nil)
 
-      expect(address).to  be_valid
+      expect(address).to be_valid
       expect(address.full_address).not_to include("unit")
     end
   end
