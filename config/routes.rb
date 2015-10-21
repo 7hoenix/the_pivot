@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   put "/profile", to: "users#update"
   resources :jobs, only: [:new, :index]
   resources :jobs, only: [:show] do
-    resources :requests, only: [:new, :create]
+    resources :job_applications, only: [:new, :create]
   end
   get "/jobs", to: "jobs#index"
   resources :resumes, only: [:new, :create, :show]
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   namespace 'admin' do
     get '/', to: 'dashboard#index', as: '/'
-    resources :tags, only: [:new, :create, :destroy]
+    resources :tag_names, only: [:new, :create, :destroy]
   end
 
   get "/:slug", as: :business, to: "businesses#show"
