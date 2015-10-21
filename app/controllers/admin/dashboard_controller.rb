@@ -1,5 +1,5 @@
 class Admin::DashboardController < AdminController
   def index
-    @tags = Tag.all
+    @tag_names = TagName.all
   end
 end
