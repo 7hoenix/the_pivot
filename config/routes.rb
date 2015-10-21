@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :jobs, only: [:show] do
     resources :job_applications, only: [:new, :create]
   end
-  get "/jobs", to: "jobs#index"
+  get "/watchlist", to: "watchlist#index"
   resources :resumes, only: [:new, :create, :show]
 
   get "/contact", to: "home#contact"
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   namespace "business_admin" do
     get "/", to: "businesses#show"
-    resources :jobs, only: [:new, :create]
+    resources :jobs, except: [:index, :show]
   end
 
   get "/watchlist", to: "watchlist#index"

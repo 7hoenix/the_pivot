@@ -7,6 +7,13 @@ RSpec.describe Tag, type: :model do
     expect(tag).to be_valid
   end
 
+
+  it "has a shortcut to its name" do
+    tag = build(:tag)
+
+    expect(tag.name).not_to be_nil
+  end
+
   it "is only valid with correct attributes" do
     tag = build(:tag)
 

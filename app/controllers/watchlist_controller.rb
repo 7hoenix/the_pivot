@@ -2,15 +2,17 @@ class WatchlistController < ApplicationController
   def create
     if current_user
       current_user.load_watched_jobs([params[:job_id]])
+      redirect_to profile_path
     else
+
       if !session[:watchlist]
         session[:watchlist] = []
       end
       session[:watchlist] << params[:job_id].to_i
       session[:watchlist].uniq!
+      redirect_to watchlist_path
     end
 
-    redirect_to profile_path
   end
 
   def delete
@@ -26,7 +28,12 @@ class WatchlistController < ApplicationController
       redirect_to user_path
     end
   end
+
   def index
-    redirect_to profile_path(current_user)
+    if session[:watchlist]
+      @watchlist = Job.where(id: session[:watchlist])
+    else
+      redirect_to root_path
+    end
   end
 end

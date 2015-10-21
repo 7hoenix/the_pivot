@@ -11,7 +11,7 @@ class BusinessesController < ApplicationController
 
   def create
     # New way
-    business = current_user.business = Business.new(business_params)
+    business = current_user.build_business(business_params)
 
     if business.save
       business.addresses.find_or_create_by(address_params)

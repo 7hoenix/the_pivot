@@ -18,5 +18,12 @@ RSpec.feature "Authenticated user", type: :feature do
 
       expect(page).to_not have_content('admin')
     end
+
+    scenario "can edit user tags" do
+      login_with_oauth
+
+      visit '/profile/edit'
+      expect(page).to have_content("Edit Profile:")
+    end
   end
 end
