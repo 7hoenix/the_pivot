@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   put "/profile", to: "users#update"
   resources :jobs, only: [:new, :show, :index]
   get "/jobs", to: "jobs#index"
-  resources :resumes, only: [:new, :create]
+  resources :resumes, only: [:new, :create, :show]
 
   get "/contact", to: "home#contact"
   get "/about", to: "home#about"
