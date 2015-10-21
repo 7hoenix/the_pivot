@@ -16,7 +16,7 @@
       <%= job.address.full_address if job.address %>
     </div>
     <div class="fulfilled">
-      <x%= link_to "Job Fulfilled", business_admin_job_path, method: :delete %>
+      <%= link_to "Job Fulfilled", job_path(id: job.id), method: :delete %>
     </div>
   </div>
 </div>
