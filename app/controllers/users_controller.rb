@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       @user = current_user
       @jobs = Job.all.sample(4)
       @watchlist = @user.watched
+      @resumes = @user.resumes
     end
   end
 

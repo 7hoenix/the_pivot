@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
+  before_action :current_client
   protect_from_forgery with: :exception
   helper_method :current_user
 
+  def current_client
+    client ||= Octokit::Client.new \
+      client_id: ENV["github_key"],
+      client_secret: ENV["github_secret"]
+    client
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
