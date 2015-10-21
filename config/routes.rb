@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show"
   get "/profile/edit", as: :edit_profile, to: "users#edit"
   put "/profile", to: "users#update"
-  resources :jobs, only: [:new, :show, :index]
+  resources :jobs, only: [:new, :show, :index, :destroy]
   get "/jobs", to: "jobs#index"
 
   get "/contact", to: "home#contact"
