@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="joblist">
-               <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "feed" } %>
+               <%= render partial: "/jobs/job", collection: @jobs, locals: { type: "feed" } %>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div class="col-md-12">
             <div class="watchlist">
               <h3>Watched: </h3>
-              <%= render partial: "/jobs/job", collection: @watchlist, locals: {type: "watchlist" } %>
+              <%= render partial: "/jobs/job", collection: @watchlist, locals: { type: "watchlist" } %>
             </div>
           </div>
         </div>
@@ -51,7 +51,13 @@
     </div>
     <div class="col-md-3">
       <div class="panel-body">
-        <h3>RESUMES</h3>
+        <h3>MY RESUMES</h3>
+        <%= link_to "Create New Resume", new_resume_path, class: "btn btn-md
+        btn-primary" %>
+        </br>
+        </br>
+        <%= render partial: "/resumes/resume", collection: @resumes, locals: { type:
+          "profile" } %>
       </div>
     </div>
   </div>
