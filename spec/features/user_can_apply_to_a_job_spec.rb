@@ -12,7 +12,6 @@ RSpec.feature "User can apply to a job" do
 
       visit profile_path
       click_on(@job.title)
-      save_and_open_page
       click_on("Apply")
       expect(page).to have_content(@user.business.full_address)
 

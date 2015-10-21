@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def update
     user = current_user
+
     user_params[:tag_ids].each do |tag_name_id|
       Tag.find_or_create_by(taggable_id: user.id, taggable_type: "User", tag_name_id: tag_name_id)
     end

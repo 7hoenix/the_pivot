@@ -21,7 +21,6 @@ class JobsController < ApplicationController
         redirect_to new_business_path
       end
     else
-      binding.pry
       redirect_to login_path
     end
   end

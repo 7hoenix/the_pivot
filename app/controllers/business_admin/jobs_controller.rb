@@ -13,9 +13,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
 
   def create
     job = current_user.business.jobs.new(job_params)
-    job_params[:tag_ids].each do |tag_name_id|
-      Tag.find_or_create_by(taggable_id: job.id, taggable_type: "Job", tag_name_id: tag_name_id)
-    end
+    job.load_tags(job_params[:tag_ids])
     if job.save
       job.address = Address.find_or_create_by(address_params)
       redirect_to jobs_path

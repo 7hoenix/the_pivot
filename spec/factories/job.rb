@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :job do
-    #business_id 1
-    title "Jr dev"
-    description "Write some code"
-    #benefits "100 dollars"
-    #address_id 5
+    title Faker::Name.title
+    description Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n')
+    benefits Faker::Lorem.paragraphs(1).join('\n')
+    business
   end
 end

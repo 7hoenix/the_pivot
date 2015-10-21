@@ -29,5 +29,19 @@ RSpec.describe Address, type: :model do
 
       expect(address).to_not be_valid
     end
+
+    it "can have a unit" do
+      address = build(:address, unit: "unit")
+
+      expect(address).to be_valid
+      expect(address.full_address).to include("unit")
+    end
+
+    it "doesn't have to have a unit" do
+      address = build(:address, unit: nil)
+
+      expect(address).to be_valid
+      expect(address.full_address).not_to include("unit")
+    end
   end
 end
