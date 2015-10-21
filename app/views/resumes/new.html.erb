@@ -11,8 +11,8 @@
       <%= bootstrap_form_for @resume do |f| %>
         <%= f.text_field :title, placeholder: "Title" %>
         <% @repositories.each do |repository| %>
-          <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository) %>
-          <%= repository.name %>
+          <%= check_box_tag "resume[repository_names][]", repository %>
+          <%= repository %>
         <% end %>
         <%= f.submit "Create Job", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
       <% end %>
