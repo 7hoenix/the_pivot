@@ -12,6 +12,13 @@
     <br>
     <div class="description">
       <%= job.short_desc %>
+      <div class="gh-job-tag-row" >
+        <% job.tag_names.each do |tag_name| %>
+            <div class="gh-tag" style="background-color:<%= tag_name.color %>">
+              <%= tag_name.name  %>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 

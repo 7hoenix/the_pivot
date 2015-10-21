@@ -3,6 +3,7 @@ class Job < ActiveRecord::Base
   belongs_to :business
   has_one :address, as: :addressable
   has_many :tags, as: :taggable
+  has_many :tag_names, through: :tags
   has_many :watched_jobs
   has_many :watchers, through: :watched_jobs, source: :user
   has_many :job_applications
