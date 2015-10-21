@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 20151021054126) do
     t.integer "category_id"
   end
 
+  create_table "job_applications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "resume_id"
+    t.integer "job_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.text     "title"
     t.text     "description"
@@ -75,12 +81,6 @@ ActiveRecord::Schema.define(version: 20151021054126) do
   create_table "repositories", force: :cascade do |t|
     t.string "full_name"
     t.string "name"
-  end
-
-  create_table "requests", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "resumer_id"
-    t.integer "job_id"
   end
 
   create_table "resume_repositories", force: :cascade do |t|
