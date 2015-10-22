@@ -22,7 +22,7 @@ RSpec.feature "Unauthenticated user browses jobs" do
       within(first(".job")) do
         click_link_or_button "Watch This Job"
       end
-      expect(page).to have_content(job.description)
+      expect(page).to have_content(job.short_desc)
     end
 
     scenario "is asked to login before trying to create a job" do
