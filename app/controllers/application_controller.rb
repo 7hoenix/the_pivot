@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
+
   def current_client
     client ||= Octokit::Client.new \
       client_id: ENV["github_key"],

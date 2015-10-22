@@ -70,14 +70,6 @@ ActiveRecord::Schema.define(version: 20151021054126) do
     t.integer  "address_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.hstore   "cart_items"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "status",     default: 0
-  end
-
   create_table "repositories", force: :cascade do |t|
     t.string "full_name"
     t.string "name"
