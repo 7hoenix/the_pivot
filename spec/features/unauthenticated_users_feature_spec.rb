@@ -30,5 +30,6 @@ RSpec.feature "Unauthenticated user browses jobs" do
       visit "/jobs/new"
       expect(page).to have_content("Profile")
     end
+
   end
 end

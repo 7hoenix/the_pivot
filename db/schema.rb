@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 20151022032131) do
     t.integer  "address_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "repositories", force: :cascade do |t|
     t.string "full_name"
     t.string "name"

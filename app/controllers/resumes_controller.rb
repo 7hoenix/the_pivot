@@ -7,15 +7,15 @@ class ResumesController < ApplicationController
   def create
     resume = current_user.resumes.new(resume_params)
     if resume.save
-    resume_params[:repository_ids].each do |repository_id|
-      ResumeRepository.find_or_create_by(resume_id: resume.id, repository_id:
-        repository_id)
-    end
+      resume_params[:repository_ids].each do |repository_id|
+        ResumeRepository.find_or_create_by(resume_id: resume.id, repository_id:
+          repository_id)
+      end
       flash[:success] = "Resume created"
       redirect_back_or profile_path
     else
       flash[:errors] = "Resume not created"
-      render :new
+      redirect_to new_resume_path
     end
   end
 

@@ -12,9 +12,12 @@
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
         <%= f.text_field :description, placeholder: "This resume details my..."
       %>
+        <h3>Your repositories: </h3>
           <% @repositories.each do |repository| %>
-            <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository)  %>
-            <%= repository.full_name %>
+          <div class="gh-checkbox-outer">
+            <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository), class: "checkbox gh-checkbox" %>
+            <div class='gh-repo-name'><%= repository.full_name %></div>
+          </div>
             </br>
           <% end %>
         <%= f.submit "Create Resume", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>

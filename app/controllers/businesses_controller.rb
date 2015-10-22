@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find_by(slug: params[:slug]) or render_404
+    @jobs = @business.jobs
   end
 
   def create
