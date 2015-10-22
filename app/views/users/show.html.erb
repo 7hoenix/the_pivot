@@ -56,7 +56,12 @@
 
           <div class="col-md-12">
             <div class="joblist">
+              <h3>Feed: </h3>
+                <% if !@jobs.empty? %>
                <%= render partial: "/jobs/job", collection: @jobs, locals: { type: "feed" } %>
+               <% else %>
+                  This is your feed, its empty now... try to <%= link_to "pick some tags!", edit_profile_path %>
+               <% end %>
             </div>
           </div>
 

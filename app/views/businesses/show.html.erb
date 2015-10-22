@@ -1,19 +1,19 @@
 <% content_for :navbar_links do %>
-  <%= render 'layouts/basic_navbar/user_links' %>
+<%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
 <%= render "layouts/page_heading", locals = {heading: @business.name}%>
 
 <div class="container page-content gh-main-content">
 
-  <div class="row">
+  <div class="row page-content">
     <div class='col-md-5 col-centered'>
-      <%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), @job.business %>
+      <%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), @business %>
     </div>
   </div>
   <div class='row'>
     <div class='col-md-12'>
-      <h1><%= @job.title %></h1>
+      <h1><%= @business.name %></h1>
     </div>
   </div>
   <div class="row">
@@ -24,37 +24,31 @@
   <div class="address row">
     <div class="col-md-10 col-centered">
       <ul>
-        <li><%= @job.address.street %></li>
-        <% if @job.address.unit %>
-        <li><%= @job.address.unit  %></li>
+        <li><%= @business.addresses.first.street %></li>
+        <% if @business.addresses.first.unit %>
+        <li><%= @business.addresses.first.unit  %></li>
         <% end %>
-        <li><%= @job.address.city %> <%= @job.address.state %></li>
-        <li><%= @job.address.zip %></li>
+        <li><%= @business.addresses.first.city %> <%= @business.addresses.first.state %></li>
+        <li><%= @business.addresses.first.zip %></li>
       </ul>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h3>Description:</h3>
-    </div>
-  </div>
-  <div class="description row">
-    <div class="col-md-10 col-centered">
-      <%= @job.description %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Benefits:</h3>
+      <h3>About:</h3>
     </div>
   </div>
   <div class="benefits row">
     <div class="col-md-10 col-centered">
-      <%= @job.benefits %>
+      <%= @business.about %>
     </div>
   </div>
   <hr><br>
-  <div class="row">
-    <div class=""><%= link_to "Apply", new_job_job_application_path(@job), class: "btn btn-default gh-form-button col-md-2 col-centered" %></div>
+  <div class='row'>
+    <div class='panel-body'>
+      <div class="col-md-12">
+        <%= render partial: "/businesses/job", collection: @jobs, locals: {type: "index" } %>
+      </div>
+    </div>
   </div>
 </div>
