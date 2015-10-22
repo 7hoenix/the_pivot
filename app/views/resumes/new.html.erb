@@ -11,12 +11,15 @@
       <%= bootstrap_form_for @resume, html: { multipart: true } do |f| %>
 	<%= f.file_field :cover_letter  %>
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
-        <% @repositories.each do |repository| %>
-          <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository)  %>
-          <%= repository.full_name %>
-          </br>
-        <% end %>
-        <%= f.submit "Create Job", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
+        <h3>Your repositories: </h3>
+          <% @repositories.each do |repository| %>
+          <div class="gh-checkbox-outer">
+            <%= check_box_tag "resume[repository_ids][]", repository.id, f.object.repositories.include?(repository), class: "checkbox gh-checkbox" %>
+            <div class='gh-repo-name'><%= repository.full_name %></div>
+          </div>
+            </br>
+          <% end %>
+        <%= f.submit "Create Resume", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
       <% end %>
     </div>
   </div>

@@ -13,10 +13,10 @@
         <%= f.text_area :description, placeholder: "Description", size: "24x10" %>
         <%= f.text_area :benefits, placeholder: "Benefits", size: "24x10" %>
 
-        <% @tags.each do |tag| %>
-          <%= check_box_tag "job[tag_ids][]", tag.id, f.object.tags.include?(tag)
+        <% @tag_names.each do |tag_name| %>
+          <%= check_box_tag "job[tag_name_ids][]", tag_name.id, f.object.tag_names.include?(tag_name)
         %>
-        <%= tag.name %>
+        <%= tag_name.name %>
       <% end %>
 
         <%= f.fields_for @address do |s| %>

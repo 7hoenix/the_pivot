@@ -1,27 +1,21 @@
 class ResumesController < ApplicationController
   def new
     @resume = Resume.new
-    handler ||= RepositoryHandler.new(current_client, current_user)
-    if handler.populate_repositories
-      @repositories = Repository.all
-    else
-      flash[:errors] = "Couldn't hear back from github"
-      redirect_to profile_path
-    end
+    @repositories ||= RepositoryHandler.new(current_client, current_user).populate_repositories
   end
 
   def create
     resume = current_user.resumes.new(resume_params)
-    resume_params[:repository_ids].each do |repository_id|
-      ResumeRepository.find_or_create_by(resume_id: resume.id, repository_id:
-        repository_id)
-    end
     if resume.save
+      resume_params[:repository_ids].each do |repository_id|
+        ResumeRepository.find_or_create_by(resume_id: resume.id, repository_id:
+          repository_id)
+      end
       flash[:success] = "Resume created"
-      redirect_to profile_path
+      redirect_back_or profile_path
     else
       flash[:errors] = "Resume not created"
-      render :new
+      redirect_to new_resume_path
     end
   end
 

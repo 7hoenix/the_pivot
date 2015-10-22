@@ -7,9 +7,8 @@ class RepositoryHandler
   end
 
   def populate_repositories
-    client.repositories(user.nickname).each do |repo|
+    client.repositories(user.nickname).map do |repo|
       Repository.create(full_name: repo[:full_name], name: repo[:name])
     end
-    true
   end
 end

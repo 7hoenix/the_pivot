@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  # before_filter :authorize
-
   def show
     if !current_user
       redirect_to root_path
     else
       @user = current_user
-      @jobs = Job.all.sample(4)
+      @tag_name_ids = current_user.tags.pluck(:tag_name_id).uniq
+      @jobs = Job.joins(:tags).where(tags: {tag_name_id: @tag_name_ids}).sample(3)
       @watchlist = @user.watched
       @resumes = @user.resumes
     end
@@ -19,11 +18,11 @@ class UsersController < ApplicationController
 
   def update
     user = current_user
-
-    user_params[:tag_ids].each do |tag_name_id|
-      Tag.find_or_create_by(taggable_id: user.id, taggable_type: "User", tag_name_id: tag_name_id)
-    end
     if user.save
+      user.tags.delete_all
+      user_params[:tag_ids].each do |tag_name_id|
+        Tag.find_or_create_by(taggable_id: user.id, taggable_type: "User", tag_name_id: tag_name_id)
+      end
       flash[:message] = "Preferences saved"
       redirect_to profile_path
     else
@@ -35,13 +34,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(tag_ids: [])
+    params[:user] ? params.require(:user).permit(tag_ids: []) : { tag_ids: [] }
   end
-
-  def authorize
-    unless current_user
-      redirect_to login_path, alert: "Sensei says: 'You are not authorized'"
-    end
-  end
-
 end

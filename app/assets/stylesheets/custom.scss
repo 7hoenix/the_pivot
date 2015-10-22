@@ -1,11 +1,80 @@
 body, html {
   height: 100%;
 }
+.footer {
+  position: relative;
+  bottom: 0;
+}
 .col-centered {
   display: block;
   float: none;
   margin: 0 auto;
 }
+.gh-landing-logos {
+  display: flex;
+  div {
+    padding: 10%;
+  }
+}
+.business-job {
+  .gh-job-business-details {
+    width: 90%;
+  }
+  .button {
+    width: 15%;
+  }
+}
+.gh-repo-name {
+  display:inline-block;
+  font-size: 1.1em;
+}
+#new_resume .form-group label {
+  font-size: 1.5em;
+}
+#new_resume .form-group label:before {
+  content: "Resume ";
+}
+#new_resume .form-group label:after {
+  content: ": ";
+}
+.gh-checkbox {
+  display:inline-block;
+}
+.gh-checkbox-outer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: 5%;
+}
+.gh-tag-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .gh-tag {
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
+  }
+}
+.gh-job-tag-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  .gh-tag {
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
+  }
+}
+
 
 .navbar li .gh-miniheader2 {
   font-size: 1.5em;
@@ -87,4 +156,8 @@ a:hover + .box,.box:hover{
   display: block;
   position: relative;
   z-index: 100;
+.gh-resume-radio-buttons {
+  input {
+    display: block;
+  }
 }

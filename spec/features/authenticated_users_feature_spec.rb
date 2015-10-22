@@ -25,5 +25,11 @@ RSpec.feature "Authenticated user", type: :feature do
       visit '/profile/edit'
       expect(page).to have_content("Edit Profile:")
     end
+
+    scenario "cannot create a new job without creating a business first" do
+      login_with_oauth
+      visit "/business_admin/jobs/new"
+      expect(current_path).to eq(root_path)
+    end
   end
 end

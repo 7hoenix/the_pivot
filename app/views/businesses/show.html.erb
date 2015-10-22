@@ -1,16 +1,54 @@
 <% content_for :navbar_links do %>
-  <%= render 'layouts/basic_navbar/user_links' %>
+<%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 
 <%= render "layouts/page_heading", locals = {heading: @business.name}%>
 
-<div class="container-fluid page-content">
-<div class="row">
-  <div class="col-md-6 col-centered ">
-    <div class="panel-body gh-main-content">
-      <h2>About</h2>
+<div class="container page-content gh-main-content">
+
+  <div class="row page-content">
+    <div class='col-md-5 col-centered'>
+      <%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), @business %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1><%= @business.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Address:</h3>
+    </div>
+  </div>
+  <div class="address row">
+    <div class="col-md-10 col-centered">
+      <ul>
+        <li><%= @business.addresses.first.street %></li>
+        <% if @business.addresses.first.unit %>
+        <li><%= @business.addresses.first.unit  %></li>
+        <% end %>
+        <li><%= @business.addresses.first.city %> <%= @business.addresses.first.state %></li>
+        <li><%= @business.addresses.first.zip %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>About:</h3>
+    </div>
+  </div>
+  <div class="benefits row">
+    <div class="col-md-10 col-centered">
       <%= @business.about %>
+    </div>
   </div>
+  <hr><br>
+  <div class='row'>
+    <div class='panel-body'>
+      <div class="col-md-12">
+        <%= render partial: "/businesses/job", collection: @jobs, locals: {type: "index" } %>
+      </div>
+    </div>
   </div>
-</div>
 </div>

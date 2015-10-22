@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find_by(slug: params[:slug]) or render_404
+    @jobs = @business.jobs
   end
 
   def create
@@ -26,7 +27,7 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:name, :about, :slug, :user_id)
+    params.require(:business).permit(:name, :about, :slug)
   end
 
   def address_params

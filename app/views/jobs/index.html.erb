@@ -12,7 +12,7 @@
 
   <div class="container-fluid page-content">
     <div class='row'>
-
+      <div class="col-md-8 col-centered">
       <div class="gh-form-button change-tag-button change-tag-all col-md-2
       btn btn-default">
       All
@@ -24,7 +24,16 @@
     </div>
     <% end %>
   </div>
-  <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
+  </div>
+  <div class='row'>
+    <div class='col-md-11 col-centered'>
+      <div class='panel-body gh-main-content'>
+        <div class="col-md-12">
+          <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
+        </div>
+      </div>
+  </div>
+  </div>
 </div>
 <script>
 <%= render partial: "/layouts/js/profile.js.erb", locals: {tags: @tags}  %>

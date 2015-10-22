@@ -2,16 +2,16 @@
   <%= render 'layouts/basic_navbar/user_links' %>
 <% end %>
 <%= render "layouts/page_heading", locals = {heading: "Profile: #{@user.nickname}"}%>
-<div>
 
 <div class='container-fluid page-content'>
   <div class="row">
     <div class="col-md-3">
+
+
       <div class="panel-body gh-address-box">
         <div class="row">
-          <div class="col-md-12">
-            <%= image_tag(@user.image_url, class: "img-responsive") %>
-
+          <div class="col-md-12 ">
+            <%= image_tag(@user.image_url, class: "img-responsive col-centered") %>
           </div>
         </div>
 
@@ -22,38 +22,68 @@
         <div class='gh-address-line'><span class='gh-heading-4'>Location:</span> <span class="gh-right"><%= @user.location %></span></div>
         <hr>
       </div>
-      <div class="panel-body">
-        <% @user.tag_names.each do |tag_name| %>
-          <div class="col-md-1" style="background-color:<%= tag_name.color %>"><%= tag_name.name  %></div>
-        <% end %>
-        Tag area
 
-      </div>
+
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-5 col-centered"><%= link_to "Edit Tags/Profile", edit_profile_path, class: "btn
+          btn-default gh-form-button" %></div>
+        </div>
+          <% if @user.tag_names.empty? %>
+            <div class="row  gh-tag-row"  >
+              <div class="col-md-12 col-centered text-center">
+                You haven't selected any tags yet. Click Edit Tags to add some.
+              </div>
+            </div>
+          <% else %>
+              <div class="gh-tag-row" >
+                <% @user.tag_names.each do |tag_name| %>
+                    <div class="gh-tag" style="background-color:<%= tag_name.color %>">
+                      <%= tag_name.name  %>
+                    </div>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
     </div>
     <div class="col-md-6">
       <div class="panel-body gh-main-content">
-        <div class="row">
+
+
+
+
           <div class="col-md-12">
             <div class="joblist">
+              <h3>Feed: </h3>
+                <% if !@jobs.empty? %>
                <%= render partial: "/jobs/job", collection: @jobs, locals: { type: "feed" } %>
+               <% else %>
+                  This is your feed, its empty now... try to <%= link_to "pick some tags!", edit_profile_path %>
+               <% end %>
             </div>
           </div>
-        </div>
-        <div class="row">
+
+
+
+
           <div class="col-md-12">
             <div class="watchlist">
               <h3>Watched: </h3>
               <%= render partial: "/jobs/job", collection: @watchlist, locals: { type: "watchlist" } %>
             </div>
-          </div>
+
+
+
+
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="panel-body">
-        <h3>MY RESUMES</h3>
-        <%= link_to "Create New Resume", new_resume_path, class: "btn btn-md
-        btn-primary" %>
+        <h2>MY RESUMES</h2>
+        <%= link_to "Create New Resume", new_resume_path, class: "btn
+        btn-default gh-form-button" %>
         </br>
         </br>
         <%= render partial: "/resumes/resume", collection: @resumes, locals: { type:
