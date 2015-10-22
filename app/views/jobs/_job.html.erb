@@ -1,6 +1,6 @@
 <div class=" row job <% job.tags.each do |tag| %>job-tag-<%= tag.name %> <% end %> job-status-<%= job.status %> job-listing-<%= job.title.parameterize %> gh-<%= type %>" >
   <div class="gh-job-icon-area">
-    <div><%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), job.business %></div>
+    <div><%= link_to (image_tag job.business.image_url, class: "img-responsive"), job.business %></div>
   </div>
   <div class='gh-job-details'>
     <div class="gh-job-header">
