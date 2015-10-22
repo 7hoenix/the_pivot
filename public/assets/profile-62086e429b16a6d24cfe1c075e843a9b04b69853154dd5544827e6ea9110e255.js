@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".change-tag-button").click(function(){$(".job").hide()}),$(".change-tag-all").click(function(){$(".job").show()})});
