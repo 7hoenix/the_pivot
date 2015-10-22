@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/auth/github", as: :login
+  get "/auth/:provider/callback", to: "sessions#create"
   root 'home#index'
 
   get "/profile", to: "users#show"
@@ -32,8 +34,6 @@ Rails.application.routes.draw do
   delete "/watchlist", to: "watchlist#delete"
   put "/watchlist", to: "watchlist#update"
 
-  get "/auth/github", as: :login
-  get "/auth/github/callback", to: "sessions#create"
   delete "/logout", as: :logout, to: "sessions#destroy"
 
   namespace 'admin' do
