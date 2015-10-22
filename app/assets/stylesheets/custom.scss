@@ -16,6 +16,28 @@ body, html {
     padding: 10%;
   }
 }
+.gh-repo-name {
+  display:inline-block;
+  font-size: 1.1em;
+}
+#new_resume .form-group label {
+  font-size: 1.5em;
+}
+#new_resume .form-group label:before {
+  content: "Resume ";
+}
+#new_resume .form-group label:after {
+  content: ": ";
+}
+.gh-checkbox {
+  display:inline-block;
+}
+.gh-checkbox-outer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: 5%;
+}
 .gh-tag-row {
   display: flex;
   justify-content: center;
