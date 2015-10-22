@@ -1,15 +1,19 @@
 require "rails_helper"
 
 RSpec.feature "User has resumes" do
+  include IntegrationSpecHelper
   context "to choose from" do
     xscenario "after creating them" do
+      @user = create(:user)
+      repository = create(:repository)
+      create(:repository)
       login_with_oauth
 
       visit profile_path
-      click_on("Create New Resume")
+      visit new_resume_path { @repositories = [repository, repsoitory2] }
       fill_in("Title", with: "Ruby Developer")
-      select("Repo1", from: "Repositories")
-      fill_in("Repo1 Additional Information", with: "My first project")
+      save_and_open_page
+      check(repository.full_name)
       click_on("Create Resume")
 
       expect(current_path).to eq(profile_path)

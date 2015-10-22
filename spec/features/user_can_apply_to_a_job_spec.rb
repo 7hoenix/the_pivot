@@ -13,7 +13,7 @@ RSpec.feature "User can apply to a job" do
       visit profile_path
       click_on(@job.title)
       click_on("Apply")
-      expect(page).to have_content(@user.business.full_address)
+      expect(page).to have_content(@job.title)
 
       select("Sweet resume", from: "Resumes")
       click_on("Submit Application")
