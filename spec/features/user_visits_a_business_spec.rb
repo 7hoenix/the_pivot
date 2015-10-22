@@ -11,7 +11,9 @@ RSpec.feature "User visits a business" do
     end
 
     scenario "and follows the slug path to get there" do
+      @business.addresses << create(:address)
       visit "/#{@business.slug}"
+
       expect(current_path).to eq("/#{@business.slug}")
       expect(page).to have_content(@business.name)
       expect(page).to have_content(@business.about)
