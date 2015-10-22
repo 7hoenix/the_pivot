@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20151021054126) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.text   "description"
   end
 
   create_table "items_categories", force: :cascade do |t|
@@ -68,6 +67,13 @@ ActiveRecord::Schema.define(version: 20151021054126) do
     t.datetime "updated_at",                     null: false
     t.string   "benefits"
     t.integer  "address_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "repositories", force: :cascade do |t|

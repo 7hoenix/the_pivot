@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     user.token = oauth.credentials.token
     user.github = oauth.info.urls.GitHub
 
-    binding.pry
     if ENV['RAILS_ENV'] != 'test'
       user.location = current_client.user( user.nickname).location
     end
