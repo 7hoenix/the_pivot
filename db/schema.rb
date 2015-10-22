@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021054126) do
+ActiveRecord::Schema.define(version: 20151022032131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,8 +87,9 @@ ActiveRecord::Schema.define(version: 20151021054126) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
+    t.integer "user_id"
+    t.string  "title"
+    t.string  "description"
     t.string   "cover_letter_file_name"
     t.string   "cover_letter_content_type"
     t.integer  "cover_letter_file_size"

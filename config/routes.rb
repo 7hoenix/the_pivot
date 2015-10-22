@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'jobs#index'
+  root 'home#index'
 
   get "/profile", to: "users#show"
   get "/profile/edit", as: :edit_profile, to: "users#edit"

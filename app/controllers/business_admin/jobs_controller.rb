@@ -16,7 +16,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
     job.load_tags(job_params[:tag_name_ids])
     if job.save
       job.address = Address.find_or_create_by(address_params)
-      redirect_to jobs_path
+      redirect_to business_admin_path
     else
       flash[:errors] = "Job not created"
       render :new

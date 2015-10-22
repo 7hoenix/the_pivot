@@ -27,6 +27,6 @@ class ResumesController < ApplicationController
   private
 
   def resume_params
-    params.require(:resume).permit(:cover_letter, :title, repository_ids: [])
+    params.require(:resume).permit(:cover_letter, :description, :title, repository_ids: [])
   end
 end

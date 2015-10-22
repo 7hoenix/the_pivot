@@ -11,6 +11,8 @@
       <%= bootstrap_form_for @resume, html: { multipart: true } do |f| %>
 	<%= f.file_field :cover_letter  %>
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
+        <%= f.text_field :description, placeholder: "This resume details my..."
+      %>
         <h3>Your repositories: </h3>
           <% @repositories.each do |repository| %>
           <div class="gh-checkbox-outer">

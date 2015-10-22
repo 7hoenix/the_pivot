@@ -11,7 +11,9 @@
     </div>
   </div>
   <div class="button">
-    <%= link_to "Edit Job", edit_business_admin_job_path(job) %>
-    <%= button_to "Job Fulfilled", business_admin_job_path(job), method: :patch %>
+    <%= link_to "Edit Job", edit_business_admin_job_path(job), class: "btn
+    btn-default gh-form-button" %>
+    <%= button_to "Job Fulfilled", business_admin_job_path(job), class: "btn
+    btn-default gh-form-button", method: :patch %>
   </div>
 </div>
