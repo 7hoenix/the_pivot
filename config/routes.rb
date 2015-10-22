@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'jobs#index'
 
   get "/profile", to: "users#show"
   get "/profile/edit", as: :edit_profile, to: "users#edit"
@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     get "/edit", as: :edit, to: "businesses#edit"
     put "/", to: "businesses#update"
     resources :jobs, except: [:index, :show]
+    resources :jobs, only: [:show] do
+      get "/applicants", to: "job_applications#index"
+    end
   end
 
   get "/watchlist", to: "watchlist#index"
