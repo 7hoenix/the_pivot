@@ -96,7 +96,7 @@ business_count.times do |index|
     about: Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n'),
     image_url: Faker::Company.logo
   )
-  Random.rand(4).times do
+  Random.rand(1..3).times do
     business.addresses <<  gen_address
   end
   business.user = user_list.shuffle.pop
