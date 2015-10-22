@@ -3,6 +3,8 @@ class BusinessAdmin::BusinessesController < BusinessAdminController
     @business = current_user.business
     @statuses = Job.pluck(:status).uniq
     @jobs = @business.jobs
+    @business.image_url ||= Faker::Company.logo
+    @business.save
   end
 
   def edit
