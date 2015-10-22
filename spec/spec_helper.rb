@@ -8,9 +8,9 @@ require 'simplecov'
 
 
 
-SimpleCov.start
+# SimpleCov.start
 
-# Coveralls.wear!
+Coveralls.wear!
 
 module IntegrationSpecHelper
   def login_with_oauth(service = :github)
