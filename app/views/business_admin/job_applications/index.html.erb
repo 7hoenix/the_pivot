@@ -7,18 +7,10 @@
 <div>
 
   <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+  <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
-  <div class='row'>
-    <div class='col-md-11 col-centered'>
-      <div class='panel-body gh-main-content'>
-        <div class="col-md-12">
   <%= render partial: "/business_admin/job_applications/job_application", collection: @job_applications, locals: {type: "index" } %>
-      </div>
-    </div>
-  </div>
-  </div>
 </div>
 
 <%= javascript_include_tag "jobs_index"  %>

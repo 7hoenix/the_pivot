@@ -41,6 +41,7 @@ gem 'faker'
 gem 'octokit'
 gem 'coveralls', require: false
 gem 'simplecov', :require => false, :group => :test
+gem 'will_paginate'
 
 group :development, :test do
 

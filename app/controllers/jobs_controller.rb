@@ -3,7 +3,8 @@ class JobsController < ApplicationController
 
   def index
     active_business_ids = Business.online.pluck(:id)
-    @jobs = Job.where(business_id: active_business_ids).active
+    active_jobs = Job.where(business_id: active_business_ids).active
+    @jobs = active_jobs.paginate(:page => params[:page], :per_page => 20)
     @tags = TagName.all
   end
 

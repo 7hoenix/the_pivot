@@ -30,6 +30,9 @@
       <div class='panel-body gh-main-content'>
         <div class="col-md-12">
           <%= render partial: "/jobs/job", collection: @jobs, locals: {type: "index" } %>
+          <div class="digg_pagination page-tabs">
+            <%= will_paginate @jobs %>
+          </div>
         </div>
       </div>
   </div>
