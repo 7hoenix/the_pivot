@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "/auth/github", as: :login
-  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/github/callback", to: "sessions#create"
   root 'home#index'
 
   get "/profile", to: "users#show"
