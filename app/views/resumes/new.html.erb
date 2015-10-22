@@ -8,7 +8,8 @@
 <div class="row">
   <div class="col-md-9 col-centered ">
     <div class="panel-body gh-main-content">
-      <%= bootstrap_form_for @resume do |f| %>
+      <%= bootstrap_form_for @resume, html: { multipart: true } do |f| %>
+	<%= f.file_field :cover_letter  %>
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
         <%= f.text_field :description, placeholder: "This resume details my..."
       %>
@@ -22,7 +23,7 @@
           <% end %>
         <%= f.submit "Create Resume", class: "gh-form-button col-centered col-md-4 btn btn-primary" %>
       <% end %>
-  </div>
+    </div>
   </div>
 </div>
 </div>

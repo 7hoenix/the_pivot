@@ -90,6 +90,10 @@ ActiveRecord::Schema.define(version: 20151022032131) do
     t.integer "user_id"
     t.string  "title"
     t.string  "description"
+    t.string   "cover_letter_file_name"
+    t.string   "cover_letter_content_type"
+    t.integer  "cover_letter_file_size"
+    t.datetime "cover_letter_updated_at"
   end
 
   create_table "tag_names", force: :cascade do |t|

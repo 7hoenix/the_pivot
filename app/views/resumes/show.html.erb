@@ -13,6 +13,11 @@
     <div class="row">
       <%= @resume.description %>
     </div>
+      <h4>Cover Letter:</h4>
+        <a href = <%= @resume.cover_letter.url %>><%= @resume.cover_letter_file_name %></a>
+      <div class="box">
+        <iframe src=<%= @resume.cover_letter.url %> frameborder="0"></iframe>
+      </div>
     <div class="row">
       <div class="col-md-12">
         <h3>Repositories:</h3>

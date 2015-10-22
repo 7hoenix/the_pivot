@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn-rails'
 
 gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 
 gem "therubyracer"
 
