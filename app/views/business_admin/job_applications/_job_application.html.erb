@@ -1,0 +1,20 @@
+<div class=" row job " >
+  <div class='gh-job-details'>
+    <div class="gh-job-header">
+      <%= link_to job_application.user.nickname, resume_path(job_application.resume) %>
+    </div>
+    <div class="title">
+      <%= job_application.resume.title %>
+    </div>
+    <div class="description">
+      <% job_application.resume.repositories.each do |repository| %>
+        <%= link_to repository.name, "http://github.com/#{repository.full_name}" %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+  <div class="button">
+    <%= button_to "Offer Interview", "#" %>
+    <%= button_to "Reject Resume", "#" %>
+  </div>
+</div>

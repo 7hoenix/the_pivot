@@ -1,0 +1,16 @@
+<% content_for :navbar_links do %>
+  <%= render 'layouts/basic_navbar/user_links' %>
+<% end %>
+
+<%= render "layouts/page_heading", locals = {heading: "Applications: #{@job.title}"}%>
+
+<div>
+
+  <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= render partial: "/business_admin/job_applications/job_application", collection: @job_applications, locals: {type: "index" } %>
+</div>
+
+<%= javascript_include_tag "jobs_index"  %>
