@@ -1,10 +1,6 @@
 class BusinessAdmin::BusinessesController < BusinessAdminController
   def show
-    @business = current_user.business
-    @statuses = Job.pluck(:status).uniq
-    @jobs = @business.jobs
-    @business.image_url ||= Faker::Company.logo
-    @business.save
+    @presenter = BusinessAdminDashboardPresenter.new(current_user)
   end
 
   def edit
