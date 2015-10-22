@@ -12,9 +12,9 @@
           :business_admin, method: :put do |f| %>
         <div class='row'>
           <div class='col-md-6'>
-            <h4><strong>Note:</strong> Since your domain name is associated with the name you
+            <h5><strong>Note:</strong> Since your domain name is associated with the name you
               first gave us in order to change it you need to <%= link_to "contact
-              us", contact_path %>.</h4>
+              us", contact_path %>.</h5>
             <%= f.fields_for @address do |s| %>
             <div class="row"><h3 class="col-md-6">Primary Address</h3></div>
             <%= s.text_field :street, placeholder: "Street" %>
