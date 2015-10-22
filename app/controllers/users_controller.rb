@@ -4,7 +4,8 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = current_user
-      @jobs = Job.all.sample(4)
+      @tag_name_ids = current_user.tags.pluck(:tag_name_id).uniq
+      @jobs = Job.joins(:tags).where(tags: {tag_name_id: @tag_name_ids}).sample(3)
       @watchlist = @user.watched
       @resumes = @user.resumes
     end
