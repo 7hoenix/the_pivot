@@ -10,17 +10,13 @@
       <div class="panel-body gh-address-box">
         <div class="row">
           <div class="col-md-12 ">
-            <%= link_to image_tag(@business.image_url, class: "img-responsive"),
-              @business %>
+            <%= link_to image_tag(@presenter.business_image, class: "img-responsive"),
+              @presenter.business %>
           </div>
         </div>
-        <div class='gh-address-line'><span class='gh-heading-4'>About:</span> <span class="gh-right"><%= @business.about.first(255) %></span></div>
+        <div class='gh-address-line'><span class='gh-heading-4'>About:</span> <span class="gh-right"><%= @presenter.short_about %></span></div>
         <hr>
-        <% if @business.addresses.first %>
-          <div class='gh-address-line'><span class='gh-heading-4'>Primary Location:</span> <span class="gh-right"><%= @business.addresses.first.full_address %></span></div>
-        <% else %>
-          <div class='gh-address-line'><span class='gh-heading-4'>Primary Location:</span> <span class="gh-right">No address on file</span></div>
-        <% end %>
+          <div class='gh-address-line'><span class='gh-heading-4'>Primary Location:</span> <span class="gh-right"><%= @presenter.address_or_statement %></span></div>
         <hr>
         <%= link_to "Edit Business Information", business_admin_edit_path,
           class: "btn btn-default gh-form-button" %>
@@ -36,7 +32,7 @@
               btn btn-default">
                 All
               </div>
-              <% @statuses.each do |status| %>
+              <% @presenter.statuses.each do |status| %>
                 <div class="gh-form-button change-status-button change-status-<%= status %> col-md-2
                 btn btn-default">
                   <%= status %>
@@ -44,7 +40,7 @@
               <% end %>
               <br>
               <br>
-              <%= render partial: "business_admin/jobs/job", collection: @jobs, locals: { type: "index" }%>
+              <%= render partial: "business_admin/jobs/job", collection: @presenter.jobs, locals: { type: "index" }%>
             </div>
           </div>
         </div>
