@@ -26,10 +26,15 @@ RSpec.feature "Unauthenticated user browses jobs" do
     end
 
     scenario "is asked to login before trying to create a job" do
-      job = create(:job)
+      create(:job)
       visit "/jobs/new"
       expect(page).to have_content("Profile")
     end
 
+    scenario "cannot visit business admin dashboard" do
+      visit business_admin_path
+
+      expect(current_path).to eq(profile_path)
+    end
   end
 end
