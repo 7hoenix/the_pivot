@@ -95,7 +95,7 @@ business_count.times do |index|
     name: Faker::Company.name,
     about: Faker::Lorem.paragraphs(Random.rand(1..2)).join('\n'),
   )
-  Random.rand(4).times do
+  Random.rand(1..3).times do
     business.addresses <<  gen_address
   end
   business.user = user_list.shuffle.pop
