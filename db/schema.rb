@@ -69,13 +69,6 @@ ActiveRecord::Schema.define(version: 20151022032131) do
     t.integer  "address_id"
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "item_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "repositories", force: :cascade do |t|
     t.string "full_name"
     t.string "name"
@@ -87,13 +80,13 @@ ActiveRecord::Schema.define(version: 20151022032131) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "title"
-    t.string  "description"
+    t.integer  "user_id"
+    t.string   "title"
     t.string   "cover_letter_file_name"
     t.string   "cover_letter_content_type"
     t.integer  "cover_letter_file_size"
     t.datetime "cover_letter_updated_at"
+    t.string   "description"
   end
 
   create_table "tag_names", force: :cascade do |t|

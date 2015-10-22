@@ -22,7 +22,7 @@ RSpec.feature "Job has an address" do
       fill_in("Zip", with: "80202")
       click_on "Create Job"
 
-      expect(current_path).to eq(jobs_path)
+      expect(current_path).to eq(business_admin_path)
       expect(page).to have_content("Jr Dev")
       expect(page).to have_content("Make coffee every day")
       expect(Job.last.address.full_address).to eq("1644 Platte st Denver, CO 80202")
