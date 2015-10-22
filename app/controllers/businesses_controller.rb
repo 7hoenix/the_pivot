@@ -15,7 +15,8 @@ class BusinessesController < ApplicationController
     business = current_user.build_business(business_params)
 
     if business.save
-      business.addresses.find_or_create_by(address_params)
+      business.addresses << Address.find_or_create_by(address_params)
+      business.save
       flash[:success] = "Successfully registered business"
       redirect_to business_admin_path
     else

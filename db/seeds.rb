@@ -1,7 +1,7 @@
 require "faker"
 
 def gen_address
-  Address.new(
+  Address.create(
     street: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
