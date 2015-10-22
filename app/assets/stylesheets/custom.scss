@@ -1,6 +1,10 @@
 body, html {
   height: 100%;
 }
+.footer {
+  position: relative;
+  bottom: 0;
+}
 .col-centered {
   display: block;
   float: none;
@@ -8,12 +12,33 @@ body, html {
 }
 .gh-tag-row {
   display: flex;
+  justify-content: center;
   align-items: center;
-  height: 200px;
+  flex-wrap: wrap;
   .gh-tag {
-    border-radius: 2px;
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
   }
 }
+.gh-job-tag-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  .gh-tag {
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
+  }
+}
+
 
 .navbar li .gh-miniheader2 {
   font-size: 1.5em;
