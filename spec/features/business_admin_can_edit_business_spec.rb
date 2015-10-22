@@ -4,7 +4,7 @@ RSpec.feature "Business admin can edit business" do
   include IntegrationSpecHelper
   context "when logged in as business admin" do
     scenario "the business is updated" do
-      @user = create(:user)
+      @user     = create(:user)
       @business = create(:business, user_id: @user.id)
       login_with_oauth
 
