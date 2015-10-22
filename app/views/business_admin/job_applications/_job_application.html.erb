@@ -1,20 +1,29 @@
 <div class=" row job " >
+  <div class="gh-job-icon-area">
+    <div><%= image_tag job_application.user.image_url, class: "img-responsive" %></div>
+  </div>
   <div class='gh-job-details'>
     <div class="gh-job-header">
-      <%= link_to job_application.user.nickname, resume_path(job_application.resume) %>
+      <h3><%= link_to job_application.user.nickname, resume_path(job_application.resume) %></h3>
     </div>
     <div class="title">
-      <%= job_application.resume.title %>
+      <h5><%= job_application.resume.title %></h5>
     </div>
     <div class="description">
+      <%= job_application.resume.description %>
+    </div>
+    <div class="description">
+      <h4>Repos</h4>
+      <ul>
       <% job_application.resume.repositories.each do |repository| %>
-        <%= link_to repository.name, "http://github.com/#{repository.full_name}" %>
-        <br>
+        <li><%= link_to repository.full_name, "http://github.com/#{repository.full_name}" %></li>
       <% end %>
+      </ul>
     </div>
   </div>
   <div class="button">
-    <%= button_to "Offer Interview", "#" %>
-    <%= button_to "Reject Resume", "#" %>
+    <%= button_to "Offer Interview", "#", class: "btn btn-default gh-form-button" %>
+    <br>
+    <%= button_to "Reject Resume", "#", class: "btn btn-default gh-form-button" %>
   </div>
 </div>
