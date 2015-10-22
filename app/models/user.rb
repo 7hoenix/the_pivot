@@ -14,6 +14,13 @@ class User < ActiveRecord::Base
     return true if business
   end
 
+  def self.current_client
+    client ||= Octokit::Client.new \
+      client_id: ENV["github_key"],
+      client_secret: ENV["github_secret"]
+    client
+  end
+
   def self.find_or_create_by_oauth(oauth)
     user = User.find_or_create_by(provider: oauth.provider, uid: oauth.uid)
 
@@ -22,8 +29,10 @@ class User < ActiveRecord::Base
     user.image_url = oauth.info.image
     user.token = oauth.credentials.token
     user.github = oauth.info.urls.GitHub
+
+    binding.pry
     if ENV['RAILS_ENV'] != 'test'
-      user.location = Octokit.user( user.nickname).location
+      user.location = current_client.user( user.nickname).location
     end
 
     user.save
@@ -43,4 +52,5 @@ class User < ActiveRecord::Base
       watched_job.job
     end
   end
+
 end
