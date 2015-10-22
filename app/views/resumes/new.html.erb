@@ -11,7 +11,7 @@
       <%= bootstrap_form_for @resume, html: { multipart: true } do |f| %>
 	<%= f.file_field :cover_letter  %>
         <%= f.text_field :title, placeholder: "Ruby Developer, Javascript Ninja, PHP Wizard" %>
-        <%= f.text_field :description, placeholder: "This resume details my..."
+        <%= f.text_area :description, placeholder: "This resume details my...", size: "24x20"
       %>
         <h3>Your repositories: </h3>
           <% @repositories.each do |repository| %>

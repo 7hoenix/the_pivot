@@ -30,8 +30,14 @@ class BusinessAdmin::JobsController < BusinessAdminController
 
   def update
     @job = Job.find(params[:id])
-    @job.update_attributes(job_params)
-    redirect_to business_admin_path
+    if params[:status] == "retired"
+      @job.status = "retired"
+      @job.save
+      redirect_to business_admin_path
+    else
+      @job.update_attributes(job_params)
+      redirect_to business_admin_path
+    end
   end
 
   def destroy
@@ -43,7 +49,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :benefits, tag_name_ids: [])
+    params.require(:job).permit(:status, :title, :description, :benefits, tag_name_ids: [])
   end
 
   def address_params

@@ -10,11 +10,8 @@
       <div class="panel-body gh-address-box">
         <div class="row">
           <div class="col-md-12 ">
-            <% if false %>
-              <%= image_tag(@business.image_url, class: "img-responsive col-centered") %>
-            <% else %>
-              <%= link_to (image_tag Faker::Company.logo, class: "img-responsive"), @business %>
-            <% end %>
+            <%= link_to image_tag(@business.image_url, class: "img-responsive"),
+              @business %>
           </div>
         </div>
         <div class='gh-address-line'><span class='gh-heading-4'>About:</span> <span class="gh-right"><%= @business.about.first(255) %></span></div>
