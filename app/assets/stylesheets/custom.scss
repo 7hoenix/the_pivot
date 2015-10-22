@@ -10,6 +10,12 @@ body, html {
   float: none;
   margin: 0 auto;
 }
+.gh-landing-logos {
+  display: flex;
+  div {
+    padding: 10%;
+  }
+}
 .gh-tag-row {
   display: flex;
   justify-content: center;
