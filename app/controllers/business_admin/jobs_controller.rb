@@ -30,7 +30,7 @@ class BusinessAdmin::JobsController < BusinessAdminController
 
   def update
     @job = Job.find(params[:id])
-    if params[:status] = "retired"
+    if params[:status] == "retired"
       @job.status = "retired"
       @job.save
       redirect_to business_admin_path
