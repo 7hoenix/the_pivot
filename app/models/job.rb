@@ -13,7 +13,6 @@ class Job < ActiveRecord::Base
 
   scope :active, -> { where(status: "active") }
 
-
   def load_tags(tag_name_ids)
     if tag_name_ids.class == Array
       tag_name_ids.each do |tag_name_id|
