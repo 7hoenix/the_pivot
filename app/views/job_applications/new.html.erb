@@ -9,8 +9,7 @@
     <div class="col-md-9 col-centered ">
       <div class="panel-body gh-main-content">
           <h1><%= @job.title %></h1>
-          <h4><%= @job.description %></h4>
-          <h4><%= @job.benefits %></h4>
+          <p><%= @job.description %></p>
         <%= bootstrap_form_for [@job, @job_application] do |f| %>
           <h2>Choose one of your resumes</h2>
             <% if @current_resumes.empty? %>
